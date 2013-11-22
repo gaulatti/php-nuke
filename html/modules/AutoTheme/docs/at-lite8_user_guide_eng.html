@@ -1,0 +1,4419 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 11 (filtered)">
+<title>AutoTheme (AT-Lite .8) User Guide</title>
+
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+h1
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	page-break-after:avoid;
+	font-size:16.0pt;
+	font-family:Arial;
+	font-weight:bold;}
+h2
+	{margin:0in;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:Arial;
+	font-weight:bold;
+	font-style:italic;}
+h3
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:Arial;
+	font-weight:bold;}
+h4
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:Arial;
+	font-weight:bold;
+	font-style:italic;}
+h5
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	font-size:13.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;
+	font-style:italic;}
+h6
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	font-size:11.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	text-transform:uppercase;
+	font-weight:bold;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	font-variant:small-caps;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	font-style:italic;}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman";}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:48.0pt;
+	margin-bottom:.0001pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman";}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:60.0pt;
+	margin-bottom:.0001pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman";}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman";}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:84.0pt;
+	margin-bottom:.0001pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman";}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:96.0pt;
+	margin-bottom:.0001pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman";}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoTof, li.MsoTof, div.MsoTof
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{margin-top:.5in;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	text-align:center;
+	font-size:22.0pt;
+	font-family:Arial;
+	font-weight:bold;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.MsoSubtitle, li.MsoSubtitle, div.MsoSubtitle
+	{margin-top:24.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	text-align:center;
+	font-size:16.0pt;
+	font-family:Arial;
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.Credits, li.Credits, div.Credits
+	{margin:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.Name, li.Name, div.Name
+	{margin-top:24.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	text-align:center;
+	font-size:14.0pt;
+	font-family:Arial;
+	font-style:italic;}
+p.Checks, li.Checks, div.Checks
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	text-indent:-.25in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.style1, li.style1, div.style1
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	color:white;
+	font-weight:bold;}
+ /* Page Definitions */
+ @page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.25in;}
+div.Section1
+	{page:Section1;}
+@page Section2
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.25in;}
+div.Section2
+	{page:Section2;}
+@page Section3
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.25in;}
+div.Section3
+	{page:Section3;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=purple>
+
+<div class=Section1>
+
+<p class=MsoTitle>AutoTheme HTML Theme System</p>
+
+<p class=MsoSubtitle>User Guide</p>
+
+<p class=Name><a name=name>Installation, Administration and Usage (AT-Lite .8)</a></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=Credits>Shawn McKenzie (a.k.a. AbraCadaver)</p>
+
+<p class=Credits><a href="http://spidean.mckenzies.net/">http://spidean.mckenzies.net</a></p>
+
+<h1>&nbsp;</h1>
+
+<p class=MsoNormal align=center style='text-align:center'>Revision 1.0</p>
+
+<p class=MsoNormal align=center style='text-align:center'>July 4, 2004</p>
+
+</div>
+
+<span style='font-size:12.0pt;font-family:"Times New Roman"'><br clear=all
+style='page-break-before:always'>
+</span>
+
+<div class=Section2>
+
+<p class=MsoTitle>Table of Contents</p>
+
+<p class=MsoSubtitle>&nbsp;</p>
+
+<p class=MsoToc1><span
+class=MsoHyperlink><a href="#_Toc77308189">Introduction<span style='color:windowtext;
+display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc77308190">Features
+Overview<span style='color:windowtext;display:none;text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>2</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><span style='font-variant:normal !important;
+text-transform:uppercase'><a href="#_Toc77308191">Multi-Sites<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>2</span></a></span></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc77308192">Installation<span
+style='color:windowtext;display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>3</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><span style='font-variant:normal !important;
+text-transform:uppercase'><a href="#_Toc77308193">FTP<span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>3</span></a></span></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><span style='font-variant:normal !important;
+text-transform:uppercase'><a href="#_Toc77308194">Shell<span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>3</span></a></span></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><span style='font-variant:normal !important;
+text-transform:uppercase'><a href="#_Toc77308195">File Permissions<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>4</span></a></span></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc77308196">CMS Overview<span
+style='color:windowtext;display:none;text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>5</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><span style='font-variant:normal !important;
+text-transform:uppercase'><a href="#_Toc77308197">Example Layout<span
+style='color:windowtext;display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>5</span></a></span></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><span style='font-variant:normal !important;
+text-transform:uppercase'><a href="#_Toc77308198">Example Layout with
+AutoBlocks<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>6</span></a></span></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc77308199">AutoTheme
+Overview<span style='color:windowtext;display:none;text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>7</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><span style='font-variant:normal !important;
+text-transform:uppercase'><a href="#_Toc77308200">File Overview<span
+style='color:windowtext;display:none;text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>7</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc77308201">Required
+Files<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>7</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc77308202">Directories<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>8</span></a></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc77308203">Design
+Overview<span style='color:windowtext;display:none;text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>9</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><span style='font-variant:normal !important;
+text-transform:uppercase'><a href="#_Toc77308204">Images and Other Files<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>9</span></a></span></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><span style='font-variant:normal !important;
+text-transform:uppercase'><a href="#_Toc77308205">PHP<span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>10</span></a></span></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc77308206">Administration<span
+style='color:windowtext;display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>11</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><span style='font-variant:normal !important;
+text-transform:uppercase'><a href="#_Toc77308207">AutoThemes<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>12</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc77308208">Creating a
+New Theme<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>12</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc77308209">Configuring a
+Theme<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>13</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc77308210">General
+Configuration<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>13</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc77308211">Custom
+Modules<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>18</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc77308212">AutoBlocks<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>20</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><span style='font-variant:normal !important;
+text-transform:uppercase'><a href="#_Toc77308213">Commands<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>21</span></a></span></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><span style='font-variant:normal !important;
+text-transform:uppercase'><a href="#_Toc77308214">Extras<span style='color:
+windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>22</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc77308215">Global Extras<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>23</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc77308216">Theme Extras<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>29</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc77308217">Module Extras<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>30</span></a></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc77308218">List of
+Commands<span style='color:windowtext;display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>31</span></a></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc77308219">List of
+Figures<span style='color:windowtext;display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>37</span></a></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc77308220">Copyright<span
+style='color:windowtext;display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>38</span></a></span></p>
+
+<p class=MsoNormal></p>
+
+</div>
+
+<span style='font-size:12.0pt;font-family:"Times New Roman"'><br clear=all
+style='page-break-before:always'>
+</span>
+
+<div class=Section3>
+
+<h1><a name="_Toc64711913"></a><a name="_Toc77308189">Introduction</a></h1>
+
+<p class=MsoBodyText>AutoTheme is an HTML Theme System currently supporting the
+MD-Pro, PostNuke, PHP-Nuke, CPG-Nuke and eNvolution Content Management Systems
+(CMS).&nbsp; The current theme systems require you to be somewhat familiar with
+PHP and the CMS architecture.&nbsp; If you are not very familiar with PHP
+and/or the CMS, AutoTheme removes the complexity while providing extreme
+flexibility and power.</p>
+
+<p class=MsoBodyText>AutoTheme's primary benefit is providing users the ability
+to create themes for their CMS in HTML using their favorite editor, with no use
+of PHP.&nbsp; In addition, AutoTheme provides easy customization of every part
+of your CMS site; including block display, custom templates for the Home Page,
+User Pages and Admin Pages and individual modules pages.&nbsp; The addition of
+AutoBlocks provides unlimited locations for your blocks, beyond Left, Right and
+Center.&nbsp; All AutoTheme settings are easily configured from a graphical
+administration interface that is integrated into the CMS.</p>
+
+<p class=MsoBodyText>New to this version of AutoTheme are Extras.  Extras are
+plug-ins that do very nifty things such as, a first visit site entry page,
+change a theme on a specific date or at specific times of day and search engine
+optimized URLs.</p>
+
+<p class=MsoBodyText>Many hundreds, if not thousands of themes are available
+for AutoTheme.  There are quite a few commercial themes, however the vast majority
+are free.  AutoTheme themes are not CMS specific and are usable on any of the
+AutoTheme supported CMSs.</p>
+
+<p class=MsoBodyText>The following AutoTheme tutorials are also available at <a
+href="http://spidean.mckenzies.net/">http://spidean.mckenzies.net</a>, as well
+as translated versions at various other sites:</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Theme Creation - Part 1: Creating Theme Ready HTML from a Graphic
+Template</p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Theme Creation - Part 2: Creating Theme Ready Templates from HTML</p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Theme Creation - Part 3: Configuring a Theme in AutoTheme
+Administration</p>
+
+<b><span style='font-size:16.0pt;font-family:Arial'><br clear=all
+style='page-break-before:always'>
+</span></b>
+
+<h1><a name=Installation></a><a name="_Toc77308190">Features Overview</a></h1>
+
+<p class=MsoBodyText>* Add list of features</p>
+
+<h2><a name="_Toc77308191">Multi-Sites</a></h2>
+
+<p class=MsoBodyText>If your CMS supports multi-sites, then they are
+automatically supported in AutoTheme.&nbsp; AutoTheme themes may be included in
+the main themes/ directory of your CMS site or in a themes/ directory of a
+multi-site directory with no modifications to the theme or AutoTheme
+code.&nbsp; When using an AutoTheme theme in a multi-site directory, only that
+site has the ability to use the theme.&nbsp; When in the main themes/
+directory, all sites are able to use the theme.&nbsp; As stated in the CMS
+multi-site documentation, do not include a theme with the same name in your
+main themes directory and a multi-site themes directory.</p>
+
+<b><span style='font-size:16.0pt;font-family:Arial'><br clear=all
+style='page-break-before:always'>
+</span></b>
+
+<h1><a name="_Toc77308192">Installation</a></h1>
+
+<p class=MsoBodyText>There are two main ways to install AutoTheme.  Regardless
+of which way you choose, it is important to remember that the compressed
+distribution file (.zip, .tar.gz or .sit) contains all of the directories and
+files needed and it is laid out in the exact manner that it should be installed.
+ There is no need to create directories or worry about the proper placement of
+files.</p>
+
+<h2><a name="_Toc77308193">FTP</a></h2>
+
+<p class=MsoNormal>As most hosting providers supply FTP access, this is likely
+the most common way to install CMS modules, including AutoTheme.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Extract the compressed distribution file (.zip, .tar.gz or .sit)
+to your local computer</p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>FTP upload the entire contents to your CMS root directory (accept
+any directory overwrite warnings.  These directories are not being
+overwritten.  The warnings are generated because the directory already exists,
+but this is fine.)</p>
+
+<h2><a name="_Toc77308194">Shell</a></h2>
+
+<p class=MsoNormal>If your hosting provider supplies Secure Shell (SSH) or
+Telnet access, this may be a quicker and easier installation method.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Copy the compressed distribution file (.zip, .tar.gz or .sit) to
+your CMS root directory (the main directory where your CMS is installed)</p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Extract the compressed distribution file</p>
+
+<p class=MsoBodyText style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-family:"Courier New"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>unzip <i>file.zip</i>  (zip example)</p>
+
+<p class=MsoBodyText style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-family:"Courier New"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>tar zxf <i>file.tar.gz</i>  (tar.gz example)</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>After installing, go to your CMS Administration, Modules,
+and follow the instructions for your CMS for activating a module.</p>
+
+<b><i><span style='font-size:14.0pt;font-family:Arial'><br clear=all
+style='page-break-before:always'>
+</span></i></b>
+
+<h2><a name="_Toc77308195">File Permissions</a></h2>
+
+<p class=MsoBodyText><b><span style='color:maroon'>IMPORTANT</span></b><span
+style='color:maroon'>:  The “modules/AutoTheme/autotheme.cfg<i>”</i> and any “theme.cfg”
+in your theme directories, as well as the themes/ directory itself must be
+writeable by the web server in order to use the graphical administration interface!</span></p>
+
+<p class=MsoBodyText><span style='color:maroon'>Template compiling increases
+the speed of your site and requires that “modules/AutoTheme/_compile/” be
+writable as well.</span></p>
+
+<p class=MsoBodyText>The easiest way in Unix/Linux with shell access is to
+change to the CMS root directory and then:</p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><i>CHMOD 777 modules/AutoTheme/autotheme.cfg</i></p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><i>CHMOD 777 modules/AutoTheme/_compile/</i></p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><i>CHMOD 777 themes/YOURTHEME/theme.cfg</i></p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><i>CHMOD 777 themes/</i></p>
+
+<p class=MsoBodyText>To set the permissions on all applicable files, you may
+use the following shell script:</p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><i>sh modules/AutoTheme/autotheme.sh</i></p>
+
+<p class=MsoBodyText><i>&nbsp;</i></p>
+
+<p class=MsoBodyText>If using FTP, most FTP programs have an option to set
+these permissions on files.  Windows should not be an issue unless you have set
+custom file or directory permissions.</p>
+
+<b><span style='font-size:16.0pt;font-family:Arial'><br clear=all
+style='page-break-before:always'>
+</span></b>
+
+<h1><a name="_Toc77308196">CMS Overview</a></h1>
+
+<p class=MsoBodyText>Regardless of how themes are built, a base understanding
+of the CMS is needed.&nbsp; Standard CMS installations make use of four main
+elements in the layout.&nbsp; Left Blocks, Center Blocks, Right Blocks and
+Modules.&nbsp; You can create and modify the blocks via the CMS's
+administration menus, but the theme controls when, where and how these four
+elements are displayed.</p>
+
+<p class=MsoBodyText>Two additional elements are used for the news, the Summary
+Article (displayed on the Home Page) and the Full Article (displayed when the
+user reads the Full Article usually by clicking Read more...).</p>
+
+<h2><a name="_Toc77308197">Example Layout</a></h2>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%'>
+ <tr>
+  <td style='background:#660066;padding:7.5pt 7.5pt 7.5pt 7.5pt'>
+  <p align=center style='text-align:center'><b><span style='font-size:9.0pt;
+  font-family:Verdana;color:white'>Site Name</span></b></p>
+  </td>
+  <td width="44%" style='width:44.82%;background:#660066;padding:7.5pt 7.5pt 7.5pt 7.5pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana'>&nbsp; </span></p>
+  </td>
+  <td style='background:#660066;padding:7.5pt 7.5pt 7.5pt 7.5pt'>
+  <p align=center style='text-align:center'><span style='font-size:9.0pt;
+  font-family:Verdana;color:white'>Welcome<br>
+  anonymous</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='background:#660066;padding:7.5pt 7.5pt 7.5pt 7.5pt'>
+  <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=150
+   style='width:112.5pt'>
+   <tr>
+    <td width="100%" style='width:100.0%;background:silver;padding:0in 0in 0in 0in'>
+    <p><b><span style='font-size:9.0pt;font-family:Verdana'>Left Block</span></b></p>
+    </td>
+   </tr>
+   <tr>
+    <td width="100%" style='width:100.0%;background:white;padding:0in 0in 0in 0in'>
+    <p><span style='font-size:9.0pt;font-family:Verdana'>Menu stuff</span></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana;
+  display:none'>&nbsp;</span></p>
+  <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=150
+   style='width:112.5pt'>
+   <tr>
+    <td width="100%" style='width:100.0%;background:silver;padding:0in 0in 0in 0in'>
+    <p><b><span style='font-size:9.0pt;font-family:Verdana'>Left Block</span></b></p>
+    </td>
+   </tr>
+   <tr>
+    <td width="100%" style='width:100.0%;background:white;padding:0in 0in 0in 0in'>
+    <p><span style='font-size:9.0pt;font-family:Verdana'>Link 1<br>
+    Link 2</span></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana;
+  display:none'>&nbsp;</span></p>
+  <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=150
+   style='width:112.5pt'>
+   <tr>
+    <td width="100%" style='width:100.0%;background:silver;padding:0in 0in 0in 0in'>
+    <p><b><span style='font-size:9.0pt;font-family:Verdana'>Left Block</span></b></p>
+    </td>
+   </tr>
+   <tr>
+    <td width="100%" style='width:100.0%;background:white;padding:0in 0in 0in 0in'>
+    <p><span style='font-size:9.0pt;font-family:Verdana'>Username</span></p>
+    <p><span style='font-size:9.0pt;font-family:Verdana'>Password</span></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana;
+  display:none'>&nbsp;</span></p>
+  <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=150
+   style='width:112.5pt'>
+   <tr>
+    <td width="100%" style='width:100.0%;background:silver;padding:0in 0in 0in 0in'>
+    <p><b><span style='font-size:9.0pt;font-family:Verdana'>Left Block</span></b></p>
+    </td>
+   </tr>
+   <tr>
+    <td width="100%" style='width:100.0%;background:white;padding:0in 0in 0in 0in'>
+    <p><span style='font-size:9.0pt;font-family:Verdana'>Some block stuff...</span></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal></p>
+  </td>
+  <td width="44%" valign=top style='width:44.82%;padding:7.5pt 7.5pt 7.5pt 7.5pt'>
+  <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
+   style='width:100.0%'>
+   <tr>
+    <td width="100%" style='width:100.0%;background:black;padding:0in 0in 0in 0in'>
+    <p><b><span style='font-size:9.0pt;font-family:Verdana;color:white'>Center
+    Block</span></b></p>
+    </td>
+   </tr>
+   <tr>
+    <td width="100%" style='width:100.0%;padding:0in 0in 0in 0in'>
+    <p><span style='font-size:9.0pt;font-family:Verdana'>Message to users . . .</span></p>
+    <p><span style='font-size:9.0pt;font-family:Verdana'>Get AutoTheme now!</span></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana;
+  display:none'>&nbsp;</span></p>
+  <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
+   style='width:100.0%'>
+   <tr>
+    <td width="100%" style='width:100.0%;padding:0in 0in 0in 0in'>
+    <p align=center style='text-align:center'><span style='font-size:9.0pt;
+    font-family:Verdana'>&nbsp;</span></p>
+    <p align=center style='text-align:center'><b><span style='font-size:9.0pt;
+    font-family:Verdana'>Module</span></b></p>
+    <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+     width="100%" style='width:100.0%'>
+     <tr>
+      <td width="100%" style='width:100.0%;background:#660066;padding:0in 0in 0in 0in'>
+      <p><b><span style='font-size:9.0pt;font-family:Verdana;color:white'>Article
+      Summary</span></b></p>
+      </td>
+     </tr>
+     <tr>
+      <td width="100%" style='width:100.0%;padding:0in 0in 0in 0in'>
+      <p><span style='font-size:9.0pt;font-family:Verdana'>AutoTheme released .
+      . .</span></p>
+      <p><span style='font-size:9.0pt;font-family:Verdana'>Read the features
+      and download now.</span></p>
+      <p align=right style='text-align:right'><span style='font-size:9.0pt;
+      font-family:Verdana'>Read more...</span></p>
+      </td>
+     </tr>
+    </table>
+    <p class=MsoNormal></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal></p>
+  </td>
+  <td valign=top style='background:#660066;padding:7.5pt 7.5pt 7.5pt 7.5pt'>
+  <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=150
+   style='width:112.5pt'>
+   <tr>
+    <td width="100%" style='width:100.0%;background:white;padding:0in 0in 0in 0in'>
+    <p><b><span style='font-size:9.0pt;font-family:Verdana'>Right Block</span></b></p>
+    </td>
+   </tr>
+   <tr>
+    <td width="100%" style='width:100.0%;background:white;padding:0in 0in 0in 0in'>
+    <p><span style='font-size:9.0pt;font-family:Verdana'>Search</span></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana;
+  display:none'>&nbsp;</span></p>
+  <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=150
+   style='width:112.5pt'>
+   <tr>
+    <td width="100%" style='width:100.0%;background:white;padding:0in 0in 0in 0in'>
+    <p><b><span style='font-size:9.0pt;font-family:Verdana'>Right Block</span></b></p>
+    </td>
+   </tr>
+   <tr>
+    <td width="100%" style='width:100.0%;background:white;padding:0in 0in 0in 0in'>
+    <p><span style='font-size:9.0pt;font-family:Verdana'>Quote</span></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana;
+  display:none'>&nbsp;</span></p>
+  <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=150
+   style='width:112.5pt'>
+   <tr>
+    <td width="100%" style='width:100.0%;background:white;padding:0in 0in 0in 0in'>
+    <p><b><span style='font-size:9.0pt;font-family:Verdana'>Right Block</span></b></p>
+    </td>
+   </tr>
+   <tr>
+    <td width="100%" style='width:100.0%;background:white;padding:0in 0in 0in 0in'>
+    <p><span style='font-size:9.0pt;font-family:Verdana'>Link 1<br>
+    Link 2<br>
+    Link 3</span></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='background:#660066;padding:7.5pt 7.5pt 7.5pt 7.5pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana'>&nbsp; </span></p>
+  </td>
+  <td width="44%" style='width:44.82%;background:#660066;padding:7.5pt 7.5pt 7.5pt 7.5pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana'>&nbsp; </span></p>
+  </td>
+  <td style='background:#660066;padding:7.5pt 7.5pt 7.5pt 7.5pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana'>&nbsp; </span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc77308166">Figure </a>1 - CMS Layout</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoBodyText>In addition, AutoTheme provides AutoBlocks, unlimited
+block positions in addition to Left, Right and Center.&nbsp; With AutoTheme you
+have full control over when and how to display Left, Right, Center and
+AutoBlocks blocks.</p>
+
+<b><i><span style='font-size:14.0pt;font-family:Arial'><br clear=all
+style='page-break-before:always'>
+</span></i></b>
+
+<h2><a name="_Toc77308198">Example Layout with AutoBlocks</a></h2>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana;display:
+none'>&nbsp;</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse'>
+ <tr>
+  <td width="100%" style='width:100.0%;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+   style='width:100.0%'>
+   <tr>
+    <td style='background:#660066;padding:7.5pt 7.5pt 7.5pt 7.5pt'>
+    <p align=center style='text-align:center'><b><span style='font-size:9.0pt;
+    font-family:Verdana;color:white'>Site Name</span></b></p>
+    </td>
+    <td width="65%" style='width:65.2%;background:#660066;padding:7.5pt 7.5pt 7.5pt 7.5pt'>
+    <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana'>&nbsp;
+    </span></p>
+    </td>
+    <td style='background:#660066;padding:7.5pt 7.5pt 7.5pt 7.5pt'>
+    <p align=center style='text-align:center'><span style='font-size:9.0pt;
+    font-family:Verdana;color:white'>Welcome<br>
+    anonymous</span></p>
+    </td>
+   </tr>
+   <tr>
+    <td valign=top style='background:#660066;padding:7.5pt 7.5pt 7.5pt 7.5pt'>
+    <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=150
+     style='width:112.5pt'>
+     <tr>
+      <td width="100%" style='width:100.0%;background:silver;padding:0in 0in 0in 0in'>
+      <p><b><span style='font-size:9.0pt;font-family:Verdana'>Left Block</span></b></p>
+      </td>
+     </tr>
+     <tr>
+      <td width="100%" style='width:100.0%;background:white;padding:0in 0in 0in 0in'>
+      <p><span style='font-size:9.0pt;font-family:Verdana'>Menu stuff</span></p>
+      </td>
+     </tr>
+    </table>
+    <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana;
+    display:none'>&nbsp;</span></p>
+    <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=150
+     style='width:112.5pt'>
+     <tr>
+      <td width="100%" style='width:100.0%;background:silver;padding:0in 0in 0in 0in'>
+      <p><b><span style='font-size:9.0pt;font-family:Verdana'>Left Block</span></b></p>
+      </td>
+     </tr>
+     <tr>
+      <td width="100%" style='width:100.0%;background:white;padding:0in 0in 0in 0in'>
+      <p><span style='font-size:9.0pt;font-family:Verdana'>Link 1<br>
+      Link 2</span></p>
+      </td>
+     </tr>
+    </table>
+    <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana;
+    display:none'>&nbsp;</span></p>
+    <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=150
+     style='width:112.5pt'>
+     <tr>
+      <td width="100%" style='width:100.0%;background:silver;padding:0in 0in 0in 0in'>
+      <p><b><span style='font-size:9.0pt;font-family:Verdana'>Left Block</span></b></p>
+      </td>
+     </tr>
+     <tr>
+      <td width="100%" style='width:100.0%;background:white;padding:0in 0in 0in 0in'>
+      <p><span style='font-size:9.0pt;font-family:Verdana'>Username</span></p>
+      <p><span style='font-size:9.0pt;font-family:Verdana'>Password</span></p>
+      </td>
+     </tr>
+    </table>
+    <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana;
+    display:none'>&nbsp;</span></p>
+    <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=150
+     style='width:112.5pt'>
+     <tr>
+      <td width="100%" style='width:100.0%;background:silver;padding:0in 0in 0in 0in'>
+      <p><b><span style='font-size:9.0pt;font-family:Verdana'>Left Block</span></b></p>
+      </td>
+     </tr>
+     <tr>
+      <td width="100%" style='width:100.0%;background:white;padding:0in 0in 0in 0in'>
+      <p><span style='font-size:9.0pt;font-family:Verdana'>Some block stuff...</span></p>
+      </td>
+     </tr>
+    </table>
+    <p class=MsoNormal></p>
+    </td>
+    <td width="65%" valign=top style='width:65.2%;padding:7.5pt 7.5pt 7.5pt 7.5pt'>
+    <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+     width="100%" style='width:100.0%'>
+     <tr>
+      <td width="100%" style='width:100.0%;padding:0in 0in 0in 0in'>
+      <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+       width="100%" style='width:100.0%'>
+       <tr>
+        <td style='padding:0in 0in 0in 0in'>
+        <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+         align=left width="100%" style='width:100.0%'>
+         <tr>
+          <td width="100%" style='width:100.0%;background:silver;padding:0in 0in 0in 0in'>
+          <p><b><span style='font-size:9.0pt;font-family:Verdana'>AutoBlock<br>
+          Position 1</span></b></p>
+          </td>
+         </tr>
+         <tr>
+          <td width="100%" style='width:100.0%;background:white;padding:0in 0in 0in 0in'>
+          <p><span style='font-size:9.0pt;font-family:Verdana'>Menu stuff</span></p>
+          <p><span style='font-size:9.0pt;font-family:Verdana'>More stuff</span></p>
+          </td>
+         </tr>
+        </table>
+        <p class=MsoNormal></p>
+        </td>
+        <td style='padding:0in 0in 0in 0in'>
+        <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+         align=left width="100%" style='width:100.0%'>
+         <tr>
+          <td width="100%" style='width:100.0%;background:silver;padding:0in 0in 0in 0in'>
+          <p><b><span style='font-size:9.0pt;font-family:Verdana'>AutoBlock<br>
+          Position 1</span></b></p>
+          </td>
+         </tr>
+         <tr>
+          <td width="100%" style='width:100.0%;background:white;padding:0in 0in 0in 0in'>
+          <p><span style='font-size:9.0pt;font-family:Verdana'>Menu stuff</span></p>
+          <p><span style='font-size:9.0pt;font-family:Verdana'>More stuff</span></p>
+          </td>
+         </tr>
+        </table>
+        <p class=MsoNormal></p>
+        </td>
+        <td style='padding:0in 0in 0in 0in'>
+        <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+         align=left width="100%" style='width:100.0%'>
+         <tr>
+          <td width="100%" style='width:100.0%;background:silver;padding:0in 0in 0in 0in'>
+          <p><b><span style='font-size:9.0pt;font-family:Verdana'>AutoBlock<br>
+          Position 1</span></b></p>
+          </td>
+         </tr>
+         <tr>
+          <td width="100%" style='width:100.0%;background:white;padding:0in 0in 0in 0in'>
+          <p><span style='font-size:9.0pt;font-family:Verdana'>Menu stuff</span></p>
+          <p><span style='font-size:9.0pt;font-family:Verdana'>More stuff</span></p>
+          </td>
+         </tr>
+        </table>
+        <p class=MsoNormal></p>
+        </td>
+       </tr>
+      </table>
+      <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana'>&nbsp;
+      </span></p>
+      <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+       width="100%" style='width:100.0%'>
+       <tr>
+        <td width="100%" style='width:100.0%;background:black;padding:0in 0in 0in 0in'>
+        <p><b><span style='font-size:9.0pt;font-family:Verdana;color:white'>Center
+        Block</span></b></p>
+        </td>
+       </tr>
+       <tr>
+        <td width="100%" style='width:100.0%;padding:0in 0in 0in 0in'>
+        <p><span style='font-size:9.0pt;font-family:Verdana'>Message to users .
+        . .</span></p>
+        <p><span style='font-size:9.0pt;font-family:Verdana'>Get AutoTheme now!</span></p>
+        </td>
+       </tr>
+      </table>
+      <p class=MsoNormal></p>
+      </td>
+     </tr>
+    </table>
+    <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana;
+    display:none'>&nbsp;</span></p>
+    <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+     width="100%" style='width:100.0%'>
+     <tr>
+      <td width="100%" style='width:100.0%;padding:0in 0in 0in 0in'>
+      <p align=center style='text-align:center'><span style='font-size:9.0pt;
+      font-family:Verdana'>&nbsp;</span></p>
+      <p align=center style='text-align:center'><b><span style='font-size:9.0pt;
+      font-family:Verdana'>Module</span></b></p>
+      <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+       width=235 style='width:176.1pt'>
+       <tr>
+        <td width="99%" colspan=3 style='width:99.54%;background:#660066;
+        padding:0in 0in 0in 0in'>
+        <p><b><span style='font-size:9.0pt;font-family:Verdana;color:white'>Article
+        Summary</span></b></p>
+        </td>
+       </tr>
+       <tr>
+        <td width="99%" colspan=3 style='width:99.54%;padding:0in 0in 0in 0in'>
+        <p><span style='font-size:9.0pt;font-family:Verdana'>AutoTheme released
+        . . .</span></p>
+        <p><span style='font-size:9.0pt;font-family:Verdana'>Read the features
+        and download now.</span></p>
+        <p align=right style='text-align:right'><span style='font-size:9.0pt;
+        font-family:Verdana'>Read more...</span></p>
+        </td>
+       </tr>
+       <tr>
+        <td colspan=2 valign=top style='border:none;padding:0in 0in 0in 0in'>
+        <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana'>&nbsp;</span></p>
+        </td>
+        <td valign=top style='border:none;padding:0in 0in 0in 0in'>
+        <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana'>&nbsp;</span></p>
+        <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana'>&nbsp;</span></p>
+        </td>
+        <td colspan=2 valign=top style='border:none;padding:0in 0in 0in 0in'>
+        <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana'>&nbsp;</span></p>
+        </td>
+       </tr>
+       <tr height=0>
+        <td width=1 style='border:none'></td>
+        <td width=11 style='border:none'></td>
+        <td width=212 style='border:none'></td>
+        <td width=11 style='border:none'></td>
+        <td width=1 style='border:none'></td>
+       </tr>
+      </table>
+      <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana;
+      display:none'>&nbsp;</span></p>
+      <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+       width="100%" style='width:100.0%'>
+       <tr>
+        <td valign=top style='padding:0in 0in 0in 0in'>
+        <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+         align=left width="100%" style='width:100.0%'>
+         <tr>
+          <td width="100%" style='width:100.0%;background:#009900;padding:0in 0in 0in 0in'>
+          <p><b><span style='font-size:9.0pt;font-family:Verdana'>AutoBlock
+          Position 2</span></b></p>
+          </td>
+         </tr>
+         <tr>
+          <td width="100%" style='width:100.0%;background:white;padding:0in 0in 0in 0in'>
+          <p><span style='font-size:9.0pt;font-family:Verdana'>Menu stuff</span></p>
+          <p><span style='font-size:9.0pt;font-family:Verdana'>More stuff</span></p>
+          </td>
+         </tr>
+        </table>
+        <p class=MsoNormal></p>
+        </td>
+        <td valign=top style='padding:0in 0in 0in 0in'>
+        <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+         align=left width="100%" style='width:100.0%'>
+         <tr>
+          <td width="100%" style='width:100.0%;background:white;padding:0in 0in 0in 0in'>
+          <p><b><span style='font-size:9.0pt;font-family:Verdana'>AutoBlock
+          Position 3</span></b></p>
+          </td>
+         </tr>
+         <tr>
+          <td width="100%" style='width:100.0%;background:white;padding:0in 0in 0in 0in'>
+          <p><span style='font-size:9.0pt;font-family:Verdana'>Menu stuff</span></p>
+          <p><span style='font-size:9.0pt;font-family:Verdana'>More stuff</span></p>
+          </td>
+         </tr>
+        </table>
+        <p class=MsoNormal></p>
+        </td>
+        <td valign=top style='padding:0in 0in 0in 0in'>
+        <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+         align=left width="100%" style='width:100.0%'>
+         <tr>
+          <td width="100%" style='width:100.0%;background:#660066;padding:0in 0in 0in 0in'>
+          <p class=style1><span style='font-size:9.0pt;font-family:Verdana'>AutoBlock<br>
+          Position 4</span></p>
+          </td>
+         </tr>
+         <tr>
+          <td width="100%" style='width:100.0%;background:white;padding:0in 0in 0in 0in'>
+          <p><span style='font-size:9.0pt;font-family:Verdana'>Menu stuff</span></p>
+          <p><span style='font-size:9.0pt;font-family:Verdana'>More stuff</span></p>
+          </td>
+         </tr>
+         <tr>
+          <td width="100%" style='width:100.0%;background:#660066;padding:0in 0in 0in 0in'>
+          <p class=style1><span style='font-size:9.0pt;font-family:Verdana'>&nbsp;AutoBlock<br>
+          Position 4</span></p>
+          </td>
+         </tr>
+         <tr>
+          <td width="100%" style='width:100.0%;background:white;padding:0in 0in 0in 0in'>
+          <p><span style='font-size:9.0pt;font-family:Verdana'>Menu stuff</span></p>
+          <p><span style='font-size:9.0pt;font-family:Verdana'>More stuff</span></p>
+          </td>
+         </tr>
+        </table>
+        <p class=MsoNormal></p>
+        </td>
+       </tr>
+      </table>
+      <p class=MsoNormal></p>
+      </td>
+     </tr>
+    </table>
+    <p class=MsoNormal></p>
+    </td>
+    <td valign=top style='background:#660066;padding:7.5pt 7.5pt 7.5pt 7.5pt'>
+    <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=150
+     style='width:112.5pt'>
+     <tr>
+      <td width="100%" style='width:100.0%;background:white;padding:0in 0in 0in 0in'>
+      <p><b><span style='font-size:9.0pt;font-family:Verdana'>Right Block</span></b></p>
+      </td>
+     </tr>
+     <tr>
+      <td width="100%" style='width:100.0%;background:white;padding:0in 0in 0in 0in'>
+      <p><span style='font-size:9.0pt;font-family:Verdana'>Search</span></p>
+      </td>
+     </tr>
+    </table>
+    <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana;
+    display:none'>&nbsp;</span></p>
+    <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=150
+     style='width:112.5pt'>
+     <tr>
+      <td width="100%" style='width:100.0%;background:white;padding:0in 0in 0in 0in'>
+      <p><b><span style='font-size:9.0pt;font-family:Verdana'>Right Block</span></b></p>
+      </td>
+     </tr>
+     <tr>
+      <td width="100%" style='width:100.0%;background:white;padding:0in 0in 0in 0in'>
+      <p><span style='font-size:9.0pt;font-family:Verdana'>Quote</span></p>
+      </td>
+     </tr>
+    </table>
+    <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana;
+    display:none'>&nbsp;</span></p>
+    <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=150
+     style='width:112.5pt'>
+     <tr>
+      <td width="100%" style='width:100.0%;background:white;padding:0in 0in 0in 0in'>
+      <p><b><span style='font-size:9.0pt;font-family:Verdana'>Right Block</span></b></p>
+      </td>
+     </tr>
+     <tr>
+      <td width="100%" style='width:100.0%;background:white;padding:0in 0in 0in 0in'>
+      <p><span style='font-size:9.0pt;font-family:Verdana'>Link 1<br>
+      Link 2<br>
+      Link 3</span></p>
+      </td>
+     </tr>
+    </table>
+    <p class=MsoNormal></p>
+    </td>
+   </tr>
+   <tr>
+    <td style='background:#660066;padding:7.5pt 7.5pt 7.5pt 7.5pt'>
+    <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana'>&nbsp;
+    </span></p>
+    </td>
+    <td width="65%" style='width:65.2%;background:#660066;padding:7.5pt 7.5pt 7.5pt 7.5pt'>
+    <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana'>&nbsp;
+    </span></p>
+    </td>
+    <td style='background:#660066;padding:7.5pt 7.5pt 7.5pt 7.5pt'>
+    <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana'>&nbsp;
+    </span></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="Template_Overview">&nbsp;</a></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc77308167">Figure </a>2 - CMS Layout with AutoBlocks</p>
+
+<b><span style='font-size:16.0pt;font-family:Arial'><br clear=all
+style='page-break-before:always'>
+</span></b>
+
+<h1><a name="_Toc77308199">AutoTheme Overview</a></h1>
+
+<p class=MsoBodyText>AutoTheme is a Theme System, not a theme.&nbsp; The
+included HTML templates and images may be used as is or modified to fit your
+needs, but they are only examples.&nbsp; You can use your own creativity to
+build a custom theme using the AutoTheme functionality.&nbsp; The template
+files in your AutoTheme themes can be named anything you wish and can be
+organized in any directory structure under your theme directory.&nbsp; Your
+site may require fewer files or more files.</p>
+
+<h2><a name="_Toc77308200"></a><a name="_Toc64798255">File Overview</a></h2>
+
+<p class=MsoBodyText>The HTML templates that you use for your theme may be
+named anything you wish.</p>
+
+<h3><a name="_Toc77308201"></a><a name="_Toc64798256">Required Files</a></h3>
+
+<p class=MsoBodyText><a name="_Toc64798257"><b>theme.php</b></a></p>
+
+<p class=MsoBodyText>This is a CMS file and is required to properly load the
+theme.  Make sure to use an AutoTheme theme.php file available in any of the
+themes included with AutoTheme.</p>
+
+<p class=MsoBodyText><a name="_Toc64798258"><b>theme.cfg</b></a></p>
+
+<p class=MsoBodyText>This file contains the entire configuration for your
+AutoTheme theme.  This file is now created from the AutoTheme Administration
+and all you have to remember is to make sure the file permissions are 777 or
+writable by the web server. You will not need to do anything with this file,
+except maybe back it up before modifying the theme.</p>
+
+<p class=MsoBodyText><a name="_Toc64798259"><b>theme.html</b></a></p>
+
+<p class=MsoBodyText>This file is the foundation of our AutoTheme theme.  It is
+basically an HTML file that defines the page layout and contains AutoTheme
+commands (a.k.a. tags) that we will talk about later. You can easily use any
+HTML layout file for this, but due to the dynamic nature of the data it will
+display, one must be very careful to make sure the design allows for this
+expansion.</p>
+
+<h4>Custom Block Templates</h4>
+
+<p class=MsoBodyText>Each block position may also have its own template (Left,
+Center, Right and the AutoBlocks).&nbsp; Additionally, every block has a unique
+name that is configured in CMS Administration, Blocks.&nbsp; You can define
+custom templates that are used only for that specific block.</p>
+
+<p class=MsoBodyText>These files contain the HTML for the different block
+positions and are called from the “theme.html” template (or any other template
+you have selected). Think of these blocks as includes which are called by the
+“theme.html” template using AutoTheme tags.</p>
+
+<b><i><span style='font-size:12.0pt;font-family:Arial'><br clear=all
+style='page-break-before:always'>
+</span></i></b>
+
+<h4>Custom Module Templates</h4>
+
+<p class=MsoBodyText>Each module or page of your site may have its own template,
+so that each page that is displayed is fully customizable.&nbsp; Every module
+has a unique name that is configured in the CMS Administration,&nbsp;Modules.&nbsp;
+You can define custom templates, style sheets, images and colors and head
+content that are used only for that specific module.&nbsp; In addition, you can
+control what blocks are displayed on a per module or page basis.&nbsp; In
+addition to the modules that you have installed on your site, AutoTheme
+provides the ability to define separate templates for:&nbsp; Home Page (regardless
+of what module is there), Administration Pages, User Pages (My Account, etc.).</p>
+
+<h4><a name="_Toc64798261">News Templates</a></h4>
+
+<p class=MsoBodyText>By default there are two templates that display News
+articles: </p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>article.html</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>summary.html</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoBodyText>These files are very similar to blocks in concept and are
+basically includes. The “summary.html” will appear on the main News page of the
+CMS (normally the home page) and “article.html” will be called if the extended
+news is invoked (i.e., after the “read-more” link is clicked in a summary
+article). “summary.html” is also used as the summary in the Topics module.</p>
+
+<p class=MsoBodyText>Additionally, if you select the alternating summaries
+option in the AutoTheme admin, you can have two alternating summary designs
+which will appear one after the other and alternate.</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>summary1.html</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>summary2.html</p>
+
+<h3><a name="_Toc77308202"></a><a name="_Toc64798262">Directories</a></h3>
+
+<p class=MsoBodyText>Several directories are needed under your theme directory:</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>images</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>lang</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>style</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>The style and images directories are self explanatory, but
+the lang directory deserves some discussion. The lang directory contains a
+directory for each language that is used on a CMS. It is good practice when
+designing themes to make sure that any text that is hard-coded into the theme
+be located in the “global.php” file for each language used on the CMS.</p>
+
+<b><span style='font-size:16.0pt;font-family:Arial'><br clear=all
+style='page-break-before:always'>
+</span></b>
+
+<h1><a name="AutoTheme_Design"></a><a name="_Toc77308203">Design Overview</a></h1>
+
+<p class=MsoBodyText>It's very easy to design AutoTheme templates.&nbsp; Just
+use your favorite HTML editor and design a Main Page template (<i>theme.html</i>),
+Left Block template (<i>leftblock.html</i>), Center Block template (<i>centerblock.html</i>)
+and Right Block template (<i>rightblock.html</i>).&nbsp; In addition, the CMS
+news module uses the theme for the two types of article displays, Summary
+Article (<i>summary.html</i>) and Full Article (<i>article.html</i>).&nbsp;
+Main theme templates should be complete HTML files containing &lt;html&gt;,
+&lt;head&gt;, &lt;body&gt; and their closing tags.&nbsp; Block and Article
+files should not contain &lt;html&gt;, &lt;head&gt;, &lt;body&gt; or their
+closing tags, only the tags necessary to construct your Block or Article.</p>
+
+<p class=MsoBodyText>As you design your Main Page template, keep in mind the
+basic layout elements of a CMS site.&nbsp; The locations where these are to be
+placed are specified in your HTML templates using comment commands,&nbsp;standard
+HTML comments that have an embedded AutoTheme command.&nbsp; AutoTheme commands
+are enclosed in brackets [ ] and take the following form:</p>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt'>
+
+<p class=MsoBodyText style='border:none;padding:0in'><b>Example</b>:&nbsp;&nbsp;&nbsp;
+&lt;!-- [command] --&gt;</p>
+
+<p class=MsoBodyText style='border:none;padding:0in'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;td&gt;&lt;!-- [left-blocks] --&gt;&lt;/td&gt;</p>
+
+</div>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>Commands that are used inside of HTML tags themselves are
+not placed in a comment and are enclosed in braces { }.</p>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt'>
+
+<p class=MsoBodyText style='border:none;padding:0in'><b>Example</b>:&nbsp;&nbsp;&nbsp;
+{command}</p>
+
+<p class=MsoBodyText style='border:none;padding:0in'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;font color=&quot;{color7}&quot;&gt;</p>
+
+</div>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<h2><a name="_Toc77308204">Images and Other Files</a></h2>
+
+<p class=MsoBodyText>The base location of your CMS page is where your CMS “index.php”
+resides.&nbsp; Therefore, images and other files such as scripts that are in a
+sub-directory of your theme directory will need to use a path relative to where
+the CMS “index.php” resides.&nbsp; So if you have your images in the images directory
+an &lt;image&gt; tag and &lt;script&gt; tag would look like this:</p>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt'>
+
+<p class=MsoBodyText style='border:none;padding:0in'><b>Example</b>:&nbsp;&nbsp;&nbsp;
+&lt;img src=&quot;themes/AutoTheme/images/image.gif&quot;&gt;</p>
+
+<p class=MsoBodyText style='border:none;padding:0in'><b>Example</b>:&nbsp;&nbsp;&nbsp;
+&lt;script src=&quot;themes/AutoTheme/javascript/script.js&quot;&gt;</p>
+
+</div>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>Two commands are available for referencing paths in your
+templates.&nbsp; The first is for your theme directory and the second is for
+your theme images directory:</p>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt'>
+
+<p class=MsoBodyText style='border:none;padding:0in'><b>Command</b>:&nbsp;&nbsp;&nbsp;
+{theme-path}</p>
+
+<p class=MsoBodyText style='border:none;padding:0in'><b>Example</b>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;script src=&quot;{theme-path}javascript/script.js&quot;&gt;</p>
+
+<p class=MsoBodyText style='border:none;padding:0in'><b>Command</b>:&nbsp;&nbsp;&nbsp;
+{image-path}</p>
+
+<p class=MsoBodyText style='border:none;padding:0in'><b>Example</b>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;img src=&quot;{image-path}image.gif&quot;&gt;</p>
+
+</div>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<h2><a name="_Toc77308205">PHP</a></h2>
+
+<p class=MsoBodyText>Of course if there isn't a command for what you want to do
+or if you don't like the way a command functions, you can still use PHP code in
+your HTML templates.</p>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt'>
+
+<p class=MsoBodyText style='border:none;padding:0in'><b>Example</b>:&nbsp;&nbsp;&nbsp;
+&lt;td&gt;&lt;?php echo $username.&quot; AutoTheme is cool!&quot;;
+?&gt;&lt;/td&gt;</p>
+
+</div>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<b><span style='font-size:16.0pt;font-family:Arial'><br clear=all
+style='page-break-before:always'>
+</span></b>
+
+<h1><a name="_Toc64904071"></a><a name="_Toc64817929"></a><a name="_Toc77308206">Administration</a></h1>
+
+<p class=MsoBodyText>After successfully installing AutoTheme, enter your CMS
+Administration area and click on the AutoTheme link or icon. You will then be
+presented with the main AutoTheme administration screen.</p>
+
+<p class=MsoNormal style='page-break-after:avoid'>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=599 height=257 src="at-lite8_user_guide_eng_files/image001.gif"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>&nbsp;</p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc77308168">Figure </a>3 - AutoTheme Administration</p>
+
+<b><i><span style='font-size:14.0pt;font-family:Arial'><br clear=all
+style='page-break-before:always'>
+</span></i></b>
+
+<h2><a name="_Toc77308207"></a><a name="_Toc64904072">AutoThemes</a></h2>
+
+<p class=MsoBodyText>This is where you can add and configure your AutoThemes.
+Once you have selected a theme you can configure default theme templates, block
+display and colors, as well as Custom Module templates, block display, and
+colors.  You may also configure custom templates for individual blocks and add
+some theme information to your theme.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=599 height=347 src="at-lite8_user_guide_eng_files/image002.gif"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>&nbsp;</p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc77308169">Figure </a>4 – AutoThemes</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc77308208"></a><a name="_Toc64904073">Creating a New Theme</a></h3>
+
+<p class=MsoBodyText>You may also create a new theme by typing a name into the <b>Create
+new theme from</b> box and clicking either <b>Blank,</b> which creates a
+directory of this name and copies required files and directories (no templates)
+or <b>Example</b>, which is the same as Blank but also copies examples of all
+required templates (you can use these to get started).</p>
+
+<b><span style='font-size:12.0pt;font-family:Arial'><br clear=all
+style='page-break-before:always'>
+</span></b>
+
+<h3><a name="_Toc77308209">Configuring a Theme</a></h3>
+
+<p class=MsoBodyText>From this screen we have the option to configure our
+General settings, create and configure Custom Modules, create and configure
+Custom Blocks and configure the theme Information.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=599 height=336 src="at-lite8_user_guide_eng_files/image003.gif"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>&nbsp;</p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc77308170">Figure </a>5 - Theme configuration</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoBodyText>The “General” link holds the settings for all module pages
+that do not have custom settings.  Every time we define a new Custom Module
+(customization) it will be created with the same settings as those contained in
+“General”, until we change them. Basically if there are no custom modules
+present, these are the settings that will apply.</p>
+
+<h3><a name="_Toc77308210"></a><a name="_Toc64904075">General Configuration</a></h3>
+
+<p class=MsoBodyText>We are now looking at a page with many settings broken
+into 3 areas:</p>
+
+<p class=Checks><span style='font-family:Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Templates</p>
+
+<p class=Checks><span style='font-family:Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Block Display</p>
+
+<p class=Checks><span style='font-family:Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Styles</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoBodyText>Remember that you can create custom settings for any
+module in this way, but this is the default configuration for the site.</p>
+
+<b><i><span style='font-size:12.0pt;font-family:Arial'><br clear=all
+style='page-break-before:always'>
+</span></i></b>
+
+<h4>Templates</h4>
+
+<p class=MsoBodyText>The <b>Page Template</b> input box defines the file name
+of the template to be used for this module (as it is “General” it will display
+for all modules that do not have custom settings); if we wanted to we could
+have a completely different design from the homepage here.</p>
+
+<p class=MsoBodyText><b>Strip out head content (from &lt;head&gt; to
+&lt;/head&gt;)?</b> If this option is set to <b>Yes</b>, AutoTheme will
+automatically remove all data from between the head tags of the template. You
+can add code in the <b>Default Head Content</b> box (shown later) for elements
+you wish to be included between the head tags, i.e. JavaScript.</p>
+
+<p class=MsoBodyText><b>Summary Article</b> defines what file to use as the
+article summary and its main use comes about when you want to have a different
+article summary defined for the topics and news module from that which is
+defined for the homepage.</p>
+
+<p class=MsoBodyText>Below this are <b>First Alternating Summary</b> and <b>Second
+Alternating Summary</b> where<b> </b>we define the templates that will be used
+to display the alternating summaries.</p>
+
+<p class=MsoBodyText><b><span style='color:gray'>NOTE: </span></b><span
+style='color:gray'> <i>This will not work if the theme developer has not
+created any files for an alternating summary.  If they have included it as a
+feature you should see some files present and the box shouldn’t be a blank.</i></span></p>
+
+<p class=MsoBodyText>If this feature is not included and you want it, then
+create two new templates, “summary1.html” and “summary2.html” and copy and
+paste the code from summary.html into them.  You then have an example to work
+from when creating your alternating summaries.  Next, select them in the
+appropriate drop down boxes.</p>
+
+<p class=MsoBodyText><b>Use Alternating Summaries? </b>This is where we can
+switch on the alternating summaries feature.  If <b>Yes</b>, then the First
+Alternating Summary and Second Alternating Summary<b> </b>templates will be
+used and alternate.  If <b>No,</b> then the Summary Article template will be used
+for all.</p>
+
+<p class=MsoBodyText>Below that we have <b>Full Article</b>.  This is the
+template that is used when someone clicks the read more link, or views the full
+article from topics.</p>
+
+<p class=MsoBodyText><b>First Table</b> and <b>Second Table</b> are templates
+containing a table design<b>.  </b>These tables are not normally used by your
+theme or the templates, but by different modules.  This mainly depends on the
+module that is being displayed, as not all modules incorporate this feature and
+many use them in different ways. You will however, find that most modules use these
+table definitions.</p>
+
+<p class=MsoBodyText>These tables can be called by your theme template using
+the following commands:</p>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt'>
+
+<p class=MsoBodyText style='border:none;padding:0in'><b>&lt;-- [open-table]
+--&gt;</b> <i>your HTML</i> <b>&lt;-- [close-table] --&gt;</b></p>
+
+<p class=MsoBodyText style='border:none;padding:0in'><b>&lt;!-- [open-table2]
+--&gt;</b> <i>your HTML</i> <b>&lt;-- [close-table2] --&gt;</b></p>
+
+</div>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><a
+name="_Toc64904077"><img border=0 width=599 height=412
+src="at-lite8_user_guide_eng_files/image004.gif"></a></p>
+
+<p class=MsoCaption align=center style='text-align:center'>&nbsp;</p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc77308171">Figure </a>6 - General (top section)</p>
+
+<h5>Block Templates</h5>
+
+<p class=MsoBodyText>Here we define what template is called for each of our
+block areas. If you have a theme that uses different block designs for
+different block areas, here is where you define them.  You might even have a
+completely different block design for a Custom Module.</p>
+
+<h4><a name="_Toc64904078">Block Display</a></h4>
+
+<p class=MsoBodyText>The <b>Show Block by Default?</b> settings are probably
+the most powerful feature of AutoTheme; the ability to define custom block
+layout for individual modules.</p>
+
+<p class=MsoBodyText>This feature requires that the theme incorporates all of
+these block areas. If the theme doesn’t have these block areas, this feature
+will not work. For example let’s say you have created custom settings for the
+download module. You decide that you want a poll to show in the left column
+only when the download module is active.  You would select <b>No</b> for the
+Left block and select <b>Yes</b> for the block area that you only want to show
+for the Downloads module.</p>
+
+<b><i><span style='font-size:12.0pt;font-family:Arial'><br clear=all
+style='page-break-before:always'>
+</span></i></b>
+
+<h4>Styles</h4>
+
+<h5>Style Sheet and Logo Image</h5>
+
+<p class=MsoBodyText>We can also define a different Cascading <b>Style Sheet</b>
+or <b>Logo Image</b>. The style sheet will be included automatically and
+override any other styles. The logo can be displayed in a template with the following
+command:</p>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt'>
+
+<p class=MsoBodyText style='border:none;padding:0in'><b>&lt;!-- [logo-image]
+--&gt;</b></p>
+
+</div>
+
+<h5>Colors</h5>
+
+<p class=MsoBodyText>This is where we define different text and table colors
+for you theme. These colors are not used by your theme or the templates, but by
+different modules.  This mainly depends on the module that is being displayed,
+as not all modules incorporate this feature and many use them in different
+ways. You will however, find that most modules use these color definitions.</p>
+
+<p class=MsoBodyText>You can add code in the <b>Default Head Content</b> box
+for elements you wish to be included between the head tags, i.e. JavaScript.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=599 height=283 src="at-lite8_user_guide_eng_files/image005.gif"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>&nbsp;</p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc77308172">Figure </a>7 - General (bottom section)</p>
+
+<b><i><span style='font-size:12.0pt;font-family:Arial'><br clear=all
+style='page-break-before:always'>
+</span></i></b>
+
+<h4><a name="_Toc64904083">Custom Blocks</a></h4>
+
+<p class=MsoBodyText>Custom blocks allow you to add new block designs defined
+by there title. For example you might want your Login block to have a different
+design from all the rest of the blocks in the same position, let’s say Left. 
+Different Custom Blocks can be defined in General and for each and every Custom
+Module.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=599 height=333 src="at-lite8_user_guide_eng_files/image006.gif"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>&nbsp;</p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc77308173">Figure </a>8 - Custom Blocks</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoBodyText>To create a Custom Block first choose an existing block
+from the <b>Add a custom Block </b>drop down box, then click “Add”.  You will
+now see that the block is present under Blocks. Now select the template
+containing the custom block design and click “Save”.</p>
+
+<b><span style='font-size:12.0pt;font-family:Arial'><br clear=all
+style='page-break-before:always'>
+</span></b>
+
+<h3><a name="_Toc77308211"></a><a name="_Toc64904080">Custom Modules</a></h3>
+
+<p class=MsoBodyText>Here is where you can customize the display of module
+pages.  You may also configure and remove existing Custom Modules.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=599 height=345 src="at-lite8_user_guide_eng_files/image007.gif"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>&nbsp;</p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc77308174">Figure </a>9 - Custom Modules</p>
+
+<p class=MsoNormal><b><i>&nbsp;</i></b></p>
+
+<p class=MsoBodyText><b>Configure </b>takes you to the Custom Module
+configuration page which was discussed previously in General Configuration<b>. 
+</b>The same concepts apply and the settings are identical<b>.</b></p>
+
+<p class=MsoBodyText>Clicking <b>Remove</b> will remove all settings for the
+Custom Module. The module will revert back to the General Configuration settings<b>.</b></p>
+
+<b><i><span style='font-size:12.0pt;font-family:Arial'><br clear=all
+style='page-break-before:always'>
+</span></i></b>
+
+<h4><a name="_Toc64904081">Adding a Custom Module</a></h4>
+
+<p class=MsoBodyText>By defining a Custom Module we can create a unique
+configuration that will only be used when the respective module pages are
+displayed. To define a new Custom Module select an existing module from the
+list then click “Add”.</p>
+
+<p class=MsoBodyText>Remember, if you have defined a Custom Module then those
+settings override the General settings and the General settings will have no
+effect when that module is displayed.</p>
+
+<p class=MsoBodyText>In addition to the modules that you have installed, there
+are 3 special Custom Modules that allow you to define custom settings for the
+home page (regardless of what module is in your home page), administration
+pages and all user pages (user account, registration, etc) respectively:</p>
+
+<p class=Checks><span style='font-family:Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>*HomePage</p>
+
+<p class=Checks><span style='font-family:Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>*AdminPages</p>
+
+<p class=Checks><span style='font-family:Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>*UserPages<a name="_Toc64904082"></a></p>
+
+<h4>Module Options</h4>
+
+<p class=MsoBodyText>You can create a Custom Module with no Module Options and
+it will be labeled “default” and will apply to all pages of that module.  You
+can also create a Custom Module with Module Options, something in the URL that
+differentiates a module page from the other pages of the same module.  You can
+get this info by viewing the URL of the page for which you want to create a
+Custom Module.</p>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 1.0pt 1.0pt 1.0pt'>
+
+<p class=MsoBodyText style='border:none;padding:0in'><b>Example:  </b>To create
+a Custom Module for the Downloads in category 1, the Module Options would be <b>cid=1</b>.</p>
+
+<p class=MsoBodyText style='border:none;padding:0in'><b>Example</b>:  To create
+a Custom Module for listing all articles in a specific topic, such as when you
+go to: <b>modules.php?op=modload&amp;name=News&amp;file=index&amp;catid=&amp;topic=2</b></p>
+
+<p class=MsoBodyText style='border:none;padding:0in'>You would use <b>topic=2</b>
+as your Module Options.</p>
+
+</div>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>You can also combine the options to make it even more
+unique and flexible, for example:</p>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt'>
+
+<p class=MsoBodyText style='border:none;padding:0in'><b>file=somefile&amp;option=10</b></p>
+
+</div>
+
+<b><span style='font-size:12.0pt;font-family:Arial'><br clear=all
+style='page-break-before:always'>
+</span></b>
+
+<h3><a name="_Toc77308212">AutoBlocks</a></h3>
+
+<p class=MsoBodyText>Here we can define new block positions (in addition to
+Left, Right and Center) for our theme, which can then be used in General or Custom
+Modules. If you need to create a custom block layout or area of multiple blocks
+for a Custom Module, this is the place.  Different AutoBlocks can be defined
+for each theme.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=599 height=376 src="at-lite8_user_guide_eng_files/image008.gif"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>&nbsp;</p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc77308175">Figure </a>10 – AutoBlocks</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoBodyText>To create a new AutoBlock position, enter a name for this
+position and click “Add”.  After you create a new AutoBlock it will then appear
+in the AutoBlocks list. It will also be available in the General and all Custom
+Module configuration areas, where it can be assigned a template.</p>
+
+<p class=MsoBodyText>You can then assign blocks to these positions and display
+them in a template.  To use an AutoBlock position in a template, use the
+following tag syntax:</p>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt'>
+
+<p class=MsoBodyText style='border:none;padding:0in'>This is the recommended
+way to call AutoBlocks in your template, as it will still work if you rename
+the AutoBlock:  <b>&lt;!-- autoblock1-blocks] --&gt;</b></p>
+
+<p class=MsoBodyText style='border:none;padding:0in'>&nbsp;</p>
+
+<p class=MsoBodyText style='border:none;padding:0in'>This method is provided
+for backward compatibility and will not function if you rename the AutoBlock:  <b>&lt;!--
+[AutoBlock Name-blocks] --&gt;</b></p>
+
+</div>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<b><i><span style='font-size:14.0pt;font-family:Arial'><br clear=all
+style='page-break-before:always'>
+</span></i></b>
+
+<h2><a name="_Toc64904084"></a><a name="_Toc64904086"></a><a name="_Toc77308213">Commands</a></h2>
+
+<p class=MsoBodyText>When you select Commands from the main AutoTheme menu, the
+commands apply to your entire site and can be used in any AutoTheme theme. 
+They are not added to the theme so they will not be available if you distribute
+your theme to others.</p>
+
+<p class=MsoBodyText>There is a separate Commands link when configuring a
+theme.  These commands are added to your theme and are thus available in the
+theme if it is distributed.</p>
+
+<p class=MsoBodyText>Commands are an easy way to add code snippets (PHP,
+JavaScript, and HTML) to your theme templates while retaining the ability to
+edit the template with a WYSIWYG HTML editor.  These commands also allow you to
+further extend AutoTheme and your templates.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=599 height=337 src="at-lite8_user_guide_eng_files/image009.gif"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>&nbsp;</p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc77308176">Figure </a>11 – Commands</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoBodyText>For example you may want to add this code to your
+template:</p>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt'>
+
+<p class=MsoBodyText style='border:none;padding:0in'><b>&lt;?php echo
+“AutoTheme is cool”; ?&gt;</b></p>
+
+</div>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>You would then give the command a name i.e. “widgets<b>”</b>
+and add this to the <b>Add a Command</b> input box, after which you would
+choose what user types could view the command, and then add the PHP code to the
+<b>Action</b> field.</p>
+
+<p class=MsoBodyText>From now on all you have to add to your template is:</p>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt'>
+
+<p class=MsoBodyText style='border:none;padding:0in'><b>&lt;!-- [widgets]
+--&gt;</b></p>
+
+</div>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>And the result of the PHP will be automatically inserted
+when the theme is displayed.  The same can be done for JavaScript and HTML.</p>
+
+<h2><a name="_Toc77308214">Extras</a></h2>
+
+<p class=MsoBodyText>Extras are plug-ins for AutoTheme.  Many nifty Extras are
+included with AutoTheme and additional Extras can be coded by you or obtained
+from others.  A full Developer Reference is available or will be available
+shortly.</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoNormal style='page-break-after:avoid'><img border=0 width=599
+height=423 src="at-lite8_user_guide_eng_files/image010.gif"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>&nbsp;</p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc77308177">Figure </a>12 – Extras</p>
+
+<b><span style='font-size:12.0pt;font-family:Arial'><br clear=all
+style='page-break-before:always'>
+</span></b>
+
+<h3><a name="_Toc77308215">Global Extras</a></h3>
+
+<p class=MsoBodyText>Global Extras are applicable to the entire site when an
+AutoTheme theme is being used.</p>
+
+<h4>AutoTheme Admin Bar</h4>
+
+<p class=MsoBodyText>This Extra displays an Administration Bar at the top of
+your site, viewable only to Administrators.  This bar has links to display
+different AutoTheme configuration settings and edit the current configuration
+and template.</p>
+
+<p class=MsoNormal style='page-break-after:avoid'><img border=0 width=599
+height=43 src="at-lite8_user_guide_eng_files/image011.gif"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>&nbsp;</p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc77308178">Figure </a>13 - AutoTheme Admin Bar</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h4><a name="_Toc64904087">RTL Languages</a></h4>
+
+<p class=MsoBodyText>For now, this area lets you define what languages should
+cause the theme to display Right-To-Left (RTL).  Some languages, Arabic, Farsi
+and Hebrew (that are already added here) read from right to left, and AutoTheme
+will adjust the theme accordingly when the site language or the user’s selected
+language is one of these.  The text is printed RTL and other objects (tables,
+images, form inputs, etc.) are aligned to the right and all controls including
+the scroll bar are positioned on the left.</p>
+
+<p class=MsoBodyText>To add a language that reads RTL, use the three letter
+abbreviation for the language as defined by ISO 639-2.  The list of
+abbreviations can be found at <a
+href="http://lcweb.loc.gov/standards/iso639-2/englangn.html"><span
+style='color:windowtext;text-decoration:none'>http://lcweb.loc.gov/standards/iso639-2/englangn.html</span></a>.</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText style='page-break-after:avoid'><img border=0 width=599
+height=240 src="at-lite8_user_guide_eng_files/image012.gif"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>&nbsp;</p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc77308179">Figure </a>14 - RTL Languages</p>
+
+<b><i><span style='font-size:12.0pt;font-family:Arial'><br clear=all
+style='page-break-before:always'>
+</span></i></b>
+
+<h4>AutoPrint</h4>
+
+<p class=MsoBodyText>This Extra allows you to set a theme that will be used for
+a printer friendly page.  A sample AutoPrint theme is included.  You can
+display a link to the printer friendly page by including  <b>&lt;!--
+[print-link] --&gt;</b> in your template.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='page-break-after:avoid'><img border=0 width=599
+height=183 src="at-lite8_user_guide_eng_files/image013.gif"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>&nbsp;</p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc77308180">Figure </a>15 - AutoPrint</p>
+
+<h4>AutoURLs</h4>
+
+<p class=MsoBodyText>This Extra requires the Apache web server with mod_rewrite
+enabled and one of the included .htaccess files present in your CMS root
+directory.  AutoURLs converts URLs on your site into shorter URLs that are
+friendlier and search engine optimized.</p>
+
+<p class=MsoBodyText>You can choose the extension that is used for the new
+URLs.  Choose the appropriate .htaccess file from: “htm.htaccess”, “html.htaccess”
+or “phtml.htaccess” and rename it to “.htaccess.”</p>
+
+<p class=MsoNormal style='page-break-after:avoid'><img border=0 width=599
+height=182 src="at-lite8_user_guide_eng_files/image014.gif"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>&nbsp;</p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc77308181">Figure </a>16 - AutoURLs</p>
+
+<b><i><span style='font-size:12.0pt;font-family:Arial'><br clear=all
+style='page-break-before:always'>
+</span></i></b>
+
+<h4>Block Titles</h4>
+
+<p class=MsoBodyText>This Extra when enabled, will automatically include images
+to use as block titles and allows you to use language defines as titles for
+blocks.</p>
+
+<p class=MsoBodyText>If you have used a language define as the block title and
+you have defined that in a language file, then the translation will be used.</p>
+
+<p class=MsoBodyText>If a gif, jpg or png image exists that is the same name as
+the block (lowercase, alphanumeric, no spaces), then it will be used as the
+block title.  AutoTheme looks for the images in
+“themes/YOURTHEME/images/lang/CURRENTLANG/” first and then if not found it
+looks in “themes/YOURTHEME/images/”.</p>
+
+<h4>AutoTheme Credits</h4>
+
+<p class=MsoBodyText>This Extra automatically adds an AutoTheme HTML Theme
+System image or text link to the footer of each page.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='page-break-after:avoid'><img border=0 width=599
+height=183 src="at-lite8_user_guide_eng_files/image015.gif"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>&nbsp;</p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc77308182">Figure </a>17 - AutoTheme Credits</p>
+
+<b><i><span style='font-size:12.0pt;font-family:Arial'><br clear=all
+style='page-break-before:always'>
+</span></i></b>
+
+<h4>Entry Page</h4>
+
+<p class=MsoBodyText>This Extra allows you to use a template and set an entry
+that the designated types of visitors will see on their initial visit.  The
+template will first be looked for in “themes/YOURTHEME/templates/” and then if
+not found it will use the one in “modules/AutoTheme/templates/”.</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoNormal style='page-break-after:avoid'><img border=0 width=599
+height=197 src="at-lite8_user_guide_eng_files/image016.gif"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>&nbsp;</p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc77308183">Figure </a>18 - Entry Page</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoBodyText><b>Template</b> to use as the Entry Page</p>
+
+<p class=MsoNormal><b>Applies to users </b>(which users should see this Entry
+Page upon their first visit)</p>
+
+<h4>&nbsp;</h4>
+
+<h4>Shortcut Icon</h4>
+
+<p class=MsoBodyText>This Extra automatically includes a shortcut or favorite
+icon for your site.  This icon must be a 16x16 favicon.ico file of type .ico
+located in your CMS root directory.</p>
+
+<p class=MsoBodyText> </p>
+
+<p class=MsoNormal style='page-break-after:avoid'><img border=0 width=599
+height=183 src="at-lite8_user_guide_eng_files/image017.gif"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>&nbsp;</p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc77308184">Figure </a>19 - Shortcut Icon</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<b><i><span style='font-size:12.0pt;font-family:Arial'><br clear=all
+style='page-break-before:always'>
+</span></i></b>
+
+<h4>Module Styles</h4>
+
+<p class=MsoBodyText>This Extra wraps the module’s output in a div tag with the
+following class and id that can be used in your style sheets to style the
+output:</p>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt'>
+
+<p class=MsoBodyText style='border:none;padding:0in'>&lt;div id=”modulename”
+class=”module”&gt;</p>
+
+</div>
+
+<h4>Render Time</h4>
+
+<p class=MsoNormal>This Extra adds to the footer of each page, the time that it
+took to render the page in seconds.</p>
+
+<h4>Style Fixes</h4>
+
+<p class=MsoBodyText>For now, this Extra adds styles that help the pages
+display the same in most browsers.  This Extra may go away and it is advisable
+to use styles in your style sheets instead.</p>
+
+<h4>Themes on a Date</h4>
+
+<p class=MsoBodyText>This Extra allows you to set dates for when specific
+themes are displayed.  The most recent date that has already occurred is used.</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoNormal style='page-break-after:avoid'><img border=0 width=599
+height=217 src="at-lite8_user_guide_eng_files/image018.gif"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>&nbsp;</p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc77308185">Figure </a>20 - Themes on a Date</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoBodyText><b>Date</b> to activate the theme (YYYY-MM-DD)</p>
+
+<p class=MsoNormal><b>Theme </b>to activate at the specified time<b> </b>(only
+works with AutoTheme themes)</p>
+
+<b><i><span style='font-size:12.0pt;font-family:Arial'><br clear=all
+style='page-break-before:always'>
+</span></i></b>
+
+<h4>Theme Time</h4>
+
+<p class=MsoBodyText>This Extra allows you to set times of day for when
+specific themes are displayed.  The most recent time that has already occurred
+is used.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoBodyText style='page-break-after:avoid'><img border=0 width=599
+height=230 src="at-lite8_user_guide_eng_files/image019.gif"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>&nbsp;</p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc77308186">Figure </a>21 - Theme Time</p>
+
+<h3>&nbsp;</h3>
+
+<p class=MsoBodyText><b>Time</b> to activate the theme (HH:MM:SS in 24 hour
+format)</p>
+
+<p class=MsoBodyText><b>Theme </b>to activate at the specified time<b> </b>(only
+works with AutoTheme themes)</p>
+
+<b><span style='font-size:12.0pt;font-family:Arial'><br clear=all
+style='page-break-before:always'>
+</span></b>
+
+<h3><a name="_Toc77308216">Theme Extras</a></h3>
+
+<p class=MsoNormal>Theme Extras are applicable to each individual theme and
+configured separately for each theme.</p>
+
+<h4>Theme Information</h4>
+
+<p class=MsoBodyText>This Extra allows you to enter information about the theme
+and optionally have it included in the HTML source of all pages that use this
+theme.</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img border=0
+width=599 height=345 src="at-lite8_user_guide_eng_files/image020.gif"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>&nbsp;</p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc77308187">Figure </a>22 – Theme Information</p>
+
+<p class=MsoNormal><i>&nbsp;</i></p>
+
+<p class=MsoBodyText><b>Name</b> of the theme (determined by the directory
+name).</p>
+
+<p class=MsoBodyText><b>Version</b> is whatever version number has been
+assigned to the theme.</p>
+
+<p class=MsoBodyText><b>Description</b> could contain any description, copyright
+information, etc.</p>
+
+<p class=MsoBodyText><b>Author</b> of the theme is obviously the author’s name.</p>
+
+<p class=MsoBodyText><b>Contact</b><i> </i>may contain the email or website of
+the theme author.  This can help if you need support for the theme.</p>
+
+<p class=MsoBodyText><b>Include this information as a comment in the HTML
+source?</b> Choosing <b>Yes</b> here will add the above information as an HTML
+comment to the HTML source of all pages that use this theme. </p>
+
+<b><span style='font-size:12.0pt;font-family:Arial'><br clear=all
+style='page-break-before:always'>
+</span></b>
+
+<h3><a name="_Toc64904085"></a><a name="_Toc77308217">Module Extras</a></h3>
+
+<p class=MsoNormal>Module Extras are applicable to the General (default)
+settings and each individual Custom Module and are configured separately for
+each.</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<h4>Head Content</h4>
+
+<p class=MsoBodyText>This Extra allows you to specify a title, meta keywords
+and meta description for each page on your site, thus improving search engine
+indexing and rankings.  The current CMSs normally use the same title, keywords
+and description for each page.</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoNormal style='page-break-after:avoid'><img border=0 width=599
+height=331 src="at-lite8_user_guide_eng_files/image021.gif"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>&nbsp;</p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc77308188">Figure </a>23 - Head Content</p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoBodyText><b>Title</b> of the page (between the &lt;title&gt; and
+&lt;/title&gt; tags)</p>
+
+<p class=MsoBodyText><b>Meta Keywords </b>for the page<b> </b>(the content of
+the &lt;meta name=&quot;KEYWORDS&quot; tag)</p>
+
+<p class=MsoBodyText><b>Description </b>for the page (the content of the &lt;meta
+name=&quot;DESCRIPTION&quot; tag)</p>
+
+<b><span style='font-size:16.0pt;font-family:Arial'><br clear=all
+style='page-break-before:always'>
+</span></b>
+
+<h1><a name="_Toc77308218">List of Commands</a></h1>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="107%"
+ style='width:107.38%;border-collapse:collapse;border:none'>
+ <tr>
+  <td width="28%" style='width:28.0%;border:solid windowtext 1.0pt;background:
+  black;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b><span style='color:white'>Command</span></b></p>
+  </td>
+  <td width="72%" style='width:72.0%;border:solid windowtext 1.0pt;border-left:
+  none;background:black;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b><span style='color:white'>Description</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width="72%" valign=top style='width:72.0%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b>&nbsp;</b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b>Global Commands</b></p>
+  </td>
+  <td width="72%" valign=top style='width:72.0%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>theme-path</p>
+  </td>
+  <td width="72%" valign=top style='width:72.0%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>The path to your theme</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>image-path</p>
+  </td>
+  <td width="72%" valign=top style='width:72.0%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>The path to the images/ directory in your theme</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>footer-msg</p>
+  </td>
+  <td width="72%" valign=top style='width:72.0%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Displays the footer message</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>open-table</p>
+  </td>
+  <td width="72%" valign=top style='width:72.0%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Opens a table based on the first table template</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>open-table2</p>
+  </td>
+  <td width="72%" valign=top style='width:72.0%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Opens a table based on the second table template</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>close-table</p>
+  </td>
+  <td width="72%" valign=top style='width:72.0%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Closes a table based on the first table template</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>close-table2</p>
+  </td>
+  <td width="72%" valign=top style='width:72.0%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Closes a table based on the second table template</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>user</p>
+  </td>
+  <td width="72%" valign=top style='width:72.0%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Displays the current username</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>user-welcome</p>
+  </td>
+  <td width="72%" valign=top style='width:72.0%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Displays Welcome username</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>user-links</p>
+  </td>
+  <td width="72%" valign=top style='width:72.0%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Displays links for users to login, register or logout</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>logo-image</p>
+  </td>
+  <td width="72%" valign=top style='width:72.0%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Displays the default logo image or the one for the Custom
+  Module</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>color1</p>
+  </td>
+  <td width="72%" valign=top style='width:72.0%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Background Color 1 from admin</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>color2</p>
+  </td>
+  <td width="72%" valign=top style='width:72.0%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Background Color 2 from admin</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>color3</p>
+  </td>
+  <td width="72%" valign=top style='width:72.0%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Background Color 3 from admin</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>color4</p>
+  </td>
+  <td width="72%" valign=top style='width:72.0%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Background Color 4 from admin</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>color5</p>
+  </td>
+  <td width="72%" valign=top style='width:72.0%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Text Color 1 from admin</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>color6</p>
+  </td>
+  <td width="72%" valign=top style='width:72.0%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Text Color 2 from admin</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>color7</p>
+  </td>
+  <td width="72%" valign=top style='width:72.0%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Table Border Color 1 from admin</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>color8</p>
+  </td>
+  <td width="72%" valign=top style='width:72.0%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Table Background Color 1 from admin</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>color9</p>
+  </td>
+  <td width="72%" valign=top style='width:72.0%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Table Border Color 2 from admin</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>color10</p>
+  </td>
+  <td width="72%" valign=top style='width:72.0%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Table Background Color 2 from admin</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>site-logo</p>
+  </td>
+  <td width="72%" valign=top style='width:72.0%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Displays the site logo</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>site-name</p>
+  </td>
+  <td width="72%" valign=top style='width:72.0%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Displays the site name</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>site-slogan</p>
+  </td>
+  <td width="72%" valign=top style='width:72.0%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Displays the site slogan</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>date</p>
+  </td>
+  <td width="72%" valign=top style='width:72.0%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Displays the current date</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>time</p>
+  </td>
+  <td width="72%" valign=top style='width:72.0%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Displays the current time</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>banners</p>
+  </td>
+  <td width="72%" valign=top style='width:72.0%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Displays the standard banners</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>banners-typeX</p>
+  </td>
+  <td width="72%" valign=top style='width:72.0%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>X=Banner type: Displays banners of the specified type 1-99</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="28%" valign=top style='width:28.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>search</p>
+  </td>
+  <td width="72%" valign=top style='width:72.0%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Displays a search box</p>
+  </td>
+ </tr>
+</table>
+
+<span style='font-size:12.0pt;font-family:"Times New Roman"'><br clear=all
+style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="107%"
+ style='width:107.38%;border-collapse:collapse;border:none'>
+ <tr>
+  <td width="27%" style='width:27.68%;border:solid windowtext 1.0pt;background:
+  black;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b><span style='color:white'>Command</span></b></p>
+  </td>
+  <td width="72%" style='width:72.32%;border:solid windowtext 1.0pt;border-left:
+  none;background:black;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b><span style='color:white'>Description</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b>Block Commands</b></p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>block-title</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Displays the block title in a block template</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>block-content</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Displays the block content in a block template</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>left-blocks</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Displays the blocks assigned to the left position</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>center-blocks</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Displays the blocks assigned to the center position</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>right-blocks</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Displays the blocks assigned to the right position</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Block Name</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Displays Block Name, where Block Name = a specific block
+  name such as Who’s Online</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>autoblockX-blocks</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Displays the blocks assigned to autoblockX position where
+  X = the autoblock number</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>AutoBlock Name-blocks</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Displays the blocks assigned to AutoBlock Name position,
+  where Auto Block Name = a specific autoblock name such as Area1 (provided for
+  backward compatibility)</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Autoblock name-blocks</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Displays the blocks assigned to auto block position, where
+  autoblock name= a specific autoblock name all lowercase such as area1
+  (provided for backward compatibility)</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b>News Commands</b></p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>cat-title</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Display the category and title of a News article</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>posted-by</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Display Posted By and the user who posted the article</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>posted-date-time</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Display the date and time that the article was posted</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>topic-image</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Display the image for the article’s topic</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>article-summary</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Display the summary or home text of the article</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>article-full</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Display the entire text of the article, including summary
+  text, extended text and notes</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>article-notes</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Display the article notes</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>article-more</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Display the Read more link with print and send to a friend
+  icons</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>article-reads</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Display the number of times the article has been read</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>article-edit-del</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Display links to edit and delete the article (admin only)</p>
+  </td>
+ </tr>
+</table>
+
+<span style='font-size:12.0pt;font-family:"Times New Roman"'><br clear=all
+style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="107%"
+ style='width:107.38%;border-collapse:collapse;border:none'>
+ <tr>
+  <td width="27%" style='width:27.68%;border:solid windowtext 1.0pt;background:
+  black;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b><span style='color:white'>Command</span></b></p>
+  </td>
+  <td width="72%" style='width:72.32%;border:solid windowtext 1.0pt;border-left:
+  none;background:black;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b><span style='color:white'>Description</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:text:aid </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:text:bodytext </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:text:catthemeoverride </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:text:cid </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:text:cattitle </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:text:comments </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:text:counter </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:text:hometext </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:text:informant </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:text:notes </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:text:sid </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:text:themeoverride </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:text:tid </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:text:time </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:text:title </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:text:topicname </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:text:topicimage </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:text:topictext </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:text:tcounter </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:text:unixtime </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:text:withcomm </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:text:topicid </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:text:topic </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:text:catid </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:text:version </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:text:longdatetime </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:text:briefdatetime </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:text:longdate </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:text:briefdate </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:text:catandtitle </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:text:maintext </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:text:fulltext </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:html:bodytext </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:html:bytesmore </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:html:category </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:html:comment </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:html:hometext </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:html:notes </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" style='width:27.68%;border:solid windowtext 1.0pt;border-top:
+  none;background:black;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b><span style='color:white'>Command</span></b></p>
+  </td>
+  <td width="72%" style='width:72.32%;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  background:black;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b><span style='color:white'>Description</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:html:searchtopic </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:html:print </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:html:readmore </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:html:send </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:html:title </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:html:version </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:html:more </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:html:catandtitle </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:html:maintext </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:html:fulltext </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:url:category </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:url:comment </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:url:fullarticle </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:url:searchtopic </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:url:print </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:url:send </p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>news:url:version</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b>Extra Commands</b></p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>* Only if the Extra is available for your CMS</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>print-link</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Displays a link to a printer friendly page if the
+  AutoPrint Extra has been enabled</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b>CMS Commands</b></p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b>MD-Pro, PostNuke, eNvolution</b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>config:debug</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Site configuration information.</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>config:version_num</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>config:version_id</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>config:version_sub</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>config:startpage</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>config:adminmail</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>config:sitename</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>config:slogan</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>config:timezone_offset</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>config:seclevel</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>config:banners</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>config:language</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>config:locale</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>config:censormode</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>config:censorlist</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+</table>
+
+<span style='font-size:12.0pt;font-family:"Times New Roman"'><br clear=all
+style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="107%"
+ style='width:107.38%;border-collapse:collapse;border:none'>
+ <tr>
+  <td width="27%" style='width:27.68%;border:solid windowtext 1.0pt;background:
+  black;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b><span style='color:white'>Command</span></b></p>
+  </td>
+  <td width="72%" style='width:72.32%;border:solid windowtext 1.0pt;border-left:
+  none;background:black;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b><span style='color:white'>Description</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>user:uid</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>User information.</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>user:name</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>user:uname</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>user:email</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>user:femail</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>user:url</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>user:avatar</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>user:regdate</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>user:icq</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>user:occ</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>user:from</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>user:intrest</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>user:sig</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>user:viewemail</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>user:theme</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>user:aim</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>user:yim</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>user:msnm</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>user:pass</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>user:storynum</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>user:umode</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>user:uorder</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>user:thold</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>user:noscore</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>user:bio</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>user:ublockon</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>user:ublock</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>user:commentmax</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>user:counter</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>user:timezone_offset</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+</table>
+
+<span style='font-size:12.0pt;font-family:"Times New Roman"'><br clear=all
+style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="107%"
+ style='width:107.38%;border-collapse:collapse;border:none'>
+ <tr>
+  <td width="27%" style='width:27.68%;border:solid windowtext 1.0pt;background:
+  black;padding:.75pt .75pt .75pt .75pt'><span style='font-size:12.0pt;
+  font-family:"Times New Roman"'><br clear=all style='page-break-before:always'>
+  </span>
+  <p class=MsoNormal><b><span style='color:white'>Command</span></b></p>
+  </td>
+  <td width="72%" style='width:72.32%;border:solid windowtext 1.0pt;border-left:
+  none;background:black;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b><span style='color:white'>Description</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b>MD-Pro, CPG-Nuke</b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>block-control</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Displays minimize and maximize button in a block</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b>PHP-Nuke, CPG-Nuke</b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>admin-messages</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Displays the Administration Messages</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>public-messages</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Displays the public messages</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="27%" valign=top style='width:27.68%;border:solid windowtext 1.0pt;
+  border-top:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width="72%" valign=top style='width:72.32%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+</table>
+
+<h2>&nbsp;</h2>
+
+<b><span style='font-size:16.0pt;font-family:Arial'><br clear=all
+style='page-break-before:always'>
+</span></b>
+
+<h1><a name="_Toc77308219">List of Figures</a></h1>
+
+<p class=MsoTof><a href="#_Toc77308166">Figure 1 - CMS Layout<span
+style='color:windowtext;display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>5</span></a></p>
+
+<p class=MsoTof><a href="#_Toc77308167">Figure 2 - CMS Layout with AutoBlocks<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>6</span></a></p>
+
+<p class=MsoTof><a href="#_Toc77308168">Figure 3 - AutoTheme Administration<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>11</span></a></p>
+
+<p class=MsoTof><a href="#_Toc77308169">Figure 4 – AutoThemes<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>12</span></a></p>
+
+<p class=MsoTof><a href="#_Toc77308170">Figure 5 - Theme configuration<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>13</span></a></p>
+
+<p class=MsoTof><a href="#_Toc77308171">Figure 6 - General (top section)<span
+style='color:windowtext;display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>15</span></a></p>
+
+<p class=MsoTof><a href="#_Toc77308172">Figure 7 - General (bottom section)<span
+style='color:windowtext;display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>16</span></a></p>
+
+<p class=MsoTof><a href="#_Toc77308173">Figure 8 - Custom Blocks<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>17</span></a></p>
+
+<p class=MsoTof><a href="#_Toc77308174">Figure 9 - Custom Modules<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>18</span></a></p>
+
+<p class=MsoTof><a href="#_Toc77308175">Figure 10 – AutoBlocks<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>20</span></a></p>
+
+<p class=MsoTof><a href="#_Toc77308176">Figure 11 – Commands<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>21</span></a></p>
+
+<p class=MsoTof><a href="#_Toc77308177">Figure 12 – Extras<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>22</span></a></p>
+
+<p class=MsoTof><a href="#_Toc77308178">Figure 13 - AutoTheme Admin Bar<span
+style='color:windowtext;display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>23</span></a></p>
+
+<p class=MsoTof><a href="#_Toc77308179">Figure 14 - RTL Languages<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>23</span></a></p>
+
+<p class=MsoTof><a href="#_Toc77308180">Figure 15 - AutoPrint<span
+style='color:windowtext;display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>24</span></a></p>
+
+<p class=MsoTof><a href="#_Toc77308181">Figure 16 - AutoURLs<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>24</span></a></p>
+
+<p class=MsoTof><a href="#_Toc77308182">Figure 17 - AutoTheme Credits<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>25</span></a></p>
+
+<p class=MsoTof><a href="#_Toc77308183">Figure 18 - Entry Page<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>26</span></a></p>
+
+<p class=MsoTof><a href="#_Toc77308184">Figure 19 - Shortcut Icon<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>26</span></a></p>
+
+<p class=MsoTof><a href="#_Toc77308185">Figure 20 - Themes on a Date<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>27</span></a></p>
+
+<p class=MsoTof><a href="#_Toc77308186">Figure 21 - Theme Time<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>28</span></a></p>
+
+<p class=MsoTof><a href="#_Toc77308187">Figure 22 – Theme Information<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>29</span></a></p>
+
+<p class=MsoTof><a href="#_Toc77308188">Figure 23 - Head Content<span
+style='color:windowtext;display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>30</span></a></p>
+
+<b><span style='font-size:16.0pt;font-family:Arial'><br clear=all
+style='page-break-before:always'>
+</span></b>
+
+<h1><a name="_Toc77308220">Copyright</a></h1>
+
+<p class=MsoBodyText>Copyright © 2004 Shawn McKenzie. All rights reserved.</p>
+
+<p class=MsoBodyText>No part of this document may be reproduced, stored in a
+retrieval system, or transmitted, in any form or by any means, electronic,
+mechanical, recording, or otherwise, without the prior written permission of Shawn McKenzie.</p>
+
+<p class=MsoBodyText>The content of this document is furnished for
+informational use only, is subject to change without notice, and should not be
+construed as a commitment by the authors or copyright holder. The authors and
+copyright holder assume no responsibility or liability for any errors or
+inaccuracies that may appear in the informational content contained in this document.</p>
+
+<p class=MsoBodyText>All names and trademarks are property of their respective
+companies.</p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,5 @@
+<a href="admin.php">Administration</a>
+<a href="admin.php?op=adminStory">NEW Story</a>
+<a href="admin.php?op=create">Change Survey</a>
+<a href="admin.php?op=content">Content</a>
+<a href="admin.php?op=logout">Logout</a>

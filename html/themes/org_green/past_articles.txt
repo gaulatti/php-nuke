@@ -1,0 +1,51 @@
+ <!-- Start Past Articles -->
+           	  <div class="tabContent">
+           	    <div class="tab"><a href="#">Past Articles</a></div>
+                  <div class="tab_"><a href="#">Past Articles</a></div>
+                </div>
+                <div class="tabShadow">&nbsp;</div>
+                <div class="tabMain">
+                
+                	<div class="lineMain">
+                    <div class="divA"><p><a href="#">Call of Duty 4 Server Status Block</a></p></div>  			
+                    <div class="divB"><p><a href="#">Friday, July 25</a></p></div>
+                    <div class="divB"><p><a href="#">By KJThaDon</a></p></div> 
+                    </div>
+                    <div class="lineMain">
+                    <div class="divA"><p><a href="#">Call of Duty 4 Server Status Block</a></p></div>  			
+                    <div class="divB"><p><a href="#">Friday, July 25</a></p></div>
+                    <div class="divB"><p><a href="#">By KJThaDon</a></p></div> 
+                    </div>
+                    <div class="lineMain">
+                    <div class="divA"><p><a href="#">Call of Duty 4 Server Status Block</a></p></div>  			
+                    <div class="divB"><p><a href="#">Friday, July 25</a></p></div>
+                    <div class="divB"><p><a href="#">By KJThaDon</a></p></div> 
+                    </div>
+                    <div class="lineMain">
+                    <div class="divA"><p><a href="#">Call of Duty 4 Server Status Block</a></p></div>  			
+                    <div class="divB"><p><a href="#">Friday, July 25</a></p></div>
+                    <div class="divB"><p><a href="#">By KJThaDon</a></p></div> 
+                    </div>
+                    <div class="lineMain">
+                    <div class="divA"><p><a href="#">Call of Duty 4 Server Status Block</a></p></div>  			
+                    <div class="divB"><p><a href="#">Friday, July 25</a></p></div>
+                    <div class="divB"><p><a href="#">By KJThaDon</a></p></div> 
+                    </div>
+                    <div class="lineMain">
+                    <div class="divA"><p><a href="#">Call of Duty 4 Server Status Block</a></p></div>  			
+                    <div class="divB"><p><a href="#">Friday, July 25</a></p></div>
+                    <div class="divB"><p><a href="#">By KJThaDon</a></p></div> 
+                    </div>
+                    <div class="lineMain">
+                    <div class="divA"><p><a href="#">Call of Duty 4 Server Status Block</a></p></div>  			
+                    <div class="divB"><p><a href="#">Friday, July 25</a></p></div>
+                    <div class="divB"><p><a href="#">By KJThaDon</a></p></div> 
+                    </div>
+                    <div class="lineMain">
+                    <div class="divA"><p><a href="#">Call of Duty 4 Server Status Block</a></p></div>  			
+                    <div class="divB"><p><a href="#">Friday, July 25</a></p></div>
+                    <div class="divB"><p><a href="#">By KJThaDon</a></p></div> 
+                    </div>
+                
+                </div>
+            <!-- End Past Articles -->

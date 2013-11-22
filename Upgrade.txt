@@ -1,0 +1,11 @@
+PHP-Nuke: Web Portal System
+===========================
+
+To Upgrade from previous PHP-Nuke versions just install
+the new files and from your web browser launch after
+copying the selected upgrade from "upgrades" directory
+to your site's root (/) dir:
+
+	http://www.phpnuke.org/upgrade25-35.php
+
+It's all...

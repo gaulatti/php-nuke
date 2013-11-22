@@ -1,0 +1,72 @@
+Journal 2.0
+This is a PHPNuke Journal update no database changes are
+required for use.
+
+Installation:
+I you want to use your forums smiles or some other ones
+located within your nuke site you can change the path in
+functions.php 
+/* Change Smiles Path Here */
+$jsmiles = "./modules/Journal/images/moods";
+To use Forum Smiles set the path to:
+$jsmiles = "./modules/Forums/images/smiles";
+
+Styles have been added to the Journal directory.
+This is the structure:
+./modules/Journal/styles/theme_name/style.css
+
+READ THIS!
+To enable the use of Font changes you must make a copy of
+your Themes style.css and remove the line:
+FONT		{FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 11px}
+from it and place it in the Journal/styles in a directory with the 
+same name as your theme. We included all of the default themes but if 
+you have made changes to them you will want to follow this copy 
+proceedure so the Journal pages display with the same styles as the 
+rest of your site. 
+
+Change Log:
+Added more variable checking!
+Added stronger user checking!
+Added Admin Edit/Delete Journals feature!
+Added Admin delete Comments feature!
+Added htmlArea2 visual mode wysiwyg editor!
+http://www.interactivetools.com/products/htmlarea/
+Added some missing english language defines.
+New Image Pack! Thanks to Ganja!!!
+
+Credits/History:
+/************************************************************************/
+/* Journal &#167 ZX                                                     */
+/* ================                                                     */
+/*                                                                      */
+/* Original work done by Joseph Howard known as Member's Journal, which */
+/* was based on Trevor Scott's vision of Atomic Journal.                */
+/*                                                                      */
+/* Modified on 25 May 2002 by Paul Laudanski (paul@computercops.biz)    */
+/* Copyright (c) 2002 Modifications by Computer Cops.                   */
+/* http://computercops.biz                                              */
+/*                                                                      */
+/* Member's Journal did not work on a PHPNuke 5.5 portal which had      */
+/* phpbb2 port integrated.  Thus was Journal &#167 ZX created with the  */
+/* Member's Journal author's blessings.                                 */
+/*                                                                      */
+/* To install, backup everything first and then FTP the Journal package */
+/* files into your site's module directory.  Also run the tables.sql    */
+/* script so the proper tables and fields can be created and used.  The */
+/* default table prefix is "nuke" which is hard-coded throughout the    */
+/* entire system as a left-over from Member's Journal.  If a demand     */
+/* exists, that can be changed for a future release.                    */
+/*                                                                      */
+/* This program is free software. You can redistribute it and/or modify */
+/* it under the terms of the GNU General Public License as published by */
+/* the Free Software Foundation; either version 2 of the License.       */
+/*                                                                      */
+/************************************************************************/
+/* Additional security checking code 2003 by chatserv                   */
+/* http://www.nukefixes.com -- http://www.nukeresources.com             */
+/************************************************************************/
+/* Journal 2.0 Enhanced and Debugged 2004                               */
+/* by sixonetonoffun -- http://www.netflake.com --                      */
+/* Images Created by GanjaUK -- http://www.GanjaUK.com                  */
+/************************************************************************/

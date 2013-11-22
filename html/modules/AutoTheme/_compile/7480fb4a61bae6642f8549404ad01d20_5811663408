@@ -1,0 +1,148 @@
+<script type='text/javascript'>
+     //<![CDATA[
+
+     //HV Menu v5.411- by Ger Versluis (http://www.burmees.nl/)
+     //Submitted to Dynamic Drive (http://www.dynamicdrive.com)
+     //Visit http://www.dynamicdrive.com for this script and more
+
+     function Go(){return}
+
+     //]]>
+     </script>
+     <script type='text/javascript' src='themes/AT_MayItBe/exmplmenu_var.js'>
+     </script>
+     <script type='text/javascript' src='themes/AT_MayItBe/menu_com.js'>
+     </script>
+     <noscript>Your browser does not support script</noscript><!-- Begin Table -->
+
+     <div style="margin-top:191;margin-left:139;position:absolute;">
+          <img alt="" name="MayItBe2a11" src="<?php echo $imagepath; ?>MayItBe2a_5x1.gif" width="17" height="306" />
+     </div>
+
+     <table cellpadding="0" cellspacing="0" width="100%">
+          <tr>
+               <td colspan="9" width="100%">
+                    <div style="margin-left:50%;">
+                         <span id="rel"></span>
+                    </div>
+               </td>
+          </tr>
+
+          <tr>
+               <td rowspan="1" colspan="1" style="background-image:url(<?php echo $imagepath; ?>MayItBe2a_1x1.gif);" width="121" height="126">
+                    <div style="text-align:center;">
+                         <?php echo "<script type=\"text/javascript\">\nvar monthNames = new Array( \""._JANUARY."\",\""._FEBRUARY."\",\""._MARCH."\",\""._APRIL."\",\""._MAY."\",\""._JUNE."\",\""._JULY."\",\""._AUGUST."\",\""._SEPTEMBER."\",\""._OCTOBER."\",\""._NOVEMBER."\",\""._DECEMBER."\");\nvar now = new Date();\nthisYear = now.getYear();\nif(thisYear < 1900) {thisYear += 1900};\ndocument.write(monthNames[now.getMonth()] + \" \" + now.getDate() + \", \" + thisYear);\n</script>"; ?>
+                         <br />
+                         <?php echo "<script type=\"text/javascript\">\nvar now = new Date();\nvar hours = now.getHours();\nvar minutes = now.getMinutes();\ndocument.write(hours + \":\" + minutes);\n</script>"; ?>
+                         <br />
+                         <?php echo "<a href=\"modules.php?name=Your_Account&amp;op=new_user\">"._AT_NEWACCOUNT."</a> | <a href=\"modules.php?name=Your_Account\">"._LOGIN."</a>"; ?>
+                    </div>
+               </td>
+
+               <td rowspan="1" colspan="1" width="10" height="126"><img alt="" name="MayItBe2a1" src="<?php echo $imagepath; ?>MayItBe2a_1x2.gif" width="10" height="126" /></td>
+
+               <td rowspan="1" colspan="3" width="283" height="126"><img alt="" name="MayItBe2a2" src="<?php echo $imagepath; ?>MayItBe2a_1x3.gif" width="283" height="126" /></td>
+
+               <td rowspan="3" colspan="1" style="background-image:url(<?php echo $imagepath; ?>MayItBe2a_1x4a.gif);" width="100%" height="171">
+                    <div style="text-align:right;padding-right:7px;">
+                         <span style="font-weight:bold;font-size:16px;font-family:helvetica;"><?php echo $GLOBALS["sitename"]; ?></span>
+                         <br />
+                         <span style="font-weight:bold;font-size:11px;font-family:helvetica;"><?php echo $GLOBALS["slogan"]; ?></span>
+                         <hr width="205px" size="1px" noshade="noshade" align="right" />
+                         <?php echo _AT_WELCOME." ".$username; ?>
+                    </div>
+               </td>
+
+               <td rowspan="3" colspan="3" width="39" height="171"><img alt="" name="MayItBe2a4" src="<?php echo $imagepath; ?>MayItBe2a_1x5a.gif" width="39" height="171" /></td>
+          </tr>
+
+          <tr>
+               <td rowspan="1" colspan="5" width="414" height="28"><img alt="" name="MayItBe2a5" src="<?php echo $imagepath; ?>MayItBe2a_2x1.gif" width="414" height="28" /></td>
+          </tr>
+
+          <tr>
+               <td rowspan="1" colspan="5" width="414" height="17"><img alt="" name="MayItBe2a6" src="<?php echo $imagepath; ?>MayItBe2a_3x1.gif" width="414" height="17" /></td>
+          </tr>
+
+          <tr>
+               <td rowspan="2" colspan="3" style="background-image:url(<?php echo $imagepath; ?>MayItBe2a_4x1.gif);background-repeat:no-repeat;background-color:#000000;" width="139" height="326" valign="top"><?php atBlockDisplay("l"); ?>
+               </td>
+
+               <td rowspan="1" colspan="1" width="17" height="20" valign="top" style="background-image:url(<?php echo $imagepath; ?>MayItBe2a_5x1a.gif);"><img alt="" name="MayItBe2a8" src="<?php echo $imagepath; ?>MayItBe2a_4x2.gif" width="17" height="20" /></td>
+
+               <td rowspan="2" colspan="4" style="background-image:url(<?php echo $imagepath; ?>MayItBe2a_4x3.gif);background-repeat:no-repeat;background-color:#000000;" width="100%" height="326" valign="top">
+                    <table cellpadding="2" cellspacing="2" width="100%">
+                         <tr>
+                              <td valign="top" width="100%">
+<div style="margin-right:4px;">                                   
+<?php atBlockDisplay("c"); ?>
+                                   <!-- [modules] -->
+
+                                   <table cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                             <td valign="top" width="50%"><?php atBlockDisplay("1"); ?>
+                                             </td>
+
+                                             <td valign="top" width="50%"><?php atBlockDisplay("2"); ?>
+                                             </td>
+                                        </tr>
+                                   </table></div>
+                              </td>
+
+                              <td valign="top" width="140"><?php echo "<form action=\"modules.php?name=Search\" method=\"post\"><input type=\"text\" name=\"query\" size=\"15\" />&nbsp;";$btn = "<input type=\"submit\" value=\"Search\" />\n";if (file_exists($imagepath."search.gif")) {   $btn = "<input type=\"image\" src=\"".$imagepath."search.gif\" value=\"Search\" />\n";}elseif (file_exists($imagepath."search.jpg")) {   $btn = "<input type=\"image\" src=\"".$imagepath."search.jpg\" value=\"Search\" />\n";}elseif (file_exists($imagepath."search.png")) {   $btn = "<input type=\"image\" src=\"".$imagepath."search.png\" value=\"Search\" />\n";}echo $btn;echo "</form>\n"; ?>
+                              <?php atBlockDisplay("r"); ?>
+                              </td>
+                         </tr>
+                    </table>
+               </td>
+
+               <td rowspan="2" colspan="1" style="background-image:url(<?php echo $imagepath; ?>MayItBe2a_4x4a.gif);" width="8" height="326"></td>
+          </tr>
+
+          <tr>
+               <td rowspan="1" colspan="1" width="17" valign="bottom" style="background-image:url(<?php echo $imagepath; ?>MayItBe2a_5x1a.gif);">&nbsp;</td>
+          </tr>
+
+          <tr>
+               <td rowspan="1" colspan="3" width="139" height="103"><img alt="" name="MayItBe2a12" src="<?php echo $imagepath; ?>MayItBe2a_6x1.gif" width="139" height="103" /></td>
+
+               <td rowspan="1" colspan="1" width="17" height="103" style="background-image:url(<?php echo $imagepath; ?>MayItBe2a_5x1a.gif;"><img alt="" name="MayItBe2a13" src="<?php echo $imagepath; ?>MayItBe2a_6x2.gif" width="17" height="103" /></td>
+
+               <td rowspan="1" colspan="3" style="background-image:url(<?php echo $imagepath; ?>MayItBe2a_6x3a.gif);" width="100%" height="103"></td>
+
+               <td rowspan="1" colspan="2" width="13" height="103"><img alt="" name="MayItBe2a15" src="<?php echo $imagepath; ?>MayItBe2a_6x4.gif" width="13" height="103" /></td>
+          </tr>
+
+          <tr>
+               <td rowspan="1" colspan="9" width="100%">
+                    <div style="width:100%;height:1px;background-color:#1e1e1e;"></div>
+                    <br />
+                    <br />
+
+                    <div style="text-align: center;">
+                         <?php echo footmsg(); ?>
+                    </div>
+               </td>
+          </tr>
+
+          <tr>
+               <td width="121" height="1"><img alt="" name="blank" src="<?php echo $imagepath; ?>blank.gif" width="121" height="1" /></td>
+
+               <td width="10" height="1"><img alt="" name="blank" src="<?php echo $imagepath; ?>blank.gif" width="10" height="1" /></td>
+
+               <td width="8" height="1"><img alt="" name="blank" src="<?php echo $imagepath; ?>blank.gif" width="8" height="1" /></td>
+
+               <td width="17" height="1"><img alt="" name="blank" src="<?php echo $imagepath; ?>blank.gif" width="17" height="1" /></td>
+
+               <td width="258" height="1"><img alt="" name="blank" src="<?php echo $imagepath; ?>blank.gif" width="258" height="1" /></td>
+
+               <td width="317" height="1"><img alt="" name="blank" src="<?php echo $imagepath; ?>blank.gif" width="317" height="1" /></td>
+
+               <td width="26" height="1"><img alt="" name="blank" src="<?php echo $imagepath; ?>blank.gif" width="26" height="1" /></td>
+
+               <td width="5" height="1"><img alt="" name="blank" src="<?php echo $imagepath; ?>blank.gif" width="5" height="1" /></td>
+
+               <td width="8" height="1"><img alt="" name="blank" src="<?php echo $imagepath; ?>blank.gif" width="8" height="1" /></td>
+          </tr>
+     </table>
+<!-- End Table -->

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<root>
+	<image img="themes/org_green/swf/data/images/01.jpg" link="http://www.google.com" title="PhpNuke.org"/>
+	<image img="themes/org_green/swf/data/images/02.jpg" link="http://www.gmail.com" title="New Versions PhpNuke"/>
+	<image img="themes/org_green/swf/data/images/03.jpg" link="http://www.yahoo.com" title="New Versions PhpNuke"/>
+	<image img="themes/org_green/swf/data/images/04.jpg" link="http://www.aol.com" title="New Versions PhpNuke"/>
+</root>

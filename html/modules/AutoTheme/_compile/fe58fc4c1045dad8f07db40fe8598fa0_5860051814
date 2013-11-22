@@ -1,0 +1,5 @@
+<div id="leftBlock">
+  <div class="title"><?php echo $block["title"]; ?></div>
+  <div class="l_content"><?php echo $block["content"]; ?></div>
+	<div class="footer"><!-- [block-footer] --></div>
+</div>

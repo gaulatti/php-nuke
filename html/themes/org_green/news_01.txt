@@ -1,0 +1,10 @@
+<img border="0" alt="PhpNuke" src="themes/org_green/images/img_01.gif" />
+                
+<p>New version of PHPnuke 9.0 will be available soon.</p>
+                
+<p>Your opinion is really important! Do not forget to give us your opinion about PHPnuke at our suggestions box.</p>
+
+<p> </p>
+
+<p><strong><a href="#">Click here to submit your opinion</a></strong></p>
+                

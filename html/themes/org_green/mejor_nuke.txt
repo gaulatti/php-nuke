@@ -1,0 +1,9 @@
+1- Que exista la posibilidad de que los titulos de mensajes puedan estar o no. 
+
+2- Editor Html del backend (tiny_mce), elimina etiquetas, y tiene fallas por ejemplo al cerrar una imagen (/>), lo cambia por (>), esto produce error en la validación. Tambien genera etiquetas vacias <p></p>.
+
+3- Funciones de bloques: cuando generamos un nuevo bloque o queremos editar uno existente, existen 4 posibilidades en cuanto a posición (Left, Center Up, Center Down, Right), necesitariamos que exista la posibilidad de que los bloques centrales Up y Down, puedan desprenderse del cuerpo principal de la pagina, y se los pueda editar desde el theme, como los bloques de la izquiera y derecha, en sintesis que se puedan manejar desde un html nuevo con nuevas clases desde la carperta theme.
+
+/*
+
+

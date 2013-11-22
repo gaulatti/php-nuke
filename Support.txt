@@ -1,0 +1,44 @@
+PHP-Nuke: Web Portal System
+===========================
+
+- How to support PHP-Nuke project?
+
+    I made this software free, and released it under GPL, so this software
+costs you exactly "nothing". All that I ask you is, if you use it "please"
+leave the copyright messages on the generated pages so others can know that
+you're using PHP-Nuke. This copyright notices are required and can't be removed
+or edited in any way. To know why you should leave the notices in place refer to
+the Section 2(c) of the GPL license. That's all I ask.
+    If for any reason you want to have my written authorization to remove all
+and any copyright notice shown on generated pages, go to the URL:
+
+    http://phpnuke.org/modules.php?name=Commercial_License
+
+    If you want to make a contribution you can just purchase the latest version
+before it goes public for free. With this you can have it before anyone else and
+costs only $10. You can purchase it from:
+
+    http://phpnuke.org/modules.php?name=Release
+
+    Another method to support PHP-Nuke's development is by signing up to PHP-Nuke
+Club. For US$ 100/year you will help me, and at the same time you'll receive
+special access to any PHP-Nuke development versions (Alphas, Betas and Release
+Candidates) not available to the public, you can download the final official
+releases before it goes released to the public, and some other cool stuff.
+    To access the Club and see what you can get, point your browser to:
+    
+    http://phpnuke.org/modules.php?name=Club
+
+    Finally, if you use PHP-Nuke in your site, please let me know and I'll put
+a link back to your site from mine in the PHP-Nuke page. For this please use the
+"Submit News" link on the main page. Ok?
+
+    Enjoy this software!
+    
+************************************
+* PHP-Nuke URL: http://phpnuke.org *
+************************************
+
+Enjoy!
+
+-- Francisco Burzi

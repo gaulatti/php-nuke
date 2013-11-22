@@ -1,0 +1,1425 @@
+PHP-Nuke: Advanced Content Management System
+============================================
+
+August 2007: Version 8.1
+========================
+- Settings administration module has been 100% re-writted and totaly changed and reorganized
+- Added feature to let administrators choice if users can change themes or not (Administration -> Settings -> Themes)
+- Added feature to select the display of the referers list in abridged or unabridged modes
+- Graphic Security Check configuration is now in Administration -> Preferences -> General section (removed from config.php)
+- WYSIWYG Editor configuration is now in Administration -> Preferences -> General section (removed from config.php)
+- Configuration of $display_errors to show PHP error messages is now in Administration -> Preferences -> General section (removed from config.php)
+- Fixed a bug on Topics module that didn't show the right content after click on "more" link and news category link (Thanks to Michael Judah fom http://ComPilots.com)
+- Fixed a bug in user edit function when admin try to change user's avatar (Thanks to l4wy3r)
+- Added variables filter check in banners administration (Thanks to Omid omid@hackers.ir)
+- Added variables filter check in modules administration (Thanks to Omid omid@hackers.ir)
+- Added variables filter check in Reviews module (Thanks to Omid omid@hackers.ir)
+- Added variables filter check in Web Links module (Thanks to Omid omid@hackers.ir)
+- Added AutoThemes module (free GPL edition) from http://www.spidean.com to install and control Auto Themes
+- Fixed potential SQL injection in referers system
+- Fixed user avatar image information when administrator creates a new user
+- Fixed little bugs and reorganized DelQuotes() function in mainfile.php (Thanks to Aurican)
+- Added some extra checks in mainfile.php needed by Forums (BBtoNuke) module (Thanks to chatserv from http://nukeresources.com)
+- Fixed some minor security issues in mainfile.php (Thanks to chatserv from http://nukeresources.com)
+- Fixed lot of minor bugs in several modules (Thanks to chatserv from http://nukeresources.com)
+- Added BBtoNuke version 2.0.21 (Thanks to chatserv from http://nukeresources.com)
+- Fixed the anti-flood function to prevent the "too many page loads" error in the Forums administration and
+  to prevent also some search engine to index the error message.
+
+
+September 2006: Version 8.0
+===========================
+- Several cosmetic changes has been made in the News administration
+- Added a Publish Now function for all Scheduled News listed in the main administration area
+- Banners list in Advertising administration module now are ordered by position and banner name
+- Advertising clients list is now ordered by client name in Advertising module's administration
+- Forums, Members List and Private Messages modules are now not so dependent from core system. Many files has
+  been moved from /includes/ folder to /modules/Forums/includes/
+- Added new BBtoNuke (phpBB Forums port) version 2.20
+- Removed useless and not working search engine links from Downloads and Web Links modules search result pages
+- Added a new function in mainfile called info_box() which creates a nice message box with a related graphic.
+  Values for the graphic (located in /images/system folder) are: warning, caution, tip and note
+- Cosmetic changes to Surveys module. Last 5 polls block now goes under the current results block
+- Minor cosmetic changes to Feedback module
+- Minor cosmetic changes to Add New Download form display in Downloads module
+- Minor cosmetic changes to IP Ban system list display
+- Several cosmetic changes in Submit News module
+- Added duplicate title and story text check in news submissions
+- Added a new DoS/Flood attack protection that prevents multiple pages views in few seconds
+- Cosmetic changes to Downloads module administration.
+- Changed the display list method of new submitted files in Downloads module administration by a single selection
+  with the title and a separated validation page for each new file has been added
+- Added installation system in /install/ folder. (Based on Joomla Web Installer)
+- Fixed a bug in the client login function in Advertising module (Thanks to keg01)
+- Increased Advertising client cookie life from 1 hour to 24 hours
+- Minor optimizations in HTTP Referers system display
+- Fixed a bad use of define(INSIDE_MOD) in the mainfile.php that made useless this feature
+- Added a new redirection system to be used by admin to not reveal as referer the admin filename
+  when clicking on a link
+
+
+September 2005: Version 7.9
+===========================
+- Removed ENGINE=MyISAM fromk the nuke.sql file to prevent MySQL errors in old server versions.
+- SQL injection vulnerability fixed in modules.php and News module (Thanks to Zhen-Xjell from http://CastleCops.com)
+- Cosmetic changes in the Edit Authors administrators section. Added graphical buttons and table field descriptions
+- Updated BBtoNuke (phpBB forums port) to version 2.0.17 (Thanks to Chatserv from http://nukeresources.com)
+- Added new feature to edit banned IPs in the IP Ban administration system
+- Fixed Administrators nicknames case bug. Admins IDs willbe converted all to lowercase. (Thanks to OuTiMe)
+- Fixed a duplicated points information display in Your Account module
+- Search module now has a minimum limit of 3 characters in the query
+- Removed Sections Top 10 data from the Top module
+- Added missing translation in Stories Archives module
+- Added empty fields check in Feedback and Recommend Us modules.
+- News associated topics checkboxes has been changed for multiselect listbox in the news administration.
+- Removed download and web links title passed as a variable via URL call, which gives problems rendering pages
+- Added a new variables check all over the system. This will increase security in a big manner. The filter
+  will also work good with the wysiwyg editor. Also, the entire system now can use quotes and double quotes
+  when needed.
+- Added quotes and double quotes in the search module query
+- The constant <!--pagebreak--> has been renamed to [--pagebreak--] in Content, Encyclopedia and Reviews
+  modules due to compatibility issues with the new filters.
+- Fixed Encyclopedia search engine to be able to search text with quotes and double quotes
+- Fixed a bug for the quotes and double quotes in the title/subject fields in all forms of the system
+- Removed advanced wysiwyg editor to reduce load and avoid possible security risks with many useless options
+- Added a new varibale to config.php to activate or deactivate the wysiwyg editor
+- Added two missing translation definitions to the advertising administration in plans configuration
+- Fixed a bug for the advertising call method in the default theme
+- Fixed some bugs in the advertising administration system
+- Fixed the database connection error message to show the right database server type you're using. (Thanks to nightblade06)
+- Fixed a bug on modules.php for the Users Groups system to load the module only if the user has access. 
+- Fixed some translation bugs in Brazilian languages files (Thanks to DarK_SouL).
+
+
+June 2005: Version 7.8
+======================
+- Improved the banners administration system. Now you can set Ads positions, assig banners to a specific position,
+  use Javascript and HTML code banners, use Flash (.swf) banners, now you must specify width and height of your
+  Flash and Images advertising. To use the new ads system you should use the following code:
+  $ads = ads(1);
+  echo "$ads";
+  Change the number "1" for the position you want to use in that particular space. By default, the new advertising
+  system uses position 0 and 1. Position 0 is called "Page Top" to include ads in the header and great
+  for Top of the page ads like the standards 468x60. Position 1 by default is called "Left Block" and is used from
+  the block file blocks-Advertising.php
+  With this system you can use Google's AdSense, Fastclick, TribalFusion, DoubleClick, etc... etc... in the way
+  you want. Text Links ads are also supported. Just know that Javascripts/HTML code and Flash banners can count
+  the impressions but not the clicks.
+- IMPORTANT: Removed the file banners.php and replaced with two functions included in mainfile.php
+  Please update your themes and/or modules that makes use of banners.php to start using the new ads system.
+- Removed banners configuration from preferences in the administration area. Banners value will always be 1 (active)
+  and they will show if exists, otherwise the system will just ignore the ads functions. Banners field in the
+  nuke_config table remains present for compatibility with old themes that uses it.
+- Upgraded phpBB forums port to version 0.15 (Thanks to chatserv from http://nukeresources.com)
+- Updated all files of Private Messages and Members List modules with the latest fixes (Thanks to chatserv from http://nukeresources.com)
+- Removed the javascript code check if you're in the administration area. Admins should be able to use scripts
+  code on their sites without any restrictions.
+- Moved PHP error control report from mainfile.php to config.php (Default is 0 for no error display)
+- Removed all @ to the require and include functions to let the error control works as it should
+- Fixed a missing $admin_file global varibale declaration in blocks administration
+- All blocks in the admin panel can now be previewed (active or not)
+- Added a new define('NO_EDITOR') method to remove the wysiwyg editor if you don't want it on a specific area
+  use it as:
+  define('NO_EDITOR', 1);
+  just before including the header.php. On this way the wysiwyg editor will not load on that page
+- Function makePass() has been moved from Your_Account module to mainfile.php because it's of common use
+- Removed the wysiwyg editor for the Forums module when you're admin. Both posting system doesn't like each other.
+- Added Estonian Translation (Thanks to Maku from http://www.phpnuke.ee)
+- News and surveys functions/data in the administration panel home are now invisible if the modules are inactive
+- The included robots.txt has been fixed and it's now 100% validated to work properly
+- Fixed parse errors for Portuguese language pack in Web Links and Journal modules
+- Fixed all username fields length (Thanks to chatserv from http://nukeresources.com)
+- Fixed a parsing error bug in Danish administration translation
+
+
+April 2005: Version 7.7
+=======================
+- Added Users Karma System. This system lets you edit the karma of any user and restrict content publication to
+  anyone that's annoying you and your visitors. There are 4 Karma values, as follow:
+  0: Good Karma (Default value for all users)
+  1: Regular Karma (Marked with a red flag, user activity isn't restricted but you need to pay atention)
+  2: Bad Karma (Marked with a warning icon. All comments of this user are moderated from the admin panel, these
+     users are notified that their comments are moderated)
+  3: Devil Karma (Very bad/evil user. All comments from this user are ignored, never published, without any notice)
+  Additionaly Users marked with Bad and DEvil Karma can't post comments in Downloads nor Web Links modules.
+  Moderation of bad Karma users comments are done using a new administration module called: Moderation.
+  It's in your hands and discretion to use or not this system. Karma system will help to have a little more
+  control over abusers.
+- Reviews module comments for anonymous users is now subject to the general preferences of the system.
+- IP Ban system has been modified to use * wildcard in the last digits of any IP address. Know that if you ban
+  an IP using a wildcard as the last digit you're banning a complete Class C network (255 IP addresses). Be
+  careful using it and do as an extreme measure.
+- Journal module textarea fields size increased to fit the new WYSIWYG editor layout
+- Comments moderation system now works at 100% in both News and Surveys modules
+- Comments moderation form submit button replaced with a block with information on how to moderate and a text
+  button instead. This is for both News and Surveys modules.
+- Send to Friend function in the News detail pages are now only for registered users and user name and email
+  options can't be changed. This to increase site's security and to minimize possible mailbomb attacks.
+- Fixed some variables validation in Downloads and Web Links modules
+- Fixed XSS vulnerability in banners.php
+- Fixed a bad SQL call variable name in banners.php
+- Fixed SQL injection vulnerability in Top modules
+- Fixed several XSS vulnerabilities in Downloads and Web Links modules
+- Fixed a Http Response Splitting Vulnerability in Surveys module. (Thanks to dcrab from http://digitalparadox.org)
+- Fixed some minor HTML issues in Topics, Feedback and Submit News modules.
+- Fixed an include bug in News and Surveys comments system (Thanks to anoopjohn from http://www.myindiagov.com)
+- Simplified the module AvantGo. File print.php has been integrated into index.php
+- Enhanced the backend.php output by adding <description> field to the generated RSS feed.
+- Added new database support for SQLite, which is a database server included with PHP5. (Thanks goes to phpBB team)
+- Added new constant (MODULE_FILE) to modules.php to define a module instead to check if the module has been loaded
+  by module.php. Old method still compatible but encouraged to use the new one. For examples see the first lines
+  of any included module. (Thanks to Chatserv from http://www.nukeresources.com)
+- Added a great WYSIWYG text editor to ALL PHP-Nuke's textarea fields. Compatible with Mozilla, MSIE and FireFox.
+  For this was used the great tinyMCE made by MoxieCode Systems AB (http://tinymce.moxiecode.com). TinyMCE is free
+  software released under the LGPL. All credits are untouched on the files (/includes/tinymce/).
+  You don't need to do anything if you want your module to use the editor, it automaticaly replaces all and any
+  <textarea> tags all over the place with the wysiwyg editor. This is what I call "easy of integration". Better
+  configuration, implementation and cosmetic changes will come in future releases.
+- Added graphic icons to all administration functions (edit, delete, activate, deactivate, add, show, etc).
+- Fixed a bug in headlines function in Your Account module
+- Added missing counter when you click on a topic icon to display specific news.
+- Added graphic security code to the article's rating system to avoid voting/rating flood attacks
+- Added last IP address check to article's rating system for extra security to avoid flood attacks
+- Article's rating cookie life time extended from 1 hour to 1 day
+- Added graphic security code to the Recommend Us form to avoid email robots attacks
+- Security code image background is now theme sensitive. Located at /themes/Your_Theme/images/ folder with the
+  filenames code_bg.jpg and code_bg_little.jpg for login screens and article's rating respectively.
+- Fixed a duplicated header file include's call in Topics module that gives an error when non topics are found
+- Updated the full spanish language translation (Thanks to Eduardo Shelley)
+- Added BBtoNuke Forums version 2.0.14 with several fixes (Thanks to Chatserv from http://www.nukeresources.com)
+- Added a new feature to blocks administration to add more days to the current expiration date
+- Fixed SQL injection vulnerability in Encyclopedia module
+- Fixed SQL injection vulnerability in FAQ module
+- Fixed SQL injection vulnerability in Search module
+- Fixed a bug in admin logout function cookie removal (Thanks to Loris)
+- All credits headers in the source has been remade the way they should be. Non big changes to the code will
+  have their credits on this file or in the piece of code changed instead of main header. I had files sent by
+  users that for even a single character it carries a copyright note. If a file was "based" on others work or if
+  the file has considerable changes or a partial rewrite it will have the credits on the header, otherwise the
+  credits should go embeded on the modified code or in this file. This is to have a little more order. Source
+  headers were out of control until now.
+- All .php files has been indented to make the source code more human readable.
+- Increased topicimage field length in nuke_topics table from 20 to 100 (Thanks to mtougeron for the suggestion)
+- Changed/Fixed administration bug on Forums module that checked for SCRIPT_NAME instead of PHP_SELF which gives problems in certain conditions
+- Added a check in the Downloads and Web Links modules to stop floods attacks (Thanks to flooders :P)
+- Fixed a bug in 7.3 to 7.4 upgrade file (Thanks to Marcus Maciel <marcus@underlinux.com.br>)
+- All themes logo graphics changed to match the new design, same for the powered buttons.
+
+
+November 2004: Version 7.6
+==========================
+- According with the email number 213080 to Dave Turner (GPL Compliance Engineer) from the Free Software Foundation,
+  the copyright notices of PHP-Nuke has been changed in order to be 100% compliant with the GPL license section 2(c).
+  This copyright notices can't be removed and the Commercial License becomes 100% compliant with the GPL license.
+  Hope this is the end of the story for the people that doesn't understand a bit of the GPL. Again, if you want to
+  legaly remove the copyright notices from PHP-Nuke generated pages you must purchase the Commercial License, see
+  http://phpnuke.org/modules.php?name=Commercial_License for more details and stop complaining about this issue, the
+  Commercial License is legal, GPL compliant and approved by the Free Software Foundation. End of story.
+- Fixed administrator edit function that didn't show the authorized modules to administer. (Thanks to jaggura from http://www.whereiroost.com)
+- Added FireFox (http://firefox.com) browser support for site's counter that will show in Statistics module.
+- Added RSS feed support for FireFox browser's Live Bookmarks.
+- By popular demand and to avoid some administration system non-authorized entries attempts, now you can just rename
+  the file admin.php to whatever_you_want.php and set the name in config.php file. Doing this nobody knows what's
+  your administration filename. Additionaly a new method of URL redirection has been added to hide the referer when
+  you click on a link inside administration system. If you have old administration modules not compatible with this
+  new system you'll get "Access Denied" message. If this is the case, leave the admin.php file with its original name
+  while you modify the modules or get a new compatible version of it.
+- Added a new folder called /includes/custom_files where, if exists the files custom_mainfile.php, custom_header.php and
+  custom_footer.php they will be included from mainfile.php, header.php and/or footer.php respectively. Also the
+  file /includes/my_header.php has been removed and added the new /includes/custom_files/custom_head.php for anything
+  that should be between <head> and </head> html tags in the code. With this feature will be more easy to update
+  a site without lost your custom changes. These files will not be shipped with PHP-Nuke to avoid possible overwritting
+  when updating the code. (Thanks to André V. Escudero for the tip)
+- Moved Forums administration to the module's folder (Thanks to Chatserv from http://www.nukeresources.com)
+- Added an extra check to administrators/authors adition functions to grant access to the superuser only (Thanks to Chatserv from http://www.nukeresources.com)
+- Fixed a search results bug in Forums module (Thanks to Chatserv from http://www.nukeresources.com)
+- Fixed a bug in the 7.3 to 7.4 upgrade file for Sections module migration (Thanks to Chatserv from http://www.nukeresources.com)
+- Changed the password generator in Your Account module. System generated passwords now are 3 letters, 2 numbers and 3 letters.
+- Fixed update_points() function call to clickbanner() function on banners.php
+- Changed anonymous permissions for broken link report and modification requests in Downloads and Web Links modules.
+
+
+September 2004: Version 7.5
+===========================
+- Fixed a language inclusion bug in Forums module (Thanks to Carlos Maldonado from http://www.cultodigital.net)
+- Removed auth.php and all its functions added to admin.php (Thanks to Chatserv from http://www.nukeresources.com)
+  You can safely delete auth.php after update to this version.
+- Fixed lot of little possible security issues by cheking each variable value on all over the system (Thanks to Chatserv from http://www.nukeresources.com)
+  More than 300 variables now has some kind of filtering to avoid possible XSS injection exploits.
+- Added extra checks for users and administrators cookies
+- Fixed Subscribers users only modules display (Thanks to studylexis)
+- New improved Administration system, more modular. Now each module in /modules have an "admin" folder with all
+  the administration functions on it. Now PHP-Nuke modules are exactly that: 100% modules
+- Administration section is now splitted into two parts, one for System functions and the other one for modules.
+- New administrators system which lets you select who can administer each module
+- Each modules now shows an administration panel, if available, from where you can add/edit/delete content
+  according to the module selected. The file of the panel should be /modules/Your_Module/admin/panel.php (see the
+  Content module for a quick example)
+- Fixed counter increment when deleting an administrator and reasign his/her stories to a new author
+- Fixed a bug when sending a private message to a specified user from Your Account module
+- Added missing $articlecomm global variable declaration on Your Account to display last 10 comments by user
+- Fixed an incomplete insert query in Surveys administration module. (Thanks to Chatserv from http://www.nukeresources.com)
+- Added a missing semi-colon in the stories administration module
+- Fixed lot of little bugs on Search, Statistics, Your Account and Web Links modules (Thanks to Chatserv from http://www.nukeresources.com)
+- Fixed new user creation in the administration to avoid duplicate usernames
+- Fixed some cosmetic error in WebLinks module
+- Fixed table display color in Review module
+- Some little cosmetic changes in Encyclopedia module
+- Changed the page generation time to show two decimal values only instead of three
+
+
+July 2004: Version 7.4
+======================
+- Ephemerids module/block has been removed from the main distribution but it's still available at the Club (http://phpnuke.org/modules.php?name=Club)
+- Sections Module has been removed, from the update all its content will be moved to Content Module
+- Updated phpBB Forums port to version 2.10 (Thanks to Chatserv from http://www.nukeresources.com)
+- Cosmetic changes to comments navigation bar on News
+- Simplified the comments navigation bar on Surveys (Now it's same as News comments bar)
+- Some cosmetic changes in banners administration system
+- Active and inactive banners are now in separe tables in banners administration
+- Advertising customers list is now alphabeticaly ordered in Banners administration
+- News submissions now displays more information like username of the news submitter
+- Little cosmetic changes on News submissions administration list
+- Fixed lot of bugs on banners.php file that caused ads clients login error
+- Added IP based ban system fully configurable from the administration panel
+- Added user's last IP address log to work with the ban system
+- Fixed a bug in banners administration that always displays 0 on inactive banners list
+- Fixed blocks move down function bug in administration (Thanks to codanger)
+- Added score value range verification on Reviews module
+- Fixed a bug in the Your Account module when cheking user data against user cookie (Thanks to Chatserv from http://www.nukeresources.com)
+- Added numerical checks for lot of numerical variables (Thanks to Chatserv from http://www.nukeresources.com)
+- Fixed lot of potential security holes in administration panel (Thanks to Chatserv from http://www.nukeresources.com)
+- Fixed "yet another time" the stars graphics on the article's rating block
+- Fixed "yet another time" the delete function for all submissions, broken after a security fix
+
+
+May 2004: Version 7.3
+=====================
+- Added an extra check in autonews function to avoid duplicated automated news when you have high traffic site
+- Fixed points update when click on a banner and not when print it on banners.php (Thanks to MrFluffy)
+- Fixed bad HTML tag in Downloads and Web Links modules (Thanks to Chatserv from http://www.nukeresources.com)
+- Added Union Tap (Thanks goes to Zhen-Xjell from http://nukecops.com)
+- Updated Russian language translation (Thanks to Alexander Burchak <alexburchak@ua.fm>)
+- Fixed a link error on Indonesian language translation in News module (Thanks to AnonyPuss)
+- Added 7.2 patched files made by Chatserv with many security fixes (http://www.nukeresources.com)
+- Added phpBB forums port version 2.0.8 (Thanks to ChatServ from http://www.nukeresources.com)
+- Fixed last 5 surveys block to show 5 results and not 6 (Thanks to cos)
+- Fixed a security vulnerability in admin.php to prevent malicious img tags to insert data on the database (Thanks goes to Zhen-Xjell from http://nukecops.com for the first quick fix and to Chatserv from http://www.nukeresources.com for the final patch)
+- Added missing $articlecomm in global variables declaration in Stories Archive module
+- Fixed Action images width in Stories Archive module
+
+
+March 2004: Version 7.2
+=======================
+- Updated Forums, Private Messages and Members List modules from version .0.6 to version .0.7 (Thanks to ChatServ from http://www.nukeresources.com)
+- Fixed all FAQ tables queries. Changed queries from faqCategories to faqcategories due to problems in some systems (Thanks to CenturyPerf)
+- Fixed all FAQ tables queries. Changed queries from faqAnswer to faqanswer due to problems in some systems (Thanks to CenturyPerf)
+- Private Messages texts lenght reduced to fit many 800 pixels themes
+- Fixed admin only subscription's text position in Your Account module
+- Fixed a security hole in Search module (Thanks to ChatServ from http://www.nukeresources.com)
+- Removed comments options configuration in the comments navbar from News and Survey modules
+- Increased the session lenght from 1800 to 3600 seconds
+- Added Your Account hack to change the avatars
+- All PHP-Nuke's code is now 100% operative with the new SQL abstraction layer
+- More descriptive error messages added
+- Removed Amazon's block and Amazon's products images (the block is still available in the PHP-Nuke's Club)
+- Removed WebMail module due to many security bugs (the module is still available in the PHP-Nuke's Club)
+- Removed Addon_Sample, now it's useless
+- Removed Printer Friendly Page and Send to a Friend links from News and Categories index
+- By several requests removed the PHP-Nuke version number from Statistics module and from Meta Tags
+- Included the Disallow rule for Mediapartners-Google in robots.txt to be used with Google AdSense
+
+
+January 2004: Version 7.1
+=========================
+- Added Subscription system. With this new feature you can now manage subscriptions to your site. Mainly
+  designed so webmasters can have subscribed users who pay to be able to remove advertising and/or access
+  to subscribers only modules. The subscription system lets you set any block of the site to be invisible
+  for subscribed users, any module can be configured to grant access to subscribed users only and the
+  banners system will not show any advertising if the user is subscribed. A new function called paid() will
+  check if the user is subscriber or not. If you want to make some part of the code available for subscriber
+  users only, you must use the following piece of code:
+
+  if (paid()) {
+     echo "You're a subscribed user...";
+  }
+
+  you can also check if a user isn't a subscriber using the code:
+
+  if (!paid()) {
+     echo "You're NOT a subscribed user...";
+  }
+
+  So, with this you can play a little. But to configure a module for subscribed users only, just use the
+  modules administration option as usual, see the new option in the "Who can view this" selection box.
+  Messages system also can be used on the same way. To subscribe a user, he/she must be registered on the
+  site, then as administrator go and edit the user's account. You'll notice the new options to
+  subscribe/unsubscribe anyone you want in periods from 1 year to 10 years. The system is created to manage
+  anual subscriptions only, but I think it's as it must be. Also, in Your_Account module, in the main
+  window the user will always know how many time remains in his/her subscription. Remember to edit the
+  config.php file and set $subscription_url variable with the subscription information page on your site.
+  Enjoy and make some money with your site! :) Hope you like it.
+- Added Subscribed users block with remaining time
+- Fixed lot of minor bugs on Downloads administration module (Thanks to ChatServ from http://www.nukeresources.com)
+- Fixed lot of minor bugs on Web Links administration module (Thanks to ChatServ from http://www.nukeresources.com)
+- Fixed a minor bug on Encyclopedia administration module (Thanks to ChatServ from http://www.nukeresources.com)
+- Fixed lot of minor bugs on Downloads module (Thanks to ChatServ from http://www.nukeresources.com)
+- Fixed lot of minor bugs on Web Links module (Thanks to ChatServ from http://www.nukeresources.com)
+- Fixed a bug in search function of Encyclopedia module (Thanks to ChatServ from http://www.nukeresources.com)
+- Fixed few bugs in Forums and User Info blocks (Thanks to ChatServ from http://www.nukeresources.com)
+- Fixed bad variable call on News send to a friend functions (Thanks to ChatServ from http://www.nukeresources.com)
+- Added missing $articlecomm global declaration in navigation bar of Your Account module (Thanks to ChatServ from http://www.nukeresources.com)
+- Fixed save function when editing a client in banners administration
+- Fixed language selection bug in Forums administration
+- Removed index link in the AvantGo module's logo (Thanks goes to Michael aka MicTronic)
+
+
+December 2003: Version 7.0
+==========================
+- Fixed a bug in the banners system that didn't count the impressions and clicks
+- Fixed an SQL injection security hole in Surveys module
+- Fixed an SQL injection security hole in Reviews module
+- Fixed an SQL injection security hole in search function of Forums module
+- Documentation directory moved outside system's directory
+- Now any block can expire in a given period of days
+- Changed rc4 crypt class due to license problem. Replaced with a GPL'ed class sent by the author
+- Fixed the comments characters from nuke.sql file to be phpMyAdmin compatible
+- Fixed some bad variable references on the modules/blocks documentation
+- Removed the useless TODO text file from the distribution
+- Added lot of missing language constants on Your Account module translation files
+- Fixed turkish language translation
+- Fixed brazilian language translation
+- Fixed several SQL injection hole (Thanks to Chatserv from http://NukeCops.com)
+- Fixed some german language translation files
+- Fixed a security hole (XSS bug) in Downloads Module (Thanks to Chatserv from http://NukeCops.com)
+- Fixed a security hole (XSS bug) in WebLinks Module (Thanks to Chatserv from http://NukeCops.com)
+- Fixed a security hole in administration (admin.php file) - (Thanks goes to Zhen-Xjell from http://nukecops.com)
+- Fixed a header bug in AvantGo module
+- Replaced all chinese language files with proper translation
+- Fixed a security bug in the Survey module and block (Thanks goes to Zhen-Xjell from http://nukecops.com)
+- Fixed a XSS Javascript security vulnerability on mainfile.php (Thanks goes to Zhen-Xjell from http://nukecops.com)
+- Deleted img tag from GET variables verification on mainfile.php
+- Added a very nice points system to the whole code
+  Done by using the new function update_points($i) where $i has one of the following values:
+    1 = Journal Entry
+    2 = Journal Comments
+    3 = Recommend Us Entry
+    4 = Published News Submission
+    5 = Each News Comment
+    6 = News sent to a friend
+    7 = Articles rate
+    8 = Vote in a Survey
+    9 = Comment in a Survey
+    10 = Forum new thread post
+    11 = Forum reply to a post
+    12 = Reviews Comment
+    13 = Each Page View
+    14 = Visit to a WebLink
+    15 = Rate a WebLink
+    16 = Comment a WebLink
+    17 = Download a file
+    18 = Rate any file
+    19 = Comment to a file
+    20 = Broadcast Message
+    21 = Click on a Banner
+- Added points based Users Groups (see administration section)
+- Fixed a bug in the user prefix in stories administration module
+
+August 2003: Version 6.9
+========================
+- By high number of request added the feature to turn off and on the security code's check on login forms
+  for more details on how to configure it, just check out the config.php file. Default is to use this
+  feature everywhere.
+- Fixed poll edit function to let you change the language in administration
+- Now you can have theme specific graphic for WebLinks module title. To use it just add a file
+  called: /themes/Your_Theme/images/link-logo.gif (Your_Theme = your theme's name :P)
+- Now you can have theme specific graphic for Downloads module title. To use it just add a file
+  called: /themes/Your_Theme/images/down-logo.gif (Your_Theme = your theme's name :P)
+- Fixed some bugs in languages files (main translation and a few modules's translation files)
+- Added a missing translation in Web Links administration module
+- Added missing $dbi in sql query in the file contactbook.php (WebMail Module)
+- Fixed a bug in Norwegian translation in Web Links Module
+- Some other minor cleanups and fixes
+- XDMP client removed due to news service shutdown
+
+July 2003: Version 6.8
+======================
+- Created and added XDMP client at /modules/News/xdmp.php This is a new system that lets you fill your site
+  with news without any human intervention! (See http://xdmp.com for more details)
+- Few minor fixes in Your Account module
+- Fixed bad userinfo call in Your Account
+- Added missing avatars default blank image
+- Added Forums block
+- Replaced [sid] with ['sid'] everywhere for security reasons
+- Added missing global variable in stories administration
+- Fixed bad field value in the settings form
+- Fixed bad translation constant name in newsletter administration module
+- Fixed a bug in the ultramode function in mainfile.php
+- Fixed bad database query variable call in Your Account module
+- Fixed a bad link in Stories Archives module
+- Apllied all the fixes available for Forums module from NukeCops
+- Apllied all the fixes available for Private Messages module from NukeCops
+- Apllied all the fixes available for Journal module from NukeCops
+
+June 2003: Version 6.7
+======================
+- Reorganization on upgrade folder
+- Changed banners administration icon due to copyright issue with AppleScript
+- Added lot of fixes to Forums and Private Messages modules from the Nuke 6.5 Fixes Pack 3 (Thanks to Chatserv from http://NukeCops.com)
+- Fixed bad reference to an unexistent field name in Journal module (Thanks to Chatserv from http://NukeCops.com)
+- Fixed Avatar path on Your Account module (Thanks to Chatserv from http://NukeCops.com)
+- Fixed a missing ? in lang-catala.php (Thanks to Chatserv from http://NukeCops.com)
+- Added "docs" folder with the PHP-Nuke HOWTO, a very complete manual. Thanks to Claudio Erba from http://spaghettibrain.com
+  for updated version you can check http://spaghettibrain.com or http://tldp.org/HOWTO/PHP-Nuke-HOWTO/index.html
+  I'll try to update it on each version of PHP-Nuke.
+- Fixed lot of bad references when article's comments are off, everywhere.
+
+May 2003: Version 6.6
+=====================
+- Added Associated Topics in News system (admin and user side)
+- Fixed a XSS vulnerability present on mainfile.php for POST variables
+- Fixed security bug in Your Account user's Information
+- Fixed missing site name variable after rating a resource on Web Links module
+- Fixed missing site name variable after rating a resource on Downloads module
+- Fixed a bug on userinfo function in Your Account module
+- Path disclosure bug fixed on Your Account module (Thanks to WB-Vortex from http://www.winbeta.org)
+- Path disclosure bug fixed on News module (Thanks to WB-Vortex from http://www.winbeta.org)
+- Path disclosure bug fixed on WebMail module (Thanks to WB-Vortex from http://www.winbeta.org)
+- Path disclosure bug fixed on Downloads module (Thanks to WB-Vortex from http://www.winbeta.org)
+- Path disclosure bug fixed on Web Links module (Thanks to WB-Vortex from http://www.winbeta.org)
+- Added Security graphic check in the user's login block
+- Fixed custom name module creation when a new module is added and has underscore character
+- Fixed default language bug when creating a new user
+
+March 2003: Version 6.5
+=======================
+- Fixed a security bug in mainfile.php when using Windows systems and Multilanguage option
+- Fixed a SQL injection bug in index.php while getting http referer (Thanks to NukeCops.com guys)
+- Added User Profile link in news submission
+- Fixed SQL injection hole in Search module
+- Added more security checks for GET variables
+- Added security checks for POST variables
+- Added table format to single comment display when bigger than 4096 bytes in News module
+- Rewritten Topics module. Now it's very functional and useful with a lot of News info
+- Fixed a bug in who's online information. If an user logs in it will delete his/her record as a guest
+- By popular request changed the user creation system. Let new users to select their password and should click on
+  a custom link to activate their account in less than 24 hours. This will avoid any kind of robots and/or people
+  registering other people.
+- Added Users & Administration login graphic security check (to stop any robots and cracks programs)
+- Fixed some bugs in FAQ administration. Quotes problem when edit a Category and missing language "all"
+- Changed all PHP predefined Server variables to $_SERVER[]. PHP-Nuke now requires PHP 4.1.0 or better
+- Fixed users Homepage URL display in comments (News and Surveys Modules)
+- Fixed typo in english translation of Recommend Us module
+- Fixed double slash in Topics module
+- Changed all user.php call with its correct module's name
+- Fixed a bug in automated news which didn't correctly saved the news submitter data
+- Downloads and Web Links broken links now can reported only for registered users
+- Added Subject text in Email User link in Submissions administration
+- Doesn't show anymore the User and/or Admin content after logout
+- Fixed many unclosed quotes in queries of Surveys module
+- Fixed a serious security hole in mailattach.php file from WebMail module
+- Some "nuke_users" table fields renamed. This is a very important change to have full compatibility with
+  phpBB 2.x Forums modules. Original name => Renamed fields are:
+    uid          => user_id
+    uname        => username
+    email        => user_email
+    url          => user_website
+    user_intrest => user_interests
+    pass         => user_password
+- Added extra features to Feedback module
+- Comments has been reformated and closed inside tables for a better look
+- Stars order inverted in article's rating block
+- Added missing username in the user info link in comments of Journals module
+- Deleted some miserable entries from Headlines database. Slashdot because they never publish anything
+  about PHP-Nuke and Linux.com because they never gave me a reply right when I asked for it after a very
+  bad article about me and my project. So, eat this.
+- Fixed XSS injection security holes in Search functions of some modules
+- Articles rating score check added
+- Added some WebMail module's and mail functions security fixes by Ulf Harnhammar (I'm watching)
+- Automatic installation removed due to high conflicts with the new SQL layer (Yes, it's a shame)
+- Included phpBB 2 port (Thanks to a great work of Tom Nitzschner from http://www.toms-home.com).
+- Added Forums block (phpBB)
+- Added new feature that let you have a different phpBB forum's theme for each PHP-Nuke's theme. See DeeBlue
+  theme directory. If forums directory doesn't exists into the theme's folder the system will load the
+  forums default theme.
+- Included Private Messages from phpBB 2 (Thanks to a great work of Tom Nitzschner from http://www.toms-home.com).
+- Changed Members List (Thanks to a great work of Tom Nitzschner from http://www.toms-home.com).
+- Changed the SQL Abstraction Layer. Old Layer is not discontinued but there for compatibility with old modules.
+  The new layer is the same used by phpBB 2.x port and you can read about it on ADDON-MODULES text file.
+- All modules and blocks migrated to the new SQL abstraction layer
+- Footer text centered on Kaput and Taditional themes.
+- Fixed parse error on Slash Theme.
+- Fixed Center Down block display when including a file.
+- Fixed Center Down block creation on administration system.
+- Changed the user.php link in DeepBlue Theme for its correct module's call.
+
+September 2002: Version 6.0
+===========================
+- Almost all config.php variables are now stored in the database. Also added a new Settings section in
+  Administration menu. No more config.php editting and hope no more quotes problems. To upgrade PLEASE
+  do the upgrade process and THEN REPLACE the config.php with the included one since it's new. Remember
+  to configure by hand your database server preferences on that new file!
+- Added Vietnamese translation (Thanks to http://www.ybvsa.com)
+- Fixed months display bug in Statistics between september and october.
+- Fixed regular expresion for Topics images list in administration menu (Topics Manager)
+- Added default value of '0' in the $nr variable of sql_layer.php functions.
+- Fixed almost all prefixes calls to users database in Private Messages and Splatt Forums
+- Added missing _CONTRIBUTEDBY in all languages files.
+- Added New Private Message(s) popup info window. Off by default. (Thanks to Jeff Wagner aka Nuitari)
+- Added domain name after all web/ftp links in comments, as a visual reference for readers.
+- Added automatic related links in the article's right block. Will get any link from the article's text.
+- Simplified some links in almost all modules adopted from the old system. Using $module_name now.
+- Added missing cookies options in the url after vote for an article.
+- Changed default Downloads and Web Links logo graphics.
+- Added a new configuration option in Downloads config file to have on/off the links numbers for each category.
+- Reduced users cookie live time to 1 month.
+- Fixed non-existent subcategories queries in Downloads and WebLinks administration.
+- Added Search Discusion option in the comments nav bar inside article's page.
+- Added a new feature that sends an email when a banner finnish its impressions.
+- Discontinued the variable $banners. Still be present in config.php for compatibility reasons. Banners will
+  display if there is at least one active.
+- Added Alternate Text for banners.
+- Banners administration link is now with the others links and removed from the top of the table.
+- Changed all administration menu graphics, now are also theme sensitive and activated by default.
+- Added missing spanish translations in Downloads module.
+- By popular demand added as DeepBlue theme as default (used at phpnuke.org web site)
+- Added a nice feature to let you have custom modules by theme. This means that you can have a totaly 100%
+  different modules for each theme. How? Just create a "modules" directory inside a theme's directory and copy
+  your new modules there. For example: If you want the theme NukeNews to have its own custom News module,
+  you need to have a directory "/themes/NukeNews/modules/News" and the News replace on it. The system will
+  automaticaly detect and load it instead of the default "/modules/News". Remember to fix all your path in the
+  module files. See Sand_Journey theme directory for an example with Addon_Sample module.
+- Added new message check and blinking icon to Who's Online block
+  (Thanks to Paul Laudanski of http://ComputerCops.biz for the suggestion)
+- Updated Splatt Forums from version 3.1 to version 3.2
+- Added a check for empty footer messages. If $footx empty doesn't try to show it.
+- PHP-Nuke now works 100% with register_globals variable in php.ini set to On or Off. This solves the users
+  and admin loops also.
+- Added new registered users stats/count for today/yesterday in administration menu
+- Added a new feature to let you decide if you want a module's name and link will be visible in Modules block
+- Now each theme can load its own default home module. Just create a module.php file under the theme's
+  directory with the variable $default_module on it. For an example please see Sand_Journey theme. It loads
+  News module. Try changing the default home module from administration and notice that the News module
+  continues to be loaded in the homepage only for this theme. If you don't want to have or use this feature
+  just don't have any module.php file in your theme's directory.
+- Fixed headlines bug that did not let you had less than 10 news from a XML/RSS news feed. 
+- Optimized Categories block SQL queries.
+- Optimized sql query of is_admin and is_user functions. Speed increased with big databases.
+- Added new variable in config.php to let you decide if you want users change the number of news visible
+  in the homepage.
+- Added new title HTML tag to all images
+- FAQ administration doesn't show centered text anymore but your original format.
+- Improved functionality on backend.php with the addition to select the site's categories if they exists.
+  You can still use as usual, or you can call it like: http://phpnuke.org/backend.php?cat=themes
+  The above URL will show the XML formated file only with "themes" category. Note the variable "cat". So
+  now people from other sites can retrieve from your site only the news they have really interest in.
+  Of course that this feature will works only if you have set one or more news categories for your site.
+- Changed the password generator function in Your_Account due to problems in some systems.
+- Automatic installation added. Not more sql server shell commands to install. Just edit your config.php
+  and point the browser to your web site. The system automaticaly will add the database and tables on the
+  first run. No questions, no forms, no install scripts, just click and go! ;) See INSTALL file for details.
+- Removed module check in votes/rating files in Web Links and Download
+- Fixed all files and directories permissions (directories 777 and files 644)
+- Message "No comments allowed for Anonymous" now shows only one time in News and Surveys
+- Administrators only modules doesn't shows their links in modules block to the public
+- Theme check in Your Account now verifies the existence of theme.php file inside the directory instead of just
+  getting all directories as valid themes. For example, if you have a directory called CVS, it will not be taken
+  as a valid theme with this new feature.
+- List of users benefits from Your Account module in new user registration page is now updated automaticaly
+  depending on what you have active and for registered users only.
+- Added new feature to have theme sensitive topic's graphics (in /themes/your_theme/images/topics/). Default topics
+  graphics need to be on usual place (/images/topics/) but if the system find the existence of the files in the
+  theme's images directory it will show it instead. This was higly requested feature. Themes files need to be
+  modified to have this feature working. Please look at the included themes to have some samples.
+- Added support for favicon.ico for new browsers (just put favicon.ico file in /themes/your_theme/images/ directory)
+- Fixed bad width in two graphics of statistics bars
+- Fixed a bug in Messages administration, bad mixed options between anonymous and registered users
+- Your_Account navigation bar with icons is now visible in all user's related modules
+- Changed all default icons for users page in Your_Account module. Not only that, but each theme can have
+  different icons for user's menu and WebMail if the graphics files exists and if not the system will
+  load the default graphics. Refer to some themes like 3D-Fantasy, Odyssey, ExtraLite, Sand_Journey and NukeNews
+  to see the difference and look at the new /images/directory structure. Basicaly /images/menu/ and /images/webmail
+  will load the user's menu and WebMail icons respectively if specific file names exists. Take a look.
+  All new icons are used with author's permission, please see CREDITS file for more information.
+- Added a new link metatag to configure the browser icon for your site. To have it working you need
+  to have a file called favicon.ico inside /themes/your_theme/images/ directory.
+- Fixed all old links in main languages files that call user.php (Pointed to the users module)
+- Your_Account user's menu images moved to the module directory
+- Added Private Messages button/link in Your_Account user's page
+- Lot of cosmetic changes to Private Messages
+- Replaced Send/Delete graphics buttons with form buttons in Private Messages
+- Added administrative functions Add/Edit for surveys in the survey results page
+- Added and extra check for modules language. If new selected language isn't found, then we include the
+  default language set from config.php
+- Little cosmetic changes (final BR tag added) in Search and Information blocks
+- Added Content module check for current status (active or inactive) from modules.php
+- Added Macedonian translation
+- Fixed parse errors on Dutch and Slovenian languages
+- Due to the new icons added in the user's page, the menu icons have been re-arranged for a better look.
+- Added Journal ZX Module for registered users with links from comments (news & surveys) and user's info page.
+  It's complete with the SQL layer and multilanguage support now. Anyway I removed the original help system.
+- Fixed user's homepage link from Your_Account module
+- Fixed survey announce via news article from administration
+- Added a POP3 WebMail reader (eMailBox from http://ecomjunk.com). There are many new variables in config.php
+  to confidure this module's options. Pay special attention to the warnings on activating attachments!
+- Fixed bad IMG tag strip from html filter function
+- Added missing translation for all languages in Statistics module
+- Fixed some bad permissions to see stuff from userinfo page for anonymous users
+- Added a new feature called My Headlines for registered users. From the user's page anyone can read headlines
+  of a selected site from a drop down list. Very nice and usefull for your users.
+- Fixed a lot of bugs in Encyclopedia module (translations, copyright message, admin bad links, etc)
+- Detailed statistics now count and show the new impression when accessing it.
+- Added a new feature that lets you have decoration in the Survey bars. In theme/Your_Theme/images directory you
+  can have three more files: survey_leftbar.gif, survey_mainbar.gif and survey_rightbar.gif If you don't have them
+  the system automaticaly selects the usual bars files (leftbar.gif, mainbar.gif and rightbar.gif). Additionaly you
+  can have another file called "survey_mainbar_d.gif" (see the "_d"). This graphic, if exists, will be added each
+  25% in the survey bar. This can help you to decorate your Survey bars. Statistics bars are the usual ones. Try it!
+- Fixed user session save function before show left blocks
+- Solved the looooong dilema about Module's Copyright information. There is a new file called "copyright.php"
+  in the module's directory. Please take a look at /modules/Addon_Sample/ and see this file. Modules/Addons
+  developers can edit this file filling the required data and then copy this file into your module's directory.
+  To see it working just go to Addon Sample module and look the little copyright stick at the bottom right of
+  the module's table. If you don't put this file into the module's directory nobody will see that stick. Hope
+  users play fair on this and solved a big user's issue about the copyright messages.
+- Added 5 new themes and changed the default one from NukeNews to Sand_Journey
+- Added a very nice feature to allow registered users to publish Public Messages which will be available in any
+  page of the site to other users for a period of 10 minutes. Each message can be viewed just one time per user
+  and any registered user can also turn off this feature from its preferences page. To have this feature working
+  you need to use the new function "public_message()" located in mainfile.php and need to be added where you want
+  it in your themes files. The function returns $public_msg with all the needed stuff (table, colors, message, etc).
+  You can see samples of how to use it by viewing the default system themes. All themes that comes with PHP-Nuke 6
+  supports this feature.
+- Fixed banner administration module bug when adding a new banner
+- Added User Info block coded by the cool folks at www.NukeScripts.com (very nice block!)
+- Added new feature to have Center blocks Up and/or Down the Home module
+- Fixed the first user creation from administration first run
+- Fixed bad Story ID in categories homepage for print and friend icons
+- Fixed bad sender data in Feedback module
+- Applied a XSS vulnerability patch. (Thanks to Zhen-Xjell from http://www.computercops.biz)
+- Footer messages doesn't center anymore, to be controled from themes
+- Added style classes for footer messages (.footmsg and .footmsg_l)
+- Updated all theme's CSS styles files to match the new footer classes
+- Fixed some missing spanish translation in Feedback module
+- Fixed some bad spanish translations in Administration system
+
+June 2002: Version 5.6
+======================
+- Now you can have banners in a block (like "Supporters" block in phpnuke.org)
+- Minor cosmetic changes in the default information block
+- Users can't see option to change theme if we have only one (1) theme available (obvious, no?)
+- Fixed copyright notice in content pages and very little cosmetic changes
+- Changed $nuke_url with $nukeurl in AvantGo module
+- Added Amazon block (no DB needed), read instructions on the block's file and if you want to help in some way the
+  PHP-Nuke project, leave it as is, thanks.
+- Added explicit copyright notices in their places (if you remove it, you'll die)
+- First attempt to fix the statistics table's duplication bug (Thanks to Carlao from http://membres.lycos.fr/brazilian/index.php)
+- Fixed bad font tag in mainfile.php
+- Modules block now order by Custom Title
+- Fixed Private Message bad link in the submissions function
+- Replaced old forums with Splatt Forums (Thanks to Splatt from http://Splatt.it for his help!)
+- Added check for empty admin cookie (Thanks goes to Blurtoad)
+- Fixed some mistakes in the DB queries in counter.php
+- Fixed number of stories in home when addin a new user, now it takes the config.php variable
+- Changed $user_prefix variable instead of $prefix in Private Messages, auth.php file
+- Fixed a bad $user_prefix in upgrade file (5.4 to 5.5)
+- Fixed & character in backend.php
+- Some sql_layer corrections
+- $prefix added to Statistics tables creation in upgrade file (5.4 to 5.5)
+- Fixed inclusion of voteinclude.php in Downloads module 
+- Removed the Multidimensional array in article.php in News module (after an audit: too much CPU load)
+  You can still use related links based on Topics (in Topics Manager)
+- Fixed a missing "); in the Dutch language file in News module
+
+
+February 2002: Version 5.5
+==========================
+- Added a very cool function to check if a module is activated. Call it: is_active("Module_Name");
+  Returns 1 if active or 0 if not. Use the module "title" in the database to make the check
+  This will help in the future to really integrate all modules with the core system and to establish
+  some dependencies between parts of the site.
+- Added Send Private Message to any user from Your Account page, also check if user exists
+- Removed some unused variables in user's system when edit home and theme
+- Fixed morelink structure
+- Fixed comments inclusion and comments bar show in article's page
+- Fixed the Random Headlines block to correctly select the topic
+- Fixed quotes bugs in Search module, Downloads search and Web Links search
+- Administration online manual has been removed because it became too obsolet (PDF detailed manuals in
+  the future)
+- Removed the check for "(" and ")" from mainfile.php because problems with some modules
+- Fixed slashes bug in Search module
+- Fixed Surveys votes results in article's attached poll
+- Fixed to solve bad url entries in user's page
+- Fixed bad variable name that prevents to view comments according with your cookie options
+- Added voteinclude.php file in Downloads module
+- Modularized all translations. The new schema: Administration texts are in /admin/language/, Core system texts
+  including all blocks' texts are in the usual directory /language/ and each module has its own language directory.
+  This is more annoying to translate but the performance gain is great. There is anew function to call translations
+  from a module, you can use the following syntax:
+  require_once("mainfile.php");
+  $module_name = basename(dirname(__FILE__));
+  get_lang($module_name);  
+- Added TRANSLATION text file with translations credits (Reason: too complicated to strip the credits from each
+  translation with the script that modularized them, anyway is much more organized on this way and we can save
+  previous translations credits in a more easy way)
+- Private Messages has been converted into a module
+- Changed Printer Friendly Page and Send to a Friend icons and added icons to options blocks
+- Fixed query limit bug in Stories Archive module
+- Fixed Content block link to open specific page and not the index
+- Removed default administrator. The system will create one with your info on the very first run or admin.php
+  (and since this can be security issue, the best is to do this as the first step on your fresh installation,
+  this warning has been added on INSTALL file and in the default system message in bold fonts.)
+- Topics module now opens a new index instead of search page (search option enabled at the top of the page)
+- Fixed a typo in the downloads module and in the Top's page (downloads stats)
+- Added article's rating system
+- Added most voted and best rated stories in Top's module
+- Added Score information in $morelink
+- Added Score information in Stories Archive
+- Fixed some english translation typos in Web Links module
+- Fixed links and downloads categories parentid fields type, changed from tinyint() to int()
+- Added GZ compression to increase the load speed (This function requires at least PHP 4.0.4 compiled with zlib,
+  so if you want to remove it, just delete the first code line in mainfile.php where you read: ob_start("ob_gzhandler");
+  Thanks for this suggestion goes to Andrej Lesjak from http://www.poljub.com)
+- Fixed Encyclopedia bug that show terms only for admins
+- Fixed bug to prevent Anonymous user to act as a registered user in some parts of the site
+- Removed <BR> tag from banners.php when show banner's image
+- Added the use of getimagesize to automaticaly set width and height for some images on the code
+- Now you'll not see "send private messsage to yourself" in user page but you can see it if you browse another user
+- Added Private Messages block on the user's page
+- Fixed Surveys total votes sum in the Top page
+- Fixed a bug when editing an encyclopedia
+- Changed, at last, AllTopics.gif image (for search engine)
+- Search function has been converted into a module
+- Fixed a table bug in Old Articles block
+- Little organization in the admin case files
+- Added All Categories link to the Categories block
+- Removed feature to include files from index.php due to a high vulnerability risk
+  (Will be available in a future module)
+- Removed default author and created default Super User creation on first login
+- Added restrictive .htaccess on some directories
+- Changed automated news publication time from the last hit to the real programmed time
+- Surveys converted into a module
+- Added a new file /includes/my_header.php so you can put a custom header between both "head" tags
+- Added additional Detailed Statistics based on NukeStats (Thanks to Harry Mangindaan from http://www.nuketest.com)
+- Added sql_free_results function in the sql_layer file (Thanks to Harry Mangindaan from http://www.nuketest.com)
+- Added Center block feature (uses same blocks files in /blocks/ directory but remeber that not all blocks
+  looks good on center, just a matter of creativity by your side. Look at block "Last 5 Articles" for an example)
+- Fixed bug in admin that changes the stories author's name after edit and admin
+- Added functionality to remove user from session after user's logout
+- Fixed smilies in Forums (Thanks goes to cyberpuke from http://cyberpuke.hele.net)
+- Fixed newsletter administration bug when assign it to a new author
+- Fixed some bad file permissions (Thanks goes to cyberpuke from http://cyberpuke.hele.net)
+- Fixed a bad db query in forums administration (Thanks goes to cyberpuke from http://cyberpuke.hele.net)
+- Fixed all modules links in language files
+- Added missing close table HTML tag in Older Articles block
+- Added some missing translations for Forums
+- Changes all $prefix"._????." for ".$prefix."_???? in all files (believe me, took me 3 minutes ;))
+- Changed $description to $cdescription in Web Links
+- Added missing admin db queries in administration main (for multiple admins)
+- Added missing translation to Downloads Administration system
+- Added News redirection if story ID doesn't exist
+- Changed $prefix to $user_prefix in Members List module (Thanks to Duke from http://nuke-security.com)
+- counter.php file moved to includes directory
+- Fixed Login block load inside article's page to math the new blocks distribution
+- Removed $myIP from config.php and banners now check if you're administrator to not count impressions
+- Added Categories for Content Manager (If you don't want to use it, just don't add categories)
+- Fixed alignment on Post Comment buttons (Thanks to eXodus from http://www.exodus-news.net)
+- Added missing globals on index.php for referers function
+- Fixed some bad switch's variables calls into Downloads and Web Links
+- Cosmetic changes and translations added to Feedback module
+- Changed CREDITS file to credit only non-visible hacks/scripts, otherwise credits are on each script header
+- Fixed footer messages quotes bug in settings.php under administration section
+- Minor cosmetic changes in Web Links administration (bold text that should be normal)
+- Added new unlimited deep for downloads categories (Thanks goes to Paladin from http://www.synergy-international.com)
+- Uncommented the sql_debug variable on sql_layer (Thanks goes to AngelNegro, the first to remember me this issue)
+- Fixed index file include check for ":" to not includes complete urls
+- Fixed random selection on Random Headlines block
+- Little cosmetic changes in the administrator's block only for a fresh install (added more links)
+- Added functionality to select what module do you want in the homepage (Forced to be Active and for All visitors)
+- Main Menu block removed and replaced with Modules block by default
+  (Due to the new features added on Modules block you may evaluate the possibility to rename Modules block to Main Menu,
+  anyway, this is a personal decision you need to take)
+- Default Home module has a link to Home in the Modules block
+- News, Users, Submit News, Stats, Top and Topics converted into modules
+  (Remember to change all the links in your custom themes!!!)
+- Current Poll in admin main screen doesn't show anymore article's related polls
+- Fixed who is online data grab when block isn't active or is admin only
+- Fixed Survey errors when multilingual option is enabled
+- Added Slovenian translation
+- Added Turkish translation
+- Fixed missing image in forum images directory
+- Fixed typo in languages for forums translation
+- Fixed type in forum administration module
+- Fixed Printer Friendly Page and Send to a Friend links for articles in homepage
+- Fixed Edit User link in user's page
+- Fixed newsletter subscription bug (a missing variable pass in the saveuser function of user.php)
+- A note for the 5.4 release: Printer Friendly and Send to Friend graphic links in homepage are visible only for users
+
+
+January 2002: Version 5.4
+==========================
+- Added a new feature to select who can view whatever block you want (All, Users, Anonymous, Admins)
+- Added a new feature to select who can access whatever module you want (All, Users, Admins)
+- Fixed the author's name/link for "Posted by" text in the articles for old themes compatibility
+  (For new themes please call the function get_author($aid) instead of formatAidHeader($aid) where
+  the difference is a return() instead of an echo.
+- Removed newsletter subscription from new user registration form to avoid possible unwanted emails
+- Fixed missing Read More link in categories page
+- Added Options block in article's page with links to Admin functions
+- Printer Friendly and Send Story to Friend added in Options block in article's page without graphics
+- Fixed bold fonts in downloads administration
+- Fixed some table's colors in private messages
+- Fixed some "for" statement for poll options
+- Fixed escape \ in html template files of NukeNews theme
+- Fixed bug that prevents to show the first system's poll in the main admin screen
+- Added phpBB forums integration as a module (This requires more work yet, but it works and only with MySQL for now)
+- Added Who's Online information in the main administration page
+- Fixed bad topic images path in 3D-Fantasy theme
+- Changed BBCode graphics buttons in Private Messages system
+- Removed the Filemanager. Too many security bugs to handle
+- Removed DeviantNuke theme uppong request of DeviantArt owner
+- Added missing _ in MSNM translation in user.php
+- Fixed new user registration email check to allow longer first level domain names (max 6 characters now)
+- Added missing globals in Web Links functions
+- Added title html tag on each article's page (will be added in more files)
+- Removed an old translate function call in stories administration module
+- Fixed CSS (Cross Site Script) security vulnerabilities
+- Added Section Articles block with last 10 articles
+- Added Reviews block with last 10 reviews
+- Removed all topics images and text but PHP-Nuke to give a clean installation (Also that stupid AMD logo)
+- Fixed a topics list selection bug when creating a new poll
+- Added new two columns theme (Odyssey - Thanks to TrevorS from Trevor.net for cool tips on his BlueTrevor theme!)
+- Added custom_title field in modules table to customize the title in the module's block
+  (Useful for some language's special characters not accepted in directorie's names)
+- Added Encyclopedia Generator Module (useful for whatever alphabetical listing content, enjoy!)
+- Changed Addons switch variable name from $op to $mop (by popular demand !?)
+- Added MD5 password encryption for authors/admins table
+- Added MD5 password encryption for users table
+- Removed $system variable from the whole code
+- Modularized Sections script
+- Modularized Reviews script
+- Added Database Optimization module into administration menu
+- Added Database Backup utility in administration
+- Removed Send To Friend and Printer Friendly Page graphics/links from homepage
+- Printer Friendly and Send Story to Friend in the home page can bee see only by registered users
+- Fixed some CSS classes and added some missing classes as well
+- Added Content Manager to create static pages (maybe this will replace sections in the future)
+- Fixed the "Readme More" line links (index and categories)
+- Fixed the Topic Image in the story page of NukeNews theme
+- Added missing $user_prefix in user's database calls in some files
+- Added new Stories Archives module, multilingual compatible
+- Blocks Administration re-designed and re-organized
+- Active/Added blocks doesn't show in the "add new block" block's list, will appear again if you delete it
+- Inactive blocks can be previewed now before activate it (just to make your life easy)
+- Added function to fix blocks weight conflicts
+- Created some new blocks in /blocks/ directory
+- Replaced some fixed blocks by block's files
+- Added new SYSTEM block's category
+- Fixed a bug in Messages (Inverted Anonymous with Registered users)
+- Email Notification for new submissions has been extended with all the story data
+- Added Web Links Hack with unlimited sub-categories (Thanks to Ptilou from http://ptilou72.multimania.com)
+- Little re-organization on the Past Article's block generated code
+
+
+November 2001: Version 5.3.1
+============================
+- Fixed bad/broken links in top.php for downloads
+- Added missing $dbi in a database call on comments.php
+- Fixed bad variable name in sql_layer.php
+- Fixed bad/broken links in downloads module
+- Removed duplicated _LANGUAGE translation definition from language files
+- Fixed a Read More text bug for the articles
+- Fixed a bad sum in polls list
+- Fixed Top voted polls in top.php
+- Added topics path to show topics graphics in config.php
+- Added footmsg() function in footer.php to make old themes compatible
+- Now old themes really works 100% (More CSS dependant themes in future versions)
+- Added broken link report to downloads & links sub-categories
+- Fixed author's name and link on articles (Posted by)
+- Added missing line break tag in faq.php and some minor cosmetic changes
+- Added new 3D-Fantasy.com theme based on Kaput
+- Decreased the login box fields size to avoid problems with some themes
+- Added links to Edit/Add polls from main administration page
+- Fixed Users database's calls in Users Administration to use the shared table
+- Added Newsletter and Massive Email functions (New options in User and Admin pages)
+- Little cosmetic changes in users page (plus admin functions to edit selected user)
+- Removed that annoying "A Problem Ocurred" message by validating user's cookie
+- Fixed a parse error in Dutch language file
+- Web Links now fully support SQL abstraction layer and 100% modular
+- Downloads module 100% modular now
+- Fixed Author's rename to also rename them into stories table
+
+
+November 2001: Version 5.3
+==========================
+- Fixed blocks weight change when editing
+- Fixed security holes in admin.php (upload functions)
+- Created HTML templates for themes. (Yes! new themes system!) Old themes are 100% compatible ;) See the
+  new HTML templates on the NukeNews theme.
+- Added SQL database abstraction layer with support for 8 Database's Servers (see config.php)
+- Added different table prefix for user's table, this lets you share users database in the same server
+- Changed ALL MySQL Database calls to match the new SQL abstraction layer. To use it declare $dbi as
+  global and be sure your database queries looks like:
+
+    $result = sql_query("select uid from nuke_users", $dbi);
+    list($uid) = sql_fetch_row($result, $dbi);
+
+  pretty easy and transparent to use and implement, valid for fetch arrays, numrows, object, row, etc. You can
+  take a look at sql_layer.php file in /includes/ directory. Addons and Blocks authors, please start using it!
+
+- Changed Polls votes sums to properly match the new SQL abstraction layer
+- Modularized the user.php page. Separated pages for login, password lost and new user's registration
+- Modularized Downloads script with independent configuration file
+- Modularized Web Links script with independent configuration file
+- Created Modules Administration system to activate or deactivate it with some options for Admins
+- Separated Modules block from Main Menu block
+- Optimized a lot the huge $morelink variable construction on index.php (From 136 lines to just 15!)
+- Optimized a lot the huge $morelink variable construction on categories.php
+- Ephemerids block replaced by Modules block on Database
+- Ephemerids included now as independent Block
+- Fixed BR tags bug in submit.php
+- Added missed global variable declaration in submissions function for "delete all" link
+- Fixed submissions translations bug
+- Fixed voters sum counter on table nuke_poll_desc (not used now, maybe in the future)
+- Fixed a bug in pollBooth.php for article's polls display
+- Fixed security hole in index.php to prevent the inclusion of any file outside web root
+- Added Total Hits block (Author: C. Verhoef, cverhoef@gmx.net)
+- A lot of minor bug fixes
+
+
+August 2001: Version 5.2
+========================
+- Submissions form now checks for Allowable HTML, plain text or Extrans format
+- Removed that stupid and useless duplicated comments check and the troll check
+- Submissions Delete function set only for SuperUser
+- Fixed display of MembersList HomePage URL link
+- Fixed a misconfiguration with automated news
+- Added extended text field on Submission
+- Fixed more anonymous comments stuff when deny it
+- Anonymous posts $anonpost variable in config set with "0" by default
+- Added feature to attach a Poll with an article
+- PollBoth now show general poll and article's attached polls
+- Removed Poll cookies, all the duplicate votes check is made by IP
+- Fixed table align on Poll block options
+- Polls order changed. Newest Polls goes first now in pollBoth.php
+- Added feature to announce new Poll as article
+- Added missing enctype to all stories.php form in admin for images uploads
+- Fixed blocks weight bug when edit and change the position
+- Fixed Topics Manager images selection box
+- Fixed backend html special characters bug
+- Fixed HTML validation problems with the new Poll html table and language selection block
+- Fixed banners bug when adding with unlimited impressions
+- Added the possibility to load plain HTML files from index.php by using the URL:
+    http:/phpnuke.org?file=path/to/file.html or http://phpnuke.org?file=file.html
+    You need to add "?file=" after index.php followed by the HTML format filename,
+    for your security all "." and "/" at the begining will not be accepted.
+- Fixed blocks position selection when editing
+- Changed font size on submission completition message
+- Fixed quotes problem on stories.php in administration
+- Fixed quotes problem on submit.php
+- Printer friendly page now show centered content
+- Added AvantGo module (Author: Tim Litwiller - http://linux.made-to-order.net)
+- Fixed a typo in languages files, replaced "downloads.php" with "download.php"
+- Added language definitions on all translation files
+
+
+August 2001: Version 5.1
+========================
+- Removed Anonymous user entry from Members List
+- Fixed a bug in headlines
+- Added $system variable check in Edit Users on administration page to crypt the password
+- Fixed a syntax error on links.php and download.php (changed mathod with method)
+- Fixed the useless javascript load on all pages, will load only when needed (again)
+- Added Multilanguage content support (by John De Jonge aka Crocket from www.webmasters.de)
+- Topics images now are automaticaly loaded when adding/editing a topic
+- Polls edit function added
+- Added new feature to Blocks, now you can have PHP files added as normal blocks (see /blocks/ directory)
+- Added two sample blocks, one for top10 downloads and other one for top10 links
+- Added feature to prevent comments on certains articles
+- Added upload image for each article stored in /images/articles/ directory
+- Added config variable to completly remove comments from articles
+- Added a table to Poll items to align it
+- Added some new translations
+- Fixed a big on the preview stories that will not go in homepage
+- Removed "Post Anonymously" when anonymous posts are not allowed
+- Fixed login block show on article.php file when you have it active at the left side
+- Many, many little bug fixes
+
+
+July 2001: Version 5.0.1
+========================
+- Fixed the useless javascript load on all pages, will load only when needed
+- Extended default CSS for each theme, declared some classes
+- Removed ALL hardcoded font sizes and added CSS style to all scripts
+- Created a "Delete" button to delete all the submissions in one step
+- Submissions reordered descending by date
+- Fixed a bug on headlines language error messages
+- Fixed old translation on NukeNews theme
+- Added missed quotes on downloads administration mysql function
+- Removed a bad global declaration on comments.php
+- Fixed some colors on comments.php
+- Fixed a language bug on the headlines that stored incorrect "read more" translation
+- Added missing submissions link on administration main section
+- Fixed an unclosed B tag on download.php
+- Fixed anonymous block option for links and downloads scripts
+
+
+June 2001: Version 5.0
+======================
+- Konqueror and Opera browsers now get the hit on stats page
+- All database tables now has the nuke_ prefix to avoid conflicts with other scripts
+- New $prefix variable in config.php to setup multiple Nuke sites sharing one database
+- New and improved download system (Based on Web Links)
+- Improved security on user.php in save* functions
+- Ephemerids variable removed from config.php, activation now controled from blocks system
+- Members list is now modular, same for FAQ section
+- Better users authentication check (appending &user=x on the URL doesn't work anymore)
+- Comments deletion functions now removes all childs comments (Thanks to [Dark Pastor] from www.rolemancer.ru)
+- Optimized a little the code on stats.php
+- Changed the search results format, more informative and complete
+- Added robots.txt for search engines
+- New registered users page, eliminated all english graphic buttons
+- Added Messages System
+- Changed == by >= on referers automatic deletion code
+- Added multiple languages selection box
+- Added multiple pages on sections articles (Thanks to Leonardo Teo from Planet3DArt.com)
+- Added multiple pages on reviews (Thanks to Leonardo Teo from Planet3DArt.com)
+- 100% working Web Links (At last! Based on JourneyLinks hack on the original files)
+- New themes system. All in just one file, more easy, efficient and fastest
+- Added Message System with usefull options to publish important stuff in the Homepage
+- Unused priviledges table removed from downloads
+- Admin Menu alphabeticaly ordered
+- Removed $site_font variable from all scripts to let CSS style file setup it
+- Now each theme has a file style.css on /style/ directory for CSS configuration
+- New translation system created, more efficient and fastest
+- Automated news administration are now part of story administration
+- Fixed almost all HTML bugs on administration interface
+- New blocks system created (100% configurable and user friendly, just amazing! ;))
+- Headlines grabber has been moved to the new Blocks system
+- Added Random Headlines block. Last 10 news on random selected topic (Inactive by default))
+- Removed blocks administration for multiple admins, only Super User can do this now
+- Other site's Headlines are now integrated on the new blocks system
+- Added timeout and error detection on headlines grabber
+- Created modularized Administration system
+- Fixed a lot of bugs on Multi-admin system (100% working now)
+- Admins can now edit/delete their own stories only
+- Delete authors now check for author's published stories and let you re-assign its stories
+- All password fields now are masked with "*" on edit users and edit authors
+- Added some more option on the user's pages
+- Admin stuff now pass thru is_admin() function to check if you are really an admin
+- Text filters now works, and deleted two filter unused variables from config.php
+- Little improvements on Private Messages scripts
+- Added ability to send email or private message to users in news submissions
+- Programmed stories queue are now visible on admin home page
+- Fixed bad global variable declaration on pollcomments.php
+- Added a modular addons system (see ADDONS-MODULES or /modules/readme.txt for more info)
+- Link to an Addon module is automaticaly added on Main block
+- Removed javascript scroller on articles page
+- Added a multidimensional array that puts automaticaly related links on articles pages
+- Little cleanup on backend.php file (eliminated <image> from backend)
+- Fixed security vulnerability on user.php, cookiedecode() function (Thanks to Obrie)
+- Fixed a little bug in upgrade43-44.php file (Thanks to Mr. kl0nk Manson)
+- Fixed a bug in banners.php to prevent anyone to change a banner url
+- Fixed a lot of hardcoded text (missing translations)
+- Removed all <LI> tags from blocks and HTML code to fit standards. <LI> tags has been replaced
+  with: <strong><big>&middot;</big></strong>&nbsp;
+- Submit news (submit.php) has changed to fit themes colors
+- Little changes on the send comments and reply function's look
+- Themes selection now are alphabeticaly ordered (Thanks to goghs@sina.com)
+- Language selection in settings.php now check for files on languages directory (Thanks to AmigaPhil)
+- Removed an extra "," on the SendStory function in friend.php
+- Removed graphics vote and results buttoms from Poll block
+- IMPORTANT: Added graphics for polls and stats bars for each theme, black bar by default. The bars
+  graphics names are leftbar.gif, mainbar.gif and rightbar.gif and are under /themes/yourtheme/images/
+  directory. Please check this out and customize your bars.
+- Added $uimages missing global variable declaration on comments.php and pollcomments.php in modthree()
+- Changed mysql_pconnect with mysql_connect in mainfile.php, the result is a fastest pages render
+- Fixed user comment post on reviews.php
+- Removed Advanced Stats (OS's compatibility reasons)
+- Fixed a lot of HTML code on sections.php
+- Fixed horrible bug in poll results HTML tables
+- All pages now are HTML 4.01 Transitional compatible
+- A lot of cosmetic changes in whole site including administration system
+- Fixed hundreds of little but annoying bugs
+- FileManager need some more dedication to work 100%, anyway it's functional
+- Themes Developers just look at NukeNews theme. HTML compliant and simple
+
+
+February 2001: Version 4.4.1
+============================
+- $band changed by $title on admin/reviews.php
+- Download bug for categories list fixed
+- Removed DIV command on AllowableHTML array in config.php
+- Fixed quotes and HTML commands for reviews.php
+- Fixed global variable declariations on comments.php when comments is too long
+- Send to friend now send the URL instead of the whole story (you'll get one more page view ;))
+- Fixed security hole on all save functions on user.php file to prevent other users modify our info
+- Fixed blank spaces for download description field on DownloadEdit function
+- Fixed authors.php under admin to prevent other admins change the info
+- Fixed the BarScale on the Polls
+- Fixed some missed translations on some forums files
+- Fixed security hole on File Manager to prevent the admin to view others directory on server
+- Only Superuser can now edit authors table
+- Check and strip for IMG tags on check_html funtion in mainfile.php
+- Fixed security vulnerabilities on bbcode_ref.php and bb_smilies.php files
+
+
+January 2001: Version 4.4
+=========================
+- Added Red Hat theme
+- Added Kuro5hin theme
+- Added Freshmeat theme
+- Added Linux.com theme
+- Added Aqua theme
+- Added Icelandic translation
+- Fixed the comments count on polls page
+- Fixed some missing $slogan global declaration
+- Added Web Based Forums and more configurable users page (From phpBB integration by KingRichard)
+- Added Download manager (Based on files from myPHPortal)
+- Added FAQ manager (From Addon by KingRichard)
+- Added Reviews Manager
+- Fixed all hard coded white tables to match the theme in use
+- Improved Members List (Some hacks are from myPHPortal)
+- If you delete a theme the user will get the default theme instead of a bunch of errors
+- Fixed more than 100 little bugs: HTML bad code, quotes, blank spaces after ?>, variables quotes, etc.
+- Added quotes on all the HTML code
+- Cleaned almost all HTML code (needs a re-check)
+- Cleaned some PHP code (more on future version)
+- Now $anonpost works 100% on comments.php and pollcomments.php
+- Fixed bug that prevents to show the poster's name on Polls Comments
+- Reorganized Admin menus internals (not visual change, just cleaned the code)
+- Repackage. Now you need to download basic code and additional parts like themes and languages.
+- IMPORTANT: Removed themepreview() function from theme.php files and added on mainfile.php, to avoid
+  a blank page with a "cannot redeclare function themepreview()" error, just remove the function from
+  your theme.php files for each theme you have.
+
+
+December 2000: Version 4.3
+==========================
+- Created modular admin to facilitate add-ons integration (Thanks to Pascal Riva for the first idea!)
+- Added Unlimited MultiAdmin Add-on (Thanks to KingRichard from http://www.phpnuke.web.id)
+- Improved Web Links, based on JourneyLinks modifications (needs more work!)
+- Topics ordered by Name instead of ID in topics.php and admin.php
+- Removed all config.php includes and replaced by global declarations (result: good performance)
+- Initial HTML code fixes (Added some \n when needed, but there are much work with this yet)
+- Fixed bug in Send this Story to a Friend
+- New submissions now have a separate section in admin
+- Improved Members List
+- Added Arabic translation
+- Added Barrapunto Theme
+- Added Today's Big Story Box
+- Added Who's Online Box
+- Added Automated Articles System
+- Fixed cookies recognition for articles and poll comments
+- Moved Languages files to language directory and changed the call from mainfile.php
+- Cosmetic changes in Preview function of submit.php file
+- Fixed all needed updates for ultramode.txt file
+- Fixed some anonymous post options in comments and pollcomments (global declarations troubles)
+- Finaly Fixed counter.php to avoid that Unknown stats
+- Added poll title on the navigation bar in pollcomments.php
+- Fixed some minor translation errors in all language files (Thanks to all translators!)
+- Added missing translation text for sections search results
+- Fixed votes number display for polls
+
+
+October 2000: Version 4.2
+=========================
+- Linux Mandrake 7.2 includes PHP-Nuke in Web Development Category
+- Fixed one more bug in the Send This Story to a Friend
+- Added stripslashes(fixquotes()) to text type inputs in preferences
+- Removed all config includes from themes
+- config.php now stores the data into plain text and not in database
+- Fixed bug in the Preferences: Articles Numbers in Admin selection
+- Fixed Quotes display for scroll bar in Related Links
+- Removed global variable on KDE theme
+- Minor improvements in the Metal Theme
+- Added NewsForge Theme
+- Added AnalogX Theme
+- Added Ethereal Theme
+- Added NiH Theme
+- Added Sunset Theme
+- Added Slackware Theme
+- Added 0ri0n Theme
+- Added Croatian translation
+- Added Members List feature (memberslist.php)
+- Removed some nl2br in comments.php and admin.php
+- Fixed some visual stuff for comments reply
+- Fixed the admin graphics path in the database
+- All themes now use the same logo.gif filename for logo, but one GIF per theme
+   to match the theme background, texture, colors, whatever.
+
+
+October 2000: Version 4.1
+=========================
+- Added missing "related" table in upgrade35-4.php file
+- Fixed the parse error in upgrades files
+- Fixed bug in the Send this Story to a Friend scripts
+- Initial work to fix the multiple includes of config.php
+- Added a test fix for the high number of unkown Browsers and OS in stats.php
+
+
+October 2000: Version 4.0
+=========================
+- PHP-Nuke now has its own domain name! (http://phpnuke.org)
+- Changed INSTALL and README files
+- Fixed double apostrophes bug in comments.php and pollcomments.php
+- Added $notes in the preview of the submitted news
+- Added nl2br to the Extended text of the story ($bodytext)
+- Removed Spanish GPL license file (saved some space)
+- Added Recommend This Site Option
+- Changed lang-english to not translate english from english
+- Created lang-TEMPLATE.php as translators guide
+- Random links in Web Links now count the hits
+- Increased to int(3) the topicid in topics table
+- Added 10 last news submissions and comments in users page
+- Added a complete full featured File Manager based in WebExplorer
+- Added Advanced Stats for Admins only on stats.php
+- All site configuration now is done in Administration script
+- Fixed tables colors in comments.php
+- Added search for comments, sections and users in search.php
+- Fixed error messages when activate banners for the first time
+- Added Headlines Grabber to put news from other sites
+- All themes changed, first step for the future Theme Builder addon
+- Increased to 40 the encrypted password field for users table
+- Added Images Upload System
+- Added control for number of stories to show in the Home via config.php
+- Removed all "<>" in language files comments due to a bug in the headers
+- More documented text in config.php
+- All Links in links.php now open a new browser window
+- Fixed url to "/cookie.php" in user.php
+- Fixed "/" url in the themes. Now points to $nuke_url
+- Added possibility to allow/disallow anonymous to post comments
+- Added Administrators Online Manual with javascript functions
+- Default theme is now selectable in config.php (many requests for this one!)
+- Users login box added to all themes
+- Users login box text added in translation system
+- Added a little/nice easter egg (You have the code, but can you find it?)
+- Removed the useless titletag and titlebar from config.php and themes
+- Added $slogan in config.php
+- Fixed a spanish hard text in pollBooth.php and in stats.php
+- Changed bar graphics for surveys and stats, cool Aqua button ;)
+- Fixed wrong width graphic in stats.php
+- Removed Email display for password lost functions, more privacy for users
+- Banners deactivated by default in config.php
+- Hits to be Popular Link upped to 500 by default in config.php
+- Initial use of CSS Stylesheet code in header.php
+- Cleaned each themes files to match changes in header.php
+- Deleted all fonts face commands (reduced 15+ Kb from code!)
+- Site Font is now customizable from config.php (yes!)
+- Fixed some typos in banners.php
+- Many cosmetic changes in admin html tables
+- Added Related Links for each article page
+- Added Related Links manager in administration under Topics Manager
+- Added javascript scroll box in related links box with last news
+- "Post your comment" button moved inside related links box
+- Added "The most read story about" for each article page
+- Changed to fixed white table color in search.php
+- Added Older Articles link in the Old Articles box
+- Fixed a bad translation in user.php
+- Added PHP-Nuke version number in statistics page
+- Added "Send To Friend" functions for stories
+- Removed common header on all themes
+- Added common header functions in header.php
+- Added nice style class to all input text forms
+- Added Printer Friendly Page for each article/story
+- $site_logo from config.php now works for printer friendly page
+- Fixed that "s" for comment plural in index.php
+- Added Korean translation
+- Added Quebec/French translation
+- Added Norwegian translation
+- Added Indonesian translation
+- Added Slovak translation
+- Added Latvian translation + graphics
+- Added Metal theme (Thanks to Tim Litwiller)
+- Added BlackRoad theme (First with attempt with a Black background)
+- Added Xeron theme (Thanks to the folks at Xeron.org)
+- Added missing </select> in events maintenance
+- Renamed all "Events" words to "Ephemerids"
+- Removed Important Note at the end of README file, be happy
+
+
+September 2000: Version 3.6
+===========================
+- Fixed some very little bugs in index.php
+- Fixed some forgotten stuff in upgrade files
+
+
+September 2000: Version 3.5
+===========================
+- Added Events system with full admin menu
+- Changed font size for Survey Block
+- Added Polish translation
+- Added Japanese Translation
+- Fixed some language files for typos
+- Renamed all .php3 files to .php
+- Removed hits counter for links in stories
+- Removed redirect.php3 due to high number of problems
+- Added compatibility for new MySQL version renaming reserved words
+- Fixed more bugs in admin login functions
+- Fixed a bug that prevents to change sections
+- Some english language file typos corrected (that "readed" stuff)
+- Fixed Header bug for some languages files
+- Added Important Note at the end of README file
+NOTE: This is the last release in SourceForge, next versions will be available
+only in the official site at http://www.ncc.org.ve/php-nuke.php3
+
+
+August 2000: Version 3.0
+========================
+- Fixed security bug in admin.php3 that allows anyone to enter to the
+  admin section without login and password
+- Fixed themes functions bug reported in PHP4
+- PHP-Nuke is now 99% PHP4 compatible, thanks God! (report any issue)
+
+
+August 2000: Version 2.5
+========================
+- Added Comments for Polls/Surveys
+- Posters IP now show full hostname, if not detected show IP number (only for admin)
+- Fixed bug that prevents to vote in past polls
+- Added Dutch translation
+- Added Simplified and traditional Chinese translation and buttons
+- Added missing links.gif in admin section
+- Added graphics buttons for German and French languages
+
+
+July 2000: Version 2.02
+=======================
+- Added Yahoo! like web resources system with categories (reason for the 2.0)
+- Banner Client now can Email himself a complete stats report
+- Some cosmetic stuff in banners.php3 for clients display
+- New ultramode.txt news headlines file generator (a general purpose text file)
+    (You need to chmod 777 your web main directory. File usefull for some things)
+- Redirect works now, for links in stories don't use quotation marks ("")
+    (This is good: <a href=http://www.mysite.com>MySite</a>)
+    (This is NOT good: <a href="http://www.mysite.com">MySite</a>)
+    (If you put the "" hits will not be updated!)
+- Edit User in admin section now works
+- Fixed "/" in some themes to point to correct path for .php3 files
+- Fixed a table bug in Slash theme
+- Cosmetic stuff in some themes
+- Changed the logo for all themes to see the PHP-Nuke logo insteed of Linux Preview one
+- Fixed bug in articles.php3 to point to search with correct Topic
+- Added German, Italian, Danish, Portuguese, Russian, Swedish and French translations
+- Added translation text to no results page in search.php3
+- Translated some hard words in the code
+- Improved function to order topics in groups of 5 from admin.php3 and topics.php3
+- Added more statistics data in the stats.php3
+- Added a News Submissions alert in the Home of Default Theme for Admins only
+- Older Articles block now have news divided by day (more elegant)
+- Added support for Locales Date/Time functions to have better multilingual support
+    (for this function you need to have locales databases installed, most Linux
+    distributions already install all the locales needed)
+- More efectively random function for banners display
+- Added some missing html tables in Admin
+- Added graphics to sections main page and admin (Remember to edit "sections/template.gif")
+    (and remember to add the graphic for each section in admin)
+- Added one new theme, SlashOcean based on Slash
+- Fixed some PHP4 issues (need more tests but it's a first step)
+- Reduced space between images in the top of Slashdot theme
+- Some more I don't remember...
+- For sure added more bugs, or no? ;)
+
+
+June 2000: Version 1.0
+======================
+First Release

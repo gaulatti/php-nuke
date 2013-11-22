@@ -1,0 +1,107 @@
+<?php
+
+/**************************************************************************/
+/* PHP-NUKE: Advanced Content Management System                           */
+/* ============================================                           */
+/*                                                                        */
+/* This is the language module with all the system messages               */
+/*                                                                        */
+/* If you made a translation go to the my website and send to me          */
+/* the translated file. Please keep the original text order by modules,   */
+/* and just one message per line, also double check your translation!     */
+/*                                                                        */
+/* You need to change the second quoted phrase, not the capital one!      */
+/*                                                                        */
+/* If you need to use double quotes (") remember to add a backslash (\),  */
+/* so your entry will look like: This is \"double quoted\" text.          */
+/* And, if you use HTML code, please double check it.                     */
+/**************************************************************************/
+
+
+define("_URL","—«»ÿ");
+define("_FUNCTIONS","«·œÊ«·");
+define("_YES","‰⁄„");
+define("_NO","·«");
+define("_CATEGORY"," ’‰Ì›");
+define("_SAVECHANGES","Õ›Ÿ «· €ÌÌ—« ");
+define("_OK","„Ê«›ﬁ!");
+define("_HITS","Hits");
+define("_THEREARE","ÌÊÃœ Õ«·Ì«");
+define("_DOWNLOADTITLE","⁄‰Ê«‰ «·»—‰«„Ã");
+define("_FILESIZE","ÕÃ„ «·„·›");
+define("_VERSION","«·≈’œ«—");
+define("_DESCRIPTION","«·Ê’›");
+define("_AUTHOR","’«Õ» «·»—‰«„Ã");
+define("_HOMEPAGE","’›Õ Â");
+define("_NAME","«Ò”„");
+define("_FILEURL","—«»ÿ «·„·›");
+define("_DOWNLOADID","—ﬁ„ «·»—‰«„Ã");
+define("_PAGETITLE","⁄‰Ê«‰ «·’›Õ…");
+define("_PAGEURL","«·—«»ÿ ··’›Õ…");
+define("_ADDURL","√÷› Â–« «·„Êﬁ⁄");
+define("_DOWNLOAD","»—«„Ã");
+define("_TITLE","«·⁄‰Ê«‰");
+define("_STATUS","«·Õ«·…");
+define("_ADD","√÷›");
+define("_MODIFY"," ⁄œÌ·");
+define("_DOWNLOADSINDB","»—‰«„Ã ›Ì ﬁ«⁄œ… «·»Ì«‰« ");
+define("_DOWNLOADSWAITINGVAL","»—«„Ã  ‰ Ÿ— «·„—«Ã⁄…");
+define("_CLEANDOWNLOADSDB","„”Õ «· —‘ÌÕ«  ··»—«„Ã");
+define("_BROKENDOWNLOADSREP","«»·«€ ⁄‰ »—«„Ã ·«  ⁄„·");
+define("_DOWNLOADMODREQUEST","ÿ·»«   ⁄œÌ· »—«„Ã");
+define("_ADDNEWDOWNLOAD","√÷› »—«„Õ ÃœÌœ…");
+define("_MODDOWNLOAD"," ⁄œÌ· »—‰«„Ã");
+define("_WEBDOWNLOADSADMIN","«· Õﬂ„ ›Ì «·»—«„Ã");
+define("_DNOREPORTEDBROKEN","·« ÌÊÃœ  »·Ì€«  ⁄‰ »—«„Ã ·«  ⁄„·.");
+define("_DUSERREPBROKEN","«·⁄÷Ê «·„»·€ ⁄‰ »—‰«„Ã ·«Ì⁄„·");
+define("_DIGNOREINFO"," Ã«Â· (ÌÕ–› <b><i>«·ÿ·»« </i></b> ·»—‰«„Ã)");
+define("_DDELETEINFO","Õ–› (ÌÕ–› <b><i>«·»—‰«„Ã «·–Ì ·« Ì⁄„·</i></b> Ê <b><i>«·ÿ·»« </i></b> ·Â–« «·»—‰«„Ã)");
+define("_DOWNLOADOWNER","’«Õ» «·»—‰«„Ã");
+define("_DUSERMODREQUEST","ÿ·»«   ⁄œÌ· «·»—«„Ã ··√⁄÷«¡");
+define("_DOWNLOADVALIDATION","„—«Ã⁄… »—«„Ã");
+define("_CHECKALLDOWNLOADS"," Õﬁﬁ „‰ Ã„Ì⁄ «·»—«„Ã");
+define("_VALIDATEDOWNLOADS","«· Õﬁﬁ „‰ —Ê«»ÿ «·»—«„Ã");
+define("_NEWDOWNLOADADDED","»—‰«„Ã ÃœÌœ √÷Ì› «·Ï „ﬂ »… «·»—«„Ã");
+define("_SUBMITTER","«·„—”·");
+define("_VISIT","“Ì«—…");
+define("_ADDMAINCATEGORY","√÷›  ’‰Ì› —∆Ì”Ì");
+define("_ADDSUBCATEGORY","√÷›  ’‰Ì› ›—⁄Ì");
+define("_IN","›Ì");
+define("_DESCRIPTION255","‘—Õ: (Õœ √ﬁ’Ï 255 Õ—›)");
+define("_MODCATEGORY"," ⁄œÌ·  ’‰Ì›");
+define("_ADDEDITORIAL","«÷›  ⁄·Ìﬁ");
+define("_EDITORIALTITLE","⁄‰Ê«‰ «· ⁄·Ìﬁ");
+define("_EDITORIALTEXT","‰’ «· ⁄·Ìﬁ");
+define("_DATEWRITTEN"," «—ÌŒ «·ﬂ «»…");
+define("_IGNORE"," Ã«Â·");
+define("_ORIGINAL","«·√’·Ì");
+define("_PROPOSED","„ﬁ —Õ");
+define("_NOMODREQUESTS","·« ÌÊÃœ ÿ·»  ⁄œÌ· «·¬‰");
+define("_SUBCATEGORY"," ’‰Ì› ›—⁄Ì");
+define("_OWNER","„«·ﬂ");
+define("_ACCEPT","ﬁ»Ê·");
+define("_ERRORTHECATEGORY","Œÿ√: «· ’‰Ì› «·—∆Ì”Ì");
+define("_ALREADYEXIST","„ÊÃÊœ „”»ﬁ«!");
+define("_ERRORTHESUBCATEGORY","Œÿ√: «· ’‰Ì› «·›—⁄Ì");
+define("_EDITORIALADDED","«÷Ì›  «· ⁄·Ìﬁ«  «·Ï ﬁ«⁄œ… «·»Ì«‰« ");
+define("_EDITORIALMODIFIED"," „  ⁄œÌ· «· ⁄·Ìﬁ« ");
+define("_EDITORIALREMOVED"," ⁄·Ìﬁ«  «·„Õ——Ì‰ «·€Ì  „‰ ﬁ«⁄œ… «·»Ì«‰« ");
+define("_CHECKCATEGORIES","«· Õﬁﬁ „‰ «· ’‰Ì›«  «·—∆Ì”Ì…");
+define("_INCLUDESUBCATEGORIES","( ÷„Ì‰ «· ’‰Ì›«  «·›—⁄Ì…)");
+define("_FAILED","›‘·!");
+define("_BEPATIENT","(«·—Ã«¡ «·≈‰ Ÿ«—)");
+define("_VALIDATINGCAT","«· Õﬁﬁ „‰ «· ’‰Ì› (ÊÃ„Ì⁄ «· ’‰Ì›«  «·›—⁄Ì…)");
+define("_VALIDATINGSUBCAT","«· Õﬁﬁ „‰ «· ’‰Ì› «·›—⁄Ì");
+define("_ERRORURLEXIST","Œÿ√: Â–« «·„Êﬁ⁄ „ÊÃÊœ ›Ì ﬁ«⁄œ… «·»Ì«‰« !");
+define("_ERRORNOTITLE","Œÿ√: ÌÃ» ﬂ «»… ⁄‰Ê«‰ «·„Êﬁ⁄!");
+define("_ERRORNOURL","Œÿ√: ÌÃ» ﬂ «»… «·—«»ÿ ··„Êﬁ⁄!");
+define("_ERRORNODESCRIPTION","Œÿ√:  Õ «Ã ·ﬂ «»… ‘—Õ ··„Êﬁ⁄!");
+define("_EZTRANSFER","‰ﬁ·");
+define("_EZTHEREIS","ÌÊÃœ");
+define("_EZSUBCAT","√ﬁ”«„ ›—⁄Ì…");
+define("_EZATTACHEDTOCAT"," Õ  Â–« «·ﬁ”„");
+define("_EZTRANSFERDOWNLOADS","‰ﬁ· Ã„Ì⁄ «·»—«„Ã „‰ «·ﬁ”„");
+define("_DELEZDOWNLOADSCATWARNING"," Õ–Ì—: Â·  —Ìœ Õ–› Â–« «·ﬁ”„ »«· √ﬂÌœø ”Ê›  Õ–› Ã„Ì⁄ «·√ﬁ”«„ «·›—⁄Ì… Ê«·»—«„Ã «·„·Õﬁ… »Â.!");
+
+
+?>

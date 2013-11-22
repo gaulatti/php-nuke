@@ -1,0 +1,202 @@
+PHP-Nuke: Web Portal System
+===========================
+
+PLEASE READ CAREFULLY THE FOLLOWING INSTRUCTIONS. IF YOU DO THIS,
+YOU WILL HAVE YOUR SITE UP AND RUNNING IN JUST A FEW MINUTES.
+
+##############################################################################
+#                        I M P O R T A N T    N O T E                        #
+##############################################################################
+# IMPORTANT: I saw many sites that removes the copyright line in the footer  #
+# of each page. YOU'RE NOT ALLOWED TO REMOVE NOR CHANGE/EDIT THAT NOTE.      #
+# You can sell services based on PHP-Nuke, you can make money from it, you   #
+# can do almost whatever you want with PHP-Nuke but DO NOT REMOVE NOR EDIT   #
+# THE COPYRIGHT NOTICES!!! Removing it is a GPL license's violation.         #
+# If you do not agree with this simple rule, delete all PHP-Nuke files       #
+# rigth now and move away from it. Thanks.                                   #
+##############################################################################
+
+Base Requirements
+-----------------
+
+In order to setup PHP-Nuke the folowing prerequisits are necessary.
+
+- A Linux or Windows Box installed and working properly.
+- Apache Web Server (http://www.apache.org)
+- PHP version 4.2.x or better (mod_php) Apache module (http://www.php.net)
+- MySQL database server (http://www.mysql.com)
+
+NOTE: From PHP-Nuke version 5.3, I added a new SQL abstraction layer,
+this means that PHP-Nuke now supports MySQL, mSQL, PostgreSQL, PostgreSQL_local,
+ODBC, ODBC_Adabas, Sybase and Interbase servers. The official test server
+is MySQL which is used to develop PHP-Nuke. Any feedback about others SQL Servers
+and how it works will be very appreciated and useful.
+
+The above doesn't mean it will not work with other configurations, OS's, DB's, etc,
+but we only provide INSTALL instructions for the above configuration.
+In fact PHP-Nuke works under Windows (all), FreeBSD, OS/2, MacOS, etc.
+
+Setup of these required packages is beyond the scope of this document
+and if you are unsure you should check with each of the appropriate web
+sites for further details.
+
+
+Installing the Package (The fast and easy way)
+----------------------------------------------
+
+Unzip the package into the directory you want to use on you web
+server, if you're unsure where that is, ask you system administrator.
+
+Point your browser to your site, for example: http://phpnuke.org
+
+The system will show you an error message with a link to the web based installer utility (introduced
+with PHP-Nuke 8.0), follow the very easy steps and you're done.
+
+
+Installing the Package (The hard way)
+-------------------------------------
+
+Unzip the package into the directory you want to use on you web
+server, if you're unsure where that is, ask you system administrator.
+
+Now go to the directory where you uncompressed all files and edit the
+file "config.php". Change all the fields until you are happy with the
+changes and they fits the need of your web site. Give special attention
+to the database configuration section. When you have finished to edit
+config.php file change to the /sql/ directory and there is a file called
+"nuke.sql" this file contains the commands to build the database structure,
+tables and the default data.
+
+If you're using a software like phpMyAdmin go to step 3.
+
+1) Create a database called, for example, nuke:
+
+    mysqladmin create nuke
+    
+2) Now fill the databases with the tables in /html/install/sql/nuke.sql file:
+
+    mysql nuke < nuke.sql
+
+3) In order to use the ultramode.txt news file please be sure to chmod 666.
+   This file is used to show news from your site in some old programs and
+   frontends and is reserved to future use in PHP-Nuke. For backend use
+   backend.php file instead.
+
+4) That's it!... now you need to edit the file "config.php" to set the
+database options. Please read carefully the instruction on that file!
+After that, point your browser your site's administration area,
+for example:
+
+	http://phpnuke.org/admin.php
+    
+    We use MySQL as the example and nuke.sql file is in MySQL format
+because PHP-Nuke was made using this database server. You can find
+many programs out there to convert the database schema from MySQL to
+whatever else you want. But this is a task for you.
+
+
+First Run
+---------
+
+    Create your Super User following the on-screen instructions.
+    Now click on "Preferences" and change whatever you want to fit your
+site info. All the options you need to change are in the Preferences
+menu. If you need help just click con the help icon at the right-top
+of the Administration Menu. This will open a new window with the help
+you need for each section in the administration system.
+
+SECURITY TIP: It's a good choice to put your config.php file outside the
+Web Server path, then you can create a new config.php with the line:
+
+<?php include("../config.php"); ?>
+
+
+Upgrading from previous versions
+--------------------------------
+
+    To upgrade a prevoius PHP-Nuke installation to this new version you
+need to edit the selected upgrade file from upgrades directory and launch
+your web browser to:
+
+    http://www.phpnuke.org/upgrade80-81.php
+
+    all the new tables will be added and updated automagically without touch
+your old data.
+
+IMPORTANT: Remember to backup always your database before any upgrade, just
+in case. If something goes wrong don't come crying to me.
+
+
+Testing the Installation
+------------------------
+
+Go to your homepage, for example:
+
+    http://phpnuke.org/index.php
+    
+To initiate your activities in your site, you need to login as Administrator at:
+
+    http://phpnuke.org/admin.php
+    
+    this will give you full administrator priviledges to your installation of Nuke.
+
+*** For security reasons please remember to create a Super User IMMEDIATELY!!! ***
+
+    Remember to "Logout" from admin after you use it, from this area you can
+delete or add content on your site, never leave your computer without logggin out
+from the admin account. If something bad happens don't come crying to me.
+
+    I recommend the use of phpMyAdmin. It's a good administration system for
+MySQL databases. To download it just go to http://phpmyadmin.net
+
+    I also recommend to set a password for your MySQL access. This is important
+as some data in the nuke database is not encrypted, so for security reasons you
+need to set a password, not only that, it's a good practice!
+
+    For Banners System, when you setup a new client, you need to assign a new
+login/password for him. The login and password is used by the client at the url:
+
+	http://phpnuke.org/banners.php?op=login
+	
+    in order to let the	client view and track the banners stats in real time
+just pass that url to your clients. Take a look yourself before you do.
+
+
+Final Notes
+-----------    
+
+    That's it! You're done with PHP-Nuke. Just navigate around, play with it, 
+abuse it and if you like PHP-Nuke, use it. Spend some time getting used to the 
+administration interface.
+
+    To change your site's logo, go to the themes directory and make a custom
+logo for each individual theme. Just navigate around all themes and change
+the graphics you want.
+
+    A note for the PHP-Nuke site's administrators: Only admins (authors) can
+view the following data in the site:
+
+    - Administration Menu
+    - Number of New Submissions
+    - Edit button for each link in Web Links
+    - Edit and Delete options for each Article
+    - Delete option for each comment
+    - IP/Host address of the comment poster
+    - Moderation option and button (if set for admin only)
+    - and MANY more...
+
+    If you plan to give something in change for PHP-Nuke as a contribution,
+please read the file SUPPORT included in this package to have some ideas.
+
+
+
+*** Special Thanks to all the people who help sending bugs reports, fixes, new
+add-ons, requests for new features, etc... I really appreciate you all! ***
+
+************************************
+* PHP-Nuke URL: http://phpnuke.org *
+************************************
+
+Enjoy!
+
+-- Francisco Burzi

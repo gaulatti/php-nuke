@@ -1,0 +1,11 @@
+<table summary="leftblocks" width="137">
+          <tr>
+               <td style="text-decoration:underline;"><?php echo $block["title"]; ?></td>
+          </tr>
+
+          <tr>
+               <td><?php echo $block["content"]; ?>
+
+               <br /></td>
+          </tr>
+     </table>

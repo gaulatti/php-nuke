@@ -1,0 +1,26 @@
+Archivos editados y corregidos del PHPNUKE versión 8 (pisar por originales)
+
+
+/mainfile.php /* se eliminaron varios tacs html 1 */
+/config.php /* se corrigio bag que no permitía subir imagenes desde el editor html del backend */
+/header.php /* se actualizo linea 1 */
+
+/includes/javascript.php
+/includes/meta.php /* se actualizaron los meta */
+/admin/modules/blocks.php
+/admin/modules/modules.php
+
+
+/images/topics/
+/images/powered/powered8.jpg
+
+blocks/* (Se actualizaron todos los archivos)
+
+/modules/AvantGo/index.php
+/modules/Downloads/index.php
+/modules/Downloads/images/ * (Se actualizaron todos los archivos)
+
+
+
+
+

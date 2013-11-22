@@ -1,0 +1,6 @@
+<link href="style/style.css" rel="stylesheet" type="text/css" />
+<div id="rightBlock">
+  <div class="title"><?php echo $block["title"]; ?></div>
+  <div class="r_content"><?php echo $block["content"]; ?></div>
+	<div class="footer"><!-- [block-footer] --></div>
+</div>

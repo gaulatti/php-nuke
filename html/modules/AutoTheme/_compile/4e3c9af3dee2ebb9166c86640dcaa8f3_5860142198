@@ -1,0 +1,80 @@
+<!-- Head from template -->
+<script src="<?php echo $themepath; ?>includes/javascript.js"></script>
+<script src="<?php echo $themepath; ?>includes/noshow.js"></script>
+<link href="style/style.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+
+<body>
+<div id="gowI">
+  <div class="header">
+    <div class="headerLogo"><!--Logo--></div>
+    <div class="headerAbstract">
+				<div id="menu0">
+	   		<ul>
+         <li id="contact"><a href="modules.php?name=FeedBack" title="Contact Us"><span>Contact Us</span></a></li>
+         <li id="community"><a href="modules.php?name=Web_Links" title="Community Resources"><span>Community Resources</span></a></li>
+        </ul>
+				</div>
+		</div>
+  </div>
+  <div class="headerNav">
+    <div class="headerNavLeft">
+			  <div id="menu1">
+	   		<ul>
+         <li id="reviews"><a href="modules.php?name=Reviews" title="Our Exclusive Reviews"><span>Reviews</span></a></li>
+         <li id="faqs"><a href="modules.php?name=FAQ" title="Exlusive FAQ's"><span>FAQ's</span></a></li>
+         <li id="search"><a href="modules.php?name=Search" title="Global Site Search"><span>Site Search</span></a></li>
+        </ul>
+				</div>
+			  <div id="menu2">
+	   		<ul>
+         <li id="home"><a href="index.php" title="Homepage"><span>Homepage</span></a></li>
+         <li id="account"><a href="modules.php?name=Your_Account" title="Access Your Account Information"><span>Account</span></a></li>
+         <li id="downloads"><a href="modules.php?name=Downloads" title="Access Our Downloads"><span>Downloads</span></a></li>
+        </ul>
+				</div>
+    </div>
+    <div class="headerNavRight">
+				<div id="menu3">
+	   		<ul>
+         <li id="forums"><a href="modules.php?name=Forums" title="Community Forums & Support"><span>Community Forums</span></a></li>
+        </ul>
+				</div>
+		</div>
+  </div>
+	<div class="leftPanel"><?php atBlockDisplay("l"); ?></div>
+	<div class="contentPanel">
+	<div class="bannersPanel"><?php if($GLOBALS["banners"]) { include_once("banners.php"); } ?></div>
+	<div class="modulePanel">
+	  <?php if(function_exists("public_message")) { public_message(); } ?>
+		<?php atBlockDisplay("c"); ?>
+	  <!-- [modules] -->
+	</div>
+	<div class="rightPanel"><?php atBlockDisplay("r"); ?></div>
+	</div>
+  <div id="footer">
+    <div class="topBar">
+      <div class="topBar1">
+      <div class="topBar2"></div>
+      </div>
+    </div>
+	  <div class="middle0">
+	    <div class="middle1"><div class="message"><?php echo footmsg(); ?></div></div>
+	  </div>
+	  <div class="botBar">
+	    <div class="botBar1">
+	    <div class="botBar2">
+			  <div id="footerMenu">
+	   		<ul>
+         <li id="homefooter"><a href="index.php" title="Homepage"><span>Homepage</span></a></li>
+         <li id="accountfooter"><a href="modules.php?name=Your_Account" title="Access Your Account"><span>Your Account</span></a></li>
+         <li id="downloadsfooter"><a href="modules.php?name=Downloads" title="Access Site Downloads"><span>Downloads</span></a></li>
+        </ul>
+				</div>
+			</div>
+	    </div>
+	  </div>
+  </div>
+</div>

@@ -1,0 +1,124 @@
+<!-- Begin AT_Gamer2 Theme -->
+     <script type='text/javascript'>
+     //<![CDATA[
+
+     //HV Menu v5.411- by Ger Versluis (http://www.burmees.nl/)
+     //Submitted to Dynamic Drive (http://www.dynamicdrive.com)
+     //Visit http://www.dynamicdrive.com for this script and more
+
+     function Go(){return}
+
+     //]]>
+     </script>
+     <script type='text/javascript' src='themes/at_gamer2/exmplmenu_var.js'>
+     </script>
+     <script type='text/javascript' src='themes/at_gamer2/menu_com.js'>
+     </script>
+
+     <noscript>Your browser does not support script</noscript>
+
+     <table  cellpadding="0" cellspacing="0" width="100%">
+          <tr>
+               <td rowspan="1" colspan="3" width="49" height="25"><img alt="Gamer40" src="<?php echo $imagepath; ?>Gamer4_1x1.gif" width="49" height="25"  /></td>
+
+               <td rowspan="1" colspan="3" style="background-image:url(<?php echo $imagepath; ?>Gamer4_1x2.gif);" width="100%" height="25" >
+                    <div style="text-align: center;padding-bottom:5px;font-size:10px;">
+                         <?php echo "<script type=\"text/javascript\">\nvar monthNames = new Array( \""._JANUARY."\",\""._FEBRUARY."\",\""._MARCH."\",\""._APRIL."\",\""._MAY."\",\""._JUNE."\",\""._JULY."\",\""._AUGUST."\",\""._SEPTEMBER."\",\""._OCTOBER."\",\""._NOVEMBER."\",\""._DECEMBER."\");\nvar now = new Date();\nthisYear = now.getYear();\nif(thisYear < 1900) {thisYear += 1900};\ndocument.write(monthNames[now.getMonth()] + \" \" + now.getDate() + \", \" + thisYear);\n</script>"; ?>| <?php echo "<script type=\"text/javascript\">\nvar now = new Date();\nvar hours = now.getHours();\nvar minutes = now.getMinutes();\ndocument.write(hours + \":\" + minutes);\n</script>"; ?>
+                    </div>
+               </td>
+
+               <td rowspan="1" colspan="3" width="47" height="25"><img alt="Gamer42" src="<?php echo $imagepath; ?>Gamer4_1x3.gif" width="47" height="25"  /></td>
+          </tr>
+
+          <tr>
+               <td rowspan="1" colspan="1" width="43" height="78"><img alt="Gamer43" src="<?php echo $imagepath; ?>Gamer4_2x1.gif" width="43" height="78"  /></td>
+
+               <td rowspan="1" colspan="7" style="background-image:url(<?php echo $imagepath; ?>Gamer4_2x2.gif);background-repeat:no-repeat;background-color:#030301;" width="100%" height="78" >
+                    <div style="float:left;padding-left:220px;margin-top:3px;">
+                         <?php echo "<a href=\"modules.php?name=Your_Account&amp;op=new_user\">"._AT_NEWACCOUNT."</a> | <a href=\"modules.php?name=Your_Account\">"._LOGIN."</a>"; ?>
+                         </div>
+
+                    <div style="float:right;padding-right:7px;">
+                         <span style="font-weight:bold;font-size:16px;font-family:helvetica;"><?php echo $GLOBALS["sitename"]; ?></span>
+                         <br />
+                          <span style="font-weight:bold;font-size:11px;font-family:helvetica;"><?php echo $GLOBALS["slogan"]; ?></span>
+                    </div>
+               </td>
+
+               <td rowspan="1" colspan="1" width="41" height="78"><img alt="Gamer45" src="<?php echo $imagepath; ?>Gamer4_2x3.gif" width="41" height="78"  /></td>
+          </tr>
+
+          <tr>
+               <td rowspan="1" colspan="4" width="58" height="37"><img alt="Gamer46" src="<?php echo $imagepath; ?>Gamer4_3x1.gif" width="58" height="37"  /></td>
+
+               <td rowspan="1" colspan="1" style="background-image:url(<?php echo $imagepath; ?>Gamer4_3x2.gif);" width="100%" height="37" ></td>
+
+               <td rowspan="1" colspan="4" width="69" height="37"><img alt="Gamer48" src="<?php echo $imagepath; ?>Gamer4_3x3.gif" width="69" height="37"  /></td>
+          </tr>
+
+          <tr>
+               <td rowspan="1" colspan="2" style="background-image:url(<?php echo $imagepath; ?>Gamer4_4x1.gif);" width="44" height="460" ></td>
+
+               <td rowspan="1" colspan="5" style="background-color:#191919;" width="100%" height="460"  valign="top">
+                    <table cellpadding="2" cellspacing="2" width="100%">
+                         <tr>
+                              <td valign="top" width="140"><?php atBlockDisplay("l"); ?>
+                              </td>
+
+                              <td valign="top" width="100%">
+                                   <?php atBlockDisplay("c"); ?>
+                                   <!-- [modules] -->
+
+                                   <table cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                             <td><?php atBlockDisplay("1"); ?>
+                                             </td>
+
+                                             <td><?php atBlockDisplay("2"); ?>
+                                             </td>
+                                        </tr>
+                                   </table>
+                              </td>
+
+                              <td valign="top" width="140"><?php atBlockDisplay("r"); ?>
+                              </td>
+                         </tr>
+                    </table>
+                    <br />
+                    <br />
+
+
+                    <div style="width:100%;height:1px;background-color:#666666;"></div>
+                    <br />
+                    <br />
+
+
+                    <div style="text-align: center;">
+                         <?php echo footmsg(); ?>
+                         </div>
+               </td>
+
+               <td rowspan="1" colspan="2" style="background-image:url(<?php echo $imagepath; ?>Gamer4_4x3.gif);" width="44" height="460" ></td>
+          </tr>
+
+          <tr>
+               <td width="43" height="1"><img alt="blank" src="<?php echo $imagepath; ?>blank.gif" width="43" height="1"  /></td>
+
+               <td width="1" height="1"><img alt="blank" src="<?php echo $imagepath; ?>blank.gif" width="1" height="1"  /></td>
+
+               <td width="5" height="1"><img alt="blank" src="<?php echo $imagepath; ?>blank.gif" width="5" height="1"  /></td>
+
+               <td width="9" height="1"><img alt="blank" src="<?php echo $imagepath; ?>blank.gif" width="9" height="1"  /></td>
+
+               <td width="643" height="1"><img alt="blank" src="<?php echo $imagepath; ?>blank.gif" width="643" height="1"  /></td>
+
+               <td width="22" height="1"><img alt="blank" src="<?php echo $imagepath; ?>blank.gif" width="22" height="1"  /></td>
+
+               <td width="3" height="1"><img alt="blank" src="<?php echo $imagepath; ?>blank.gif" width="3" height="1"  /></td>
+
+               <td width="3" height="1"><img alt="blank" src="<?php echo $imagepath; ?>blank.gif" width="3" height="1"  /></td>
+
+               <td width="41" height="1"><img alt="blank" src="<?php echo $imagepath; ?>blank.gif" width="41" height="1"  /></td>
+          </tr>
+     </table>
+<!-- End AT_Gamer2 Theme -->

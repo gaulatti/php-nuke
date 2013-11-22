@@ -1,0 +1,66 @@
+// ----------------------------------------------------------------------
+// Copyright (c) 2002-2005 Shawn McKenzie
+// http://spidean.mckenzies.net
+// ----------------------------------------------------------------------
+// LICENSE
+//
+// This program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License (GPL)
+// as published by the Free Software Foundation; either version 2
+// of the License, or (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// To read the license please visit http://www.gnu.org/copyleft/gpl.html
+//
+//
+//
+//
+// ----------------------------------------------------------------------
+
+* A complete User Guide can be found in modules/AutoTheme/docs/
+
+Installation
+There are two main ways to install AutoTheme.  Regardless of which way you choose, it is important to remember that the compressed distribution file (.zip, .tar.gz or .sit) contains all of the directories and files needed and it is laid out in the exact manner that it should be installed.  There is no need to create directories or worry about the proper placement of files.
+
+
+FTP
+As most hosting providers supply FTP access, this is likely the most common way to install CMS modules, including AutoTheme.
+
+* Extract the compressed distribution file (.zip, .tar.gz or .sit) to your local computer
+* FTP upload the entire contents to your CMS root directory (accept any directory overwrite warnings.  These directories are not being overwritten.  The warnings are generated because the directory already exists, but this is fine.)
+
+
+Shell
+If your hosting provider supplies Secure Shell (SSH) or Telnet access, this may be a quicker and easier installation method.
+
+* Copy the compressed distribution file (.zip, .tar.gz or .sit) to your CMS root directory (the main directory where your CMS is installed)
+
+* Extract the compressed distribution file
+	* unzip file.zip  (zip example)
+	* tar zxf file.tar.gz  (tar.gz example)
+
+After installing, go to your CMS/shop Administration, and follow the instructions for activating a something like AuToTheme.
+
+
+File Permissions
+IMPORTANT:  The "modules/AutoTheme/autotheme.cfg" and any "theme.cfg" in your theme directories, as well as the themes/ directory itself must be writeable by the web server in order to use the graphical administration interface!
+Template compiling increases the speed of your site and requires that "modules/AutoTheme/_compile/" be writable.
+Full page caching greatly increases the speed of your site and requires that "modules/AutoTheme/_cache/" be writable as well.
+
+The easiest way in Unix/Linux with shell access is to change to the CMS root directory and then:
+
+* CHMOD 777 modules/AutoTheme/autotheme.cfg
+* CHMOD 777 modules/AutoTheme/_compile/
+* CHMOD 777 modules/AutoTheme/_cache/
+* CHMOD 777 themes/YOURTHEME/theme.cfg
+* CHMOD 777 themes/
+
+To set the permissions on all applicable files, you may use the following shell script:
+
+* sh modules/AutoTheme/autotheme.sh
+
+If using FTP, most FTP programs have an option to set these permissions on files.  Windows should not be an issue unless you have set custom file or directory permissions.
