@@ -35,7 +35,7 @@ if (!isset($popup) OR ($popup != "1")) {
 define('IN_PHPBB', true);
 include($phpbb_root_path . 'extension.inc');
 include($phpbb_root_path . 'common.'.$phpEx);
-include_once("modules/Forums/includes/bbcode.php");
+include_secure("modules/Forums/includes/bbcode.php");
 include("modules/Forums/includes/functions_post.php");
 
 //

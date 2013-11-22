@@ -27,9 +27,9 @@ if ( !defined('MODULE_FILE') )
 define('IN_PHPBB', true);
 $phpbb_root_path = 'modules/Forums/';
 
-include_once($phpbb_root_path . 'extension.inc');
-include_once($phpbb_root_path . 'common.'.$phpEx);
-include_once('includes/bbcode.'.$phpEx);
+include_secure($phpbb_root_path . 'extension.inc');
+include_secure($phpbb_root_path . 'common.'.$phpEx);
+include_secure('includes/bbcode.'.$phpEx);
 
 //
 // Start session management

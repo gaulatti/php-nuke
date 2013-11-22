@@ -17,7 +17,7 @@ if (!defined('ADMIN_FILE')) {
 }
 
 $module_name = "Encyclopedia";
-include_once("modules/$module_name/admin/language/lang-".$currentlang.".php");
+include_secure("modules/$module_name/admin/language/lang-".$currentlang.".php");
 
 switch($op) {
 

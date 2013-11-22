@@ -65,7 +65,7 @@ function foot() {
 	}
 	themefooter();
 	if (file_exists("includes/custom_files/custom_footer.php")) {
-		include_once("includes/custom_files/custom_footer.php");
+		include_secure("includes/custom_files/custom_footer.php");
 	}
 	echo "</body>\n</html>";
     ob_end_flush();

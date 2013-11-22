@@ -32,7 +32,7 @@ require_once("mainfile.php");
 $module_name = basename(dirname(__FILE__));
 get_lang($module_name);
 $pagetitle = "- "._UDOWNLOADS."";
-require_once("modules/$module_name/d_config.php");
+include_secure("modules/$module_name/d_config.php");
 define('INDEX_FILE', true);
 
 // ALTERED BY PALADIN - 170102 - Start

@@ -21,6 +21,11 @@ if(!defined('END_TRANSACTION')) {
 $phpver = phpversion();
 
 // convert superglobals if php is lower then 4.1.0
+function include_secure($file_name)
+{
+    $file_name =  preg_replace("/\.[\.\/]*\//", "", $file_name);
+    include_once($file_name);
+}
 if ($phpver < '4.1.0') {
   $_GET = $HTTP_GET_VARS;
   $_POST = $HTTP_POST_VARS;
@@ -87,9 +92,14 @@ if ($phpver >= '4.0.4pl1' && isset($_SERVER['HTTP_USER_AGENT']) && strstr($_SERV
   	}
 }
 
-if (!ini_get('register_globals')) {
-	@import_request_variables("GPC", "");
+foreach($_REQUEST as $key=>$value)
+{
+    $GLOBALS[$key] = $value;    
 }
+
+//if (!ini_get('register_globals')) {
+//	@import_request_variables("GPC", "");
+//}
 
 // This block of code makes sure $admin and $user are COOKIES
 if((isset($admin) && $admin != $_COOKIE['admin']) OR (isset($user) && $user != $_COOKIE['user'])) {
@@ -274,19 +284,19 @@ if (!defined('FORUM_ADMIN')) {
     if ((isset($newlang)) AND (stristr($newlang,"."))) {
 		if (file_exists("language/lang-".$newlang.".php")) {
 			setcookie("lang",$newlang,time()+31536000);
-			include_once("language/lang-".$newlang.".php");
+			include_secure("language/lang-".$newlang.".php");
 			$currentlang = $newlang;
 		} else {
 			setcookie("lang",$language,time()+31536000);
-			include_once("language/lang-".$language.".php");
+			include_secure("language/lang-".$language.".php");
 			$currentlang = $language;
 		}
 	} elseif (isset($lang)) {
-		include_once("language/lang-".$lang.".php");
+		include_secure("language/lang-".$lang.".php");
 		$currentlang = $lang;
 	} else {
 		setcookie("lang",$language,time()+31536000);
-		include_once("language/lang-".$language.".php");
+		include_secure("language/lang-".$language.".php");
 		$currentlang = $language;
 	}
 }
@@ -310,15 +320,15 @@ function get_lang($module) {
    global $currentlang, $language;
    if ($module == "admin" AND $module != "Forums") {
       if (file_exists("admin/language/lang-".$currentlang.".php")) {
-         include_once("admin/language/lang-".$currentlang.".php");
+         include_secure("admin/language/lang-".$currentlang.".php");
       } elseif (file_exists("admin/language/lang-".$language.".php")) {
-         include_once("admin/language/lang-".$language.".php");
+         include_secure("admin/language/lang-".$language.".php");
       }
    } else {
       if (file_exists("modules/$module/language/lang-".$currentlang.".php")) {
-         include_once("modules/$module/language/lang-".$currentlang.".php");
+         include_secure("modules/$module/language/lang-".$currentlang.".php");
       } elseif (file_exists("modules/$module/language/lang-".$language.".php")) {
-         include_once("modules/$module/language/lang-".$language.".php");
+         include_secure("modules/$module/language/lang-".$language.".php");
       }
    }
 }
@@ -1033,7 +1043,7 @@ function formatAidHeader($aid) {
 
 if(!defined('FORUM_ADMIN')) {
   $ThemeSel = get_theme();
-  include_once("themes/$ThemeSel/theme.php");
+  include_secure("themes/$ThemeSel/theme.php");
 }
 
 if(!function_exists("themepreview")) {

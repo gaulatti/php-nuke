@@ -56,7 +56,7 @@ function atAPIInit($force=FALSE)
     $platformdir = $incdir."$platform/";
     $atpath = "modules/AutoTheme/";
 
-    require_once($platformdir."atAPI.php");
+    include_secure($platformdir."atAPI.php");
 
     $platformconfig = atPlatformAPIInit($atdir);
     extract($platformconfig);
@@ -106,7 +106,7 @@ function atThemeInit($thename, $force=FALSE)
     atThemeSetVar("imagelangpath", $imagelangpath);
     atThemeSetVar("multipath", $multipath);
 
-    require_once($platformdir."atFuncs.php");
+    include_secure($platformdir."atFuncs.php");
 
     atLoadThemeConfig($themepath);
     atThemeLangLoad($themepath);
@@ -127,7 +127,7 @@ function atThemeInit($thename, $force=FALSE)
     	}
     	ob_end_clean();
     }
-    require_once($incdir."atExtended.php");
+    include_secure($incdir."atExtended.php");
 
     atExtendedInit();
 
@@ -146,7 +146,7 @@ function atAdminInit()
     $globalconfig = atAPIInit();
     extract($globalconfig);
 
-    require_once($platformdir."atAdmin.php");
+    include_secure($platformdir."atAdmin.php");
 
     $platformconfig = atPlatformAdminInit();
     extract($platformconfig);
@@ -1251,8 +1251,8 @@ function atLoadExtraCommands($dir)
 
                 $parts = explode(".", $file);
                 $name = $parts[0];
-                @include_once($atdir."lang/$lang/$name.php");
-                @include_once($dir.$file);
+                @include_secure($atdir."lang/$lang/$name.php");
+                include_secure($dir.$file);
 
                 foreach ($extracmd as $type => $cmds) {
                     foreach ($cmds as $cmd => $action) {
@@ -1270,8 +1270,8 @@ function atLoadExtraCommands($dir)
 
                 $parts = explode(".", $file);
                 $name = $parts[0];
-                @include_once($atdir."lang/$lang/$name.php");
-                @include_once($dir.$platform."/$file");
+                @include_secure($atdir."lang/$lang/$name.php");
+                @include_secure($dir.$platform."/$file");
 
                 foreach ($extracmd as $type => $cmds) {
                     foreach ($cmds as $cmd => $action) {
@@ -1298,8 +1298,8 @@ function atExtraScan($dir)
                 $parts = explode(".", $file);
                 $name = $parts[0];
                 $loaded[$name] = 1;
-                @include_once($atdir."lang/$lang/$name.php");
-                @include_once($dir.$platform."/$file");
+                @include_secure($atdir."lang/$lang/$name.php");
+                @include_secure($dir.$platform."/$file");
             }
         }
         closedir($handle);
@@ -1310,8 +1310,8 @@ function atExtraScan($dir)
                 $parts = explode(".", $file);
                 $name = $parts[0];
                 if (!$loaded[$name]) {
-                    @include_once($atdir."lang/$lang/$name.php");
-                    @include_once($dir.$file);
+                    @include_secure($atdir."lang/$lang/$name.php");
+                    @include_secure($dir.$file);
                 }
             }
         }
@@ -1349,16 +1349,16 @@ function atExtraLoad($name)
     $lang = atGetLang();
 
     if (@file_exists($atdir."lang/$lang/$name.php")) {
-        @include_once($atdir."lang/$lang/$name.php");
+        @include_secure($atdir."lang/$lang/$name.php");
     }
     else {
-        @include_once($atdir."lang/eng/$name.php");
+        @include_secure($atdir."lang/eng/$name.php");
     }
     if (@file_exists($extradir.$platform."/$name.ext.php")) {
-        @include_once($extradir.$platform."/$name.ext.php");
+        @include_secure($extradir.$platform."/$name.ext.php");
     }
     else {
-        @include_once($extradir."$name.ext.php");
+        @include_secure($extradir."$name.ext.php");
     }
     atRunningSetVar("extra", $extra);
 
