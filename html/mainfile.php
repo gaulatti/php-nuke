@@ -92,14 +92,14 @@ if ($phpver >= '4.0.4pl1' && isset($_SERVER['HTTP_USER_AGENT']) && strstr($_SERV
   	}
 }
 
+$sanitize_rules = array("newlang"=>"/[a-z][a-z]/i","redirect"=>"/[a-z0-9]*/i");
 foreach($_REQUEST as $key=>$value)
 {
-    $GLOBALS[$key] = $value;    
+    if(!isset($sanitize_rules[$key]) || preg_match($sanitize_rules[$key], $values))
+    {
+        $GLOBALS[$key] = $value;
+    }    
 }
-
-//if (!ini_get('register_globals')) {
-//	@import_request_variables("GPC", "");
-//}
 
 // This block of code makes sure $admin and $user are COOKIES
 if((isset($admin) && $admin != $_COOKIE['admin']) OR (isset($user) && $user != $_COOKIE['user'])) {
