@@ -55,3 +55,11 @@ Emails I receive.
 
 
 -- Francisco Burzi <fburzi@gmail.com>
+
+Personal Statement
+===========================
+I grew up with PHP-Nuke. I started learning PHP deploying and implementing PHP-Nuke when I was 13, and then I never stopped until now. I have a special love for this piece of history, because in those years, PHP-Nuke was the ultimate way of Content Management, and got even better since its integration with PHPBB. It's part of my history.
+
+I want to revive PHP-Nuke, just for affection. My goal with this is to update PHP-Nuke on its original shape, for being used with latest versions of PHP.
+
+-- Javier Godoy rotvulpix@rotvulpix.cl
