@@ -196,8 +196,8 @@ for compatibility reasons. It's very easy and highly tested.
     Normaly you make a query on MySQL like this:
     
     $sql = "SELECT uid, uname FROM nuke_users";
-    $result = mysql_query($sql);
-    list($uid, $uname) = mysql_fetch_row($result);
+    $result = mysqli_query($sql);
+    list($uid, $uname) = mysqli_fetch_row($result);
 
     With the SQL abstraction layer on PHP-Nuke you should declare $db as a global
 variable and then:

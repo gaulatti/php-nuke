@@ -76,8 +76,8 @@ global $dbtype;
 switch ($dbtype) {
 
     case "MySQL":
-        $dbi=@mysql_connect($host, $user, $password);
-	mysql_select_db($db);
+        $dbi=@mysqli_connect($host, $user, $password);
+	mysqli_select_db($db);
         return $dbi;
     break;;
 
@@ -131,7 +131,7 @@ global $dbtype;
 switch ($dbtype) {
 
     case "MySQL":
-        $dbi=@mysql_close($id);
+        $dbi=@mysqli_close($id);
         return $dbi;
     break;;
 
@@ -183,7 +183,7 @@ if($sql_debug) echo "SQL query: ".str_replace(",",", ",$query)."<BR>";
 switch ($dbtype) {
 
     case "MySQL":
-        $res=@mysql_query($query, $id);
+        $res=@mysqli_query($query, $id);
         return $res;
     break;;
 
@@ -235,7 +235,7 @@ global $dbtype;
 switch ($dbtype) {
  
     case "MySQL":
-        $rows=mysql_num_rows($res);
+        $rows=mysqli_num_rows($res);
         return $rows;
     break;;
 
@@ -283,7 +283,7 @@ global $dbtype;
 switch ($dbtype) {
 
     case "MySQL":
-        $row = mysql_fetch_row($res);
+        $row = mysqli_fetch_row($res);
         return $row;
     break;;
 
@@ -339,7 +339,7 @@ switch ($dbtype)
     {
     case "MySQL":
         $row = array();
-        $row = mysql_fetch_array($res);
+        $row = mysqli_fetch_array($res);
         return $row;
     break;;
 
@@ -414,7 +414,7 @@ global $dbtype;
 switch ($dbtype)
     {
     case "MySQL":
-        $row = mysql_fetch_object($res);
+        $row = mysqli_fetch_object($res);
 	if($row) return $row;
 	else return false;
     break;;
@@ -491,7 +491,7 @@ global $dbtype;
 switch ($dbtype) {
 
     case "MySQL":
-        $row = mysql_free_result($res);
+        $row = mysqli_free_result($res);
         return $row;
     break;;
 

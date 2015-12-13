@@ -12,20 +12,20 @@ $username 	= "root";
 $password 	= "";
 $prefix 	= "nuke"; /* Your database table's prefix */
 
-mysql_connect($host, $username, $password);
-@mysql_select_db($database);
+mysqli_connect($host, $username, $password);
+@mysqli_select_db($database);
 
 ####################### BEGIN THE UPDATE #######################################
 
 // Stories Table Alteration
-mysql_query("ALTER TABLE ".$prefix."_stories ADD haspoll INT (1) DEFAULT '0' not null ");
-mysql_query("ALTER TABLE ".$prefix."_stories ADD pollID INT (10) DEFAULT '0' not null ");
-mysql_query("ALTER TABLE ".$prefix."_queue ADD storyext TEXT not null AFTER story");
+mysqli_query("ALTER TABLE ".$prefix."_stories ADD haspoll INT (1) DEFAULT '0' not null ");
+mysqli_query("ALTER TABLE ".$prefix."_stories ADD pollID INT (10) DEFAULT '0' not null ");
+mysqli_query("ALTER TABLE ".$prefix."_queue ADD storyext TEXT not null AFTER story");
 
 
 // Polls Table Alteration
-mysql_query("ALTER TABLE ".$prefix."_poll_desc ADD artid INT (10) DEFAULT '0' not null ");
-mysql_query("ALTER TABLE ".$prefix."_poll_check ADD pollID INT (10) DEFAULT '0' not null ");
+mysqli_query("ALTER TABLE ".$prefix."_poll_desc ADD artid INT (10) DEFAULT '0' not null ");
+mysqli_query("ALTER TABLE ".$prefix."_poll_check ADD pollID INT (10) DEFAULT '0' not null ");
 
 
 echo "PHP-Nuke 5.2 update finished<br><br>";

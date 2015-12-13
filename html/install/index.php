@@ -116,7 +116,7 @@ correctly.
 	&nbsp; - MySQL support
 	</td>
 	<td align="left">
-	<?php echo function_exists( 'mysql_connect' ) ? '<b><font color="green">Available</font></b>' : '<b><font color="red">Unavailable</font></b>';?>
+	<?php echo function_exists( 'mysqli_connect' ) ? '<b><font color="green">Available</font></b>' : '<b><font color="red">Unavailable</font></b>';?>
 	</td>
 </tr>
 <tr>

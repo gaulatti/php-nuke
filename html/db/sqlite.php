@@ -136,7 +136,6 @@ class sql_db
 			$query_id = $this->query_result;
 		}
 
-		// return ($query_id) ? @mysql_field_type($query_id, $offset) : false;
 		return ($query_id) ? 'varchar' : false;
 	}
 
@@ -228,7 +227,7 @@ class sql_db
 		{
 			if( $rownum > -1 )
 			{
-				$result = mysql_result($query_id, $rownum, $field);
+				$result = mysqli_result($query_id, $rownum, $field);
 			}
 			else
 			{
@@ -289,7 +288,7 @@ class sql_db
 				$this->rowset[$query_id]
 				);
 
-			//@mysql_free_result($query_id);
+			//@mysqli_free_result($query_id);
 
 			return true;
 		}

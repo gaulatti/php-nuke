@@ -1132,7 +1132,7 @@ June 2001: Version 5.0
   graphics names are leftbar.gif, mainbar.gif and rightbar.gif and are under /themes/yourtheme/images/
   directory. Please check this out and customize your bars.
 - Added $uimages missing global variable declaration on comments.php and pollcomments.php in modthree()
-- Changed mysql_pconnect with mysql_connect in mainfile.php, the result is a fastest pages render
+- Changed mysql_pconnect with mysqli_connect in mainfile.php, the result is a fastest pages render
 - Fixed user comment post on reviews.php
 - Removed Advanced Stats (OS's compatibility reasons)
 - Fixed a lot of HTML code on sections.php

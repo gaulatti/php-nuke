@@ -13,16 +13,16 @@ $password 	= "";
 $prefix 	= "nuke";
 $user_prefix	= "nuke";
 
-mysql_connect($host, $username, $password);
-@mysql_select_db($database);
+mysqli_connect($host, $username, $password);
+@mysqli_select_db($database);
 
 ####################### BEGIN THE UPDATE #######################################
 
 // User's Table Alteration (Add Newsletter field)
-mysql_query("ALTER TABLE ".$user_prefix."_users ADD newsletter INT (1) DEFAULT '0' not null ");
+mysqli_query("ALTER TABLE ".$user_prefix."_users ADD newsletter INT (1) DEFAULT '0' not null ");
 
 // Author's Table Alteration (Add Newsletter field)
-mysql_query("ALTER TABLE ".$prefix."_authors ADD radminnewsletter TINYINT(2) DEFAULT '0' NOT NULL AFTER radminreviews");
+mysqli_query("ALTER TABLE ".$prefix."_authors ADD radminnewsletter TINYINT(2) DEFAULT '0' NOT NULL AFTER radminreviews");
 
 echo "PHP-Nuke Update finished!";
 

@@ -101,12 +101,12 @@ if ($row['radminsuper'] == 1) {
 		{
 			$result = mysql_db_query($db, "SELECT * FROM $table") or mysql_die();
 			$i = 0;
-			while($row = mysql_fetch_row($result))
+			while($row = mysqli_fetch_row($result))
 			{
 				//        set_time_limit(60); // HaRa
 				$table_list = "(";
 
-				for($j=0; $j<mysql_num_fields($result);$j++)
+				for($j=0; $j<mysqli_num_fields($result);$j++)
 				$table_list .= mysql_field_name($result,$j).", ";
 
 				$table_list = substr($table_list,0,-2);
@@ -117,7 +117,7 @@ if ($row['radminsuper'] == 1) {
 				else
 				$schema_insert = "INSERT INTO $table VALUES (";
 
-				for($j=0; $j<mysql_num_fields($result);$j++)
+				for($j=0; $j<mysqli_num_fields($result);$j++)
 				{
 					if(!isset($row[$j]))
 					$schema_insert .= " NULL,";
@@ -143,7 +143,7 @@ if ($row['radminsuper'] == 1) {
 			$schema_create .= "CREATE TABLE $table ($crlf";
 
 			$result = mysql_db_query($db, "SHOW FIELDS FROM $table") or mysql_die();
-			while($row = mysql_fetch_array($result))
+			while($row = mysqli_fetch_array($result))
 			{
 				$schema_create .= "   $row[Field] $row[Type]";
 
@@ -157,7 +157,7 @@ if ($row['radminsuper'] == 1) {
 			}
 			$schema_create = ereg_replace(",".$crlf."$", "", $schema_create);
 			$result = mysql_db_query($db, "SHOW KEYS FROM $table") or mysql_die();
-			while($row = mysql_fetch_array($result))
+			while($row = mysqli_fetch_array($result))
 			{
 				$kname=$row['Key_name'];
 				if(($kname != "PRIMARY") && ($row['Non_unique'] == 0))
@@ -190,7 +190,7 @@ if ($row['radminsuper'] == 1) {
 				echo "$strSQLQuery: <pre>$sql_query</pre><p>";
 			}
 			if(empty($error))
-			echo $strMySQLSaid.mysql_error();
+			echo $strMySQLSaid.mysqli_error();
 			else
 			echo $strMySQLSaid.$error;
 			echo "<br><a href=\"javascript:history.go(-1)\">$strBack</a>";
@@ -199,11 +199,11 @@ if ($row['radminsuper'] == 1) {
 
 		global $dbhost, $dbuname, $dbpass, $dbname;
 		mysql_pconnect($dbhost, $dbuname, $dbpass);
-		@mysql_select_db("$dbname") or die ("Unable to select database");
+		@mysqli_select_db("$dbname") or die ("Unable to select database");
 
 		$tables = mysql_list_tables($dbname);
 
-		$num_tables = @mysql_numrows($tables);
+		$num_tables = @mysqli_num_rows($tables);
 		if($num_tables == 0)
 		{
 			echo $strNoTablesFound;
