@@ -60,7 +60,7 @@ class database {
 	* @param string Common prefix for all tables
 	* @param boolean If true and there is an error, go offline
 	*/
-	function database( $host='localhost', $user, $pass, $db='', $table_prefix='', $goOffline=true ) {
+	function __construct( $host='localhost', $user, $pass, $db='', $table_prefix='', $goOffline=true ) {
 		// perform a number of fatality checks, then die gracefully
 		if (!function_exists( 'mysqli_connect' )) {
 			$mosSystemError = 1;
@@ -685,7 +685,7 @@ class mosDBTable {
 	*	@param string $table name of the table in the db schema relating to child class
 	*	@param string $key name of the primary key field in the table
 	*/
-	function mosDBTable( $table, $key, &$db ) {
+	function __construct( $table, $key, &$db ) {
 		$this->_tbl = $table;
 		$this->_tbl_key = $key;
 		$this->_db =& $db;
