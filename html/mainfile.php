@@ -83,9 +83,9 @@ if ($phpver >= '4.0.4pl1' && isset($_SERVER['HTTP_USER_AGENT']) && strstr($_SERV
   	if (strstr($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
     	if (extension_loaded('zlib')) {
       		$do_gzip_compress = true;
-      		ob_start(array('ob_gzhandler',5));
+      		ob_start('ob_gzhandler');
       		ob_implicit_flush(0);
-      		if (ereg("MSIE", $_SERVER['HTTP_USER_AGENT'])) {
+      		if (preg_match("/MSIE/", $_SERVER['HTTP_USER_AGENT'])) {
 				header('Content-Encoding: gzip');
       		}
     	}
