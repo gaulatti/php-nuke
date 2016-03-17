@@ -62,17 +62,8 @@ class database {
 	*/
 	function __construct( $host='localhost', $user, $pass, $db='', $table_prefix='', $goOffline=true ) {
 		// perform a number of fatality checks, then die gracefully
-		if (!function_exists( 'mysqli_connect' )) {
-			$mosSystemError = 1;
-			if ($goOffline) {
-				$basePath = dirname( __FILE__ );
-				include $basePath . '/../configuration.php';
-				include $basePath . '/../offline.php';
-				exit();
-			}
-		}
-		if (phpversion() < '4.2.0') {
-			if (!($this->_resource = @mysqli_connect( $host, $user, $pass ))) {
+			
+			if (!($this->_resource = new mysqli( $host, $user, $pass, $db ))) {
 				$mosSystemError = 2;
 				if ($goOffline) {
 					$basePath = dirname( __FILE__ );
@@ -81,28 +72,7 @@ class database {
 					exit();
 				}
 			}
-		} else {		
-			if (!($this->_resource = @mysqli_connect( $host, $user, $pass, true ))) {
-				$mosSystemError = 2;
-				if ($goOffline) {
-					$basePath = dirname( __FILE__ );
-					include $basePath . '/../configuration.php';
-					include $basePath . '/../offline.php';
-					exit();
-				}
-			}
-		}
-		if ($db != '' && !mysqli_select_db( $db, $this->_resource )) {
-			$mosSystemError = 3;
-			if ($goOffline) {
-				$basePath = dirname( __FILE__ );
-				include $basePath . '/../configuration.php';
-				include $basePath . '/../offline.php';
-				exit();
-			}
-		}
 		$this->_table_prefix = $table_prefix;
-        //@mysqli_query("SET NAMES 'utf8'", $this->_resource);
 		$this->_ticker = 0;
 		$this->_log = array();
 	}
@@ -277,13 +247,12 @@ class database {
 		}
 		$this->_errorNum = 0;
 		$this->_errorMsg = '';
-		$this->_cursor = mysqli_query( $this->_sql, $this->_resource );
+		$this->_cursor = $this->_resource->query( $this->_sql );
 		if (!$this->_cursor) {
 			$this->_errorNum = mysqli_errno( $this->_resource );
 			$this->_errorMsg = mysqli_error( $this->_resource )." SQL=$this->_sql";
 			if ($this->_debug) {
 				trigger_error( mysqli_error( $this->_resource ), E_USER_NOTICE );
-				//echo "<pre>" . $this->_sql . "</pre>\n";
 				if (function_exists( 'debug_backtrace' )) {
 					foreach( debug_backtrace() as $back) {
 						if (@$back['file']) {

@@ -21,7 +21,6 @@ define( "_VALID_MOS", 1 );
 // Include common.php
 require_once( 'common.php' );
 require_once( './includes/database.php' );
-
 $DBhostname = mosGetParam( $_POST, 'DBhostname', '' );
 $DBuserName = mosGetParam( $_POST, 'DBuserName', '' );
 $DBpassword = mosGetParam( $_POST, 'DBpassword', '' );
@@ -32,15 +31,15 @@ $configArray['sitename'] = trim( mosGetParam( $_POST, 'sitename', '' ) );
 
 $database = null;
 
+
 $errors = array();
 if (!$DBcreated){
 	if (!$DBhostname || !$DBuserName || !$DBname) {
 		db_err ("stepBack3","The database details provided are incorrect and/or empty.");
 	}
 
-	$database = new database( $DBhostname, $DBuserName, $DBpassword, '', '', false );
+	$database = new database( $DBhostname, $DBuserName, $DBpassword, $DBname, '', false );
 	$test = $database->getErrorMsg();
-
 	if (!$database->_resource) {
 		db_err ('stepBack2','The password and username provided are incorrect.');
 	}
@@ -105,13 +104,8 @@ function db_err($step, $alert) {
  */
 function populate_db( &$database, $sqlfile='nuke.sql') {
 	global $errors;
-
-	$mqr = @get_magic_quotes_runtime();
-	@set_magic_quotes_runtime(0);
 	$query = fread( fopen( 'sql/' . $sqlfile, 'r' ), filesize( 'sql/' . $sqlfile ) );
-	@set_magic_quotes_runtime($mqr);
 	$pieces  = split_sql($query);
-
 	for ($i=0; $i<count($pieces); $i++) {
 		$pieces[$i] = trim($pieces[$i]);
 		if(!empty($pieces[$i]) && $pieces[$i] != "#") {
@@ -128,7 +122,7 @@ function populate_db( &$database, $sqlfile='nuke.sql') {
  */
 function split_sql($sql) {
 	$sql = trim($sql);
-	$sql = ereg_replace("\n#[^\n]*\n", "\n", $sql);
+	$sql = preg_replace("\n[^\n]\n", "\n", $sql);
 
 	$buffer = array();
 	$ret = array();
