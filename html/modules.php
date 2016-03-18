@@ -27,7 +27,7 @@ if (isset($name) && $name == $_REQUEST['name']) {
     $nukeuser = "";
   }
   $result = $db->sql_query("SELECT active, view FROM ".$prefix."_modules WHERE title='".addslashes($name)."'");
-  list($mod_active, $view) = $db->sql_fetchrow($result);
+  list($mod_active, $view) = $result->fetch_row();
   $mod_active = intval($mod_active);
   $view = intval($view);
   if (($mod_active == 1) OR ($mod_active == 0 AND is_admin($admin))) {
@@ -69,7 +69,7 @@ if (isset($name) && $name == $_REQUEST['name']) {
       OpenTable();
       echo "<center><strong>"._RESTRICTEDAREA."</strong><br><br>"._MODULEUSERS;
       $result2 = $db->sql_query("SELECT mod_group FROM ".$prefix."_modules WHERE title='".addslashes($name)."'");
-      list($mod_group) = $db->sql_fetchrow($result2);
+      list($mod_group) = $result2->fetch_row();
       if ($mod_group != 0) {
         $result3 = $db->sql_query("SELECT name FROM ".$prefix."_groups WHERE id='".intval($mod_group)."'");
         $row3 = $db->sql_fetchrow($result3);

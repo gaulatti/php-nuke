@@ -294,7 +294,7 @@ function DisplayKids ($tid, $mode, $order=0, $thold=0, $level=0, $dummy=0, $tblw
 					echo "<br>"._BY." $r_name "._ON." $datetime";
 				}
 				if ($r_name != $anonymous) {
-					$row2 = $db->sql_fetchrow($db->sql_query("SELECT user_id FROM ".$user_prefix."_users WHERE username='$r_name'"));
+					$row2 = $db->sql_query("SELECT user_id FROM ".$user_prefix."_users WHERE username='$r_name'")->fetch_row();
 					$r_uid = intval($row2['user_id']);
 					echo "<br>(<a href=\"modules.php?name=Your_Account&op=userinfo&username=$r_name\">"._USERINFO."</a> ";
                                         if(is_active("Private_Messages")) {
@@ -302,7 +302,7 @@ function DisplayKids ($tid, $mode, $order=0, $thold=0, $level=0, $dummy=0, $tblw
 				        }
 				        echo ")";
                                 }
-				$row_url = $db->sql_fetchrow($db->sql_query("SELECT user_website FROM ".$prefix."_users WHERE username='$r_name'"));
+				$row_url = $db->sql_query("SELECT user_website FROM ".$prefix."_users WHERE username='$r_name'")->fetch_row();
 				$url = filter($row_url['user_website'], "nohtml");
 				if ($url != "http://" AND !empty($url) AND stripos_clone($url, "http://")) { echo "<a href=\"$url\" target=\"new\">$url</a> "; }
 				echo "</font></td></tr><tr><td>";
@@ -701,14 +701,14 @@ function reply ($pid, $pollID, $mode, $order, $thold) {
 		CloseTable();
 	} else {
 		if($pid!=0) {
-			list($date, $name, $email, $subject, $comment, $score) = $db->sql_fetchrow($db->sql_query("select date, name, email, subject, comment, score from ".$prefix."_pollcomments where tid='$pid'"));
+			list($date, $name, $email, $subject, $comment, $score) = $db->sql_query("select date, name, email, subject, comment, score from ".$prefix."_pollcomments where tid='$pid'")->fetch_row();
 			$name = filter($name, "nohtml");
 			$email = filter($email, "nohtml");
 			$subject = filter($subject, "nohtml");
 			$comment = filter($comment);
 			$score = intval($score);
 		} else {
-			list($subject) = $db->sql_fetchrow($db->sql_query("select pollTitle FROM ".$prefix."_poll_desc where pollID='$pollID'"));
+			list($subject) = $db->sql_query("select pollTitle FROM ".$prefix."_poll_desc where pollID='$pollID'")->fetch_row();
 			$subject = filter($subject, "nohtml");
 		}
 		if(empty($comment)) {
@@ -732,9 +732,9 @@ function reply ($pid, $pollID, $mode, $order, $thold) {
 		CloseTable();
 		if(!isset($pid) || !isset($pollID)) { echo "Something is not right. This message is just to keep things from messing up down the road"; exit(); }
 		if($pid == 0) {
-			list($subject) = $db->sql_fetchrow($db->sql_query("select pollTitle from ".$prefix."_poll_desc where pollID='$pollID'"));
+			list($subject) = $db->sql_query("select pollTitle from ".$prefix."_poll_desc where pollID='$pollID'")->fetch_row();
 		} else {
-			list($subject) = $db->sql_fetchrow($db->sql_query("select subject from ".$prefix."_pollcomments where tid='$pid'"));
+			list($subject) = $db->sql_query("select subject from ".$prefix."_pollcomments where tid='$pid'")->fetch_row();
 		}
 		$subject = filter($subject, "nohtml");
 		echo "<br>";

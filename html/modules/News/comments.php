@@ -186,7 +186,7 @@ function navbar($sid, $title, $thold, $mode, $order) {
 	}
         $sid = intval($sid);
         $query = $db->sql_query("SELECT title FROM ".$prefix."_stories WHERE sid='$sid'");
-        list($un_title) = $db->sql_fetchrow($query);
+        list($un_title) = $query->fetch_row();
 	if(!isset($thold)) {
 		$thold=0;
 	}

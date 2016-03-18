@@ -1467,7 +1467,7 @@ function viewlinkdetails($lid) {
 		if ($ovvchartheight[$rcounter]==0) $ovvchartheight[$rcounter]=1;
 	}
     $res = $db->sql_query("SELECT title FROM ".$prefix."_links_links WHERE lid='$lid'");
-    list($title) = $db->sql_fetchrow($res);
+    list($title) = $res->fetch_row();
     $ttitle = filter($title, "nohtml");
     $displaytitle = $ttitle;
 	echo "<br>";

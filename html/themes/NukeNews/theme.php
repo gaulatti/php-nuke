@@ -50,7 +50,7 @@ function themeheader() {
     $topics_list = "<select name=\"new_topic\" onChange='submit()'>\n";
     $topics_list .= "<option value=\"\">All Topics</option>\n";
     $toplist = $db->sql_query("select topicid, topictext from ".$prefix."_topics order by topictext");
-    while(list($topicid, $topics) = $db->sql_fetchrow($toplist)) {
+    while(list($topicid, $topics) = $toplist->fetch_row()) {
 	$topicid = intval($topicid);
     if ($topicid==$topic) { $sel = "selected "; }
 	$topics_list .= "<option $sel value=\"$topicid\">$topics</option>\n";

@@ -608,7 +608,7 @@ function MostPopular($ratenum, $ratetype) {
     	."<a href=\"modules.php?name=$module_name&amp;d_op=MostPopular&amp;ratenum=10&amp;ratetype=percent\">10%</a> ]</center><br><br></td></tr>";
     $result = $db->sql_query("SELECT lid, cid, title, description, date, hits, downloadratingsummary, totalvotes, totalcomments, filesize, version, homepage FROM ".$prefix."_downloads_downloads order by hits DESC limit 0,$mostpopdownloads ");
     echo "<tr><td>";
-    while(list($lid, $cid, $title, $description, $time, $hits, $downloadratingsummary, $totalvotes, $totalcomments, $filesize, $version, $homepage) = $db->sql_fetchrow($result)) {
+    while(list($lid, $cid, $title, $description, $time, $hits, $downloadratingsummary, $totalvotes, $totalcomments, $filesize, $version, $homepage) = $result->fetch_row()) {
 	$lid = intval($lid);
 	$cid = intval($cid);
 	$downloadratingsummary = number_format($downloadratingsummary, $mainvotedecimal);
@@ -661,7 +661,7 @@ function MostPopular($ratenum, $ratetype) {
 	detecteditorial($lid, $transfertitle, 0);
 	echo "<br>";
 	$result2 = $db->sql_query("SELECT title FROM ".$prefix."_downloads_categories WHERE cid='$cid'");
-	list($ctitle) = $db->sql_fetchrow($result2);
+	list($ctitle) = $result2->fetch_row();
 	$ctitle = filter($ctitle, "nohtml");
 	$ctitle = getparent($cid,$ctitle);
 	echo ""._CATEGORY.": $ctitle";
@@ -692,7 +692,7 @@ function viewdownload($cid, $min, $orderby, $show) {
     OpenTable();
     $cid = intval($cid);
     $result = $db->sql_query("SELECT title,parentid FROM ".$prefix."_downloads_categories WHERE cid='$cid'");
-	list($title,$parentid)=$db->sql_fetchrow($result);
+	list($title,$parentid) = $result->fetch_row();
 	$title = filter($title, "nohtml");
 	$parentid = intval($parentid);
 	$title=getparentlink($parentid,$title);
@@ -703,7 +703,7 @@ function viewdownload($cid, $min, $orderby, $show) {
     $result2 = $db->sql_query("SELECT cid, title, cdescription FROM ".$prefix."_downloads_categories WHERE parentid='$cid' order by title");
 	$dum = 0;
     $count = 0;
-    while(list($cid2, $title2, $cdescription2) = $db->sql_fetchrow($result2)) {
+    while(list($cid2, $title2, $cdescription2) = $result2->fetch_row()) {
     	$cid2 = intval($cid2);
     	$title2 = filter($title2, "nohtml");
     	$cdescription2 = filter($cdescription2);
@@ -718,7 +718,7 @@ function viewdownload($cid, $min, $orderby, $show) {
 		}
 		$result3 = $db->sql_query("SELECT cid, title FROM ".$prefix."_downloads_categories WHERE parentid='$cid2' order by title limit 0,3");
 		$space = 0;
-		while(list($cid3, $title3) = $db->sql_fetchrow($result3)) {
+		while(list($cid3, $title3) = $result3->fetch_row()) {
             $cid3 = intval($cid3);
             $title3 = filter($title3, "nohtml");
     	    if ($space>0) {
@@ -759,7 +759,7 @@ function viewdownload($cid, $min, $orderby, $show) {
     $totalselecteddownloads = $db->sql_numrows($fullcountresult);
     echo "<table width=\"100%\" cellspacing=\"0\" cellpadding=\"10\" border=\"0\"><tr><td><font class=\"content\">";
     $x=0;
-    while(list($lid, $title, $description, $time, $hits, $downloadratingsummary, $totalvotes, $totalcomments, $filesize, $version, $homepage)=$db->sql_fetchrow($result)) {
+    while(list($lid, $title, $description, $time, $hits, $downloadratingsummary, $totalvotes, $totalcomments, $filesize, $version, $homepage) = $result->fetch_row()) {
         $lid = intval($lid);
         $hits = intval($hits);
         $totalvotes = intval($totalvotes);
@@ -880,7 +880,7 @@ function viewsdownload($sid, $min, $orderby, $show) {
     OpenTable();
     $cid = intval(trim($cid));
     $result = $db->sql_query("SELECT title,parentid FROM ".$prefix."_downloads_categories WHERE cid='$cid'");
-	list($title,$parentid)=$db->sql_fetchrow($result);
+	list($title,$parentid) = $result->fetch_row();
 	$title = filter($title, "nohtml");
 	$parentid = intval($parentid);
 	$title=getparentlink($parentid,$title);
@@ -889,7 +889,7 @@ function viewsdownload($sid, $min, $orderby, $show) {
     echo "<table border=\"0\" cellspacing=\"10\" cellpadding=\"0\" align=\"center\"><tr>";
     $result2 = $db->sql_query("SELECT cid, title, cdescription FROM ".$prefix."_downloads_categories WHERE parentid='$cid' order by title");
     $count = 0;
-    while(list($cid2, $title2, $cdescription2) = $db->sql_fetchrow($result2)) {
+    while(list($cid2, $title2, $cdescription2) = $result2->fetch_row()) {
         $cid2 = intval($cid2);
         $title = filter($title, "nohtml");
         $cdescription = filter($cdescription);
@@ -902,7 +902,7 @@ function viewsdownload($sid, $min, $orderby, $show) {
 		}
 		$result3 = $db->sql_query("SELECT cid, title FROM ".$prefix."_downloads_categories WHERE parentid='$cid2' order by title limit 0,3");
 		$space = 0;
-		while(list($cid3, $title3) = $db->sql_fetchrow($result3)) {
+		while(list($cid3, $title3) = $result3->fetch_row()) {
             $cid3 = intval($cid3);
             $title3 = filter($title3, "nohtml");
     	    if ($space>0) {
@@ -944,7 +944,7 @@ function viewsdownload($sid, $min, $orderby, $show) {
     $totalselecteddownloads = $db->sql_numrows($fullcountresult);
     echo "<table width=\"100%\" cellspacing=\"0\" cellpadding=\"10\" border=\"0\"><tr><td><font class=\"content\">";
     $x=0;
-    while(list($lid, $url, $title, $description, $time, $hits, $downloadratingsummary, $totalvotes, $totalcomments, $filesize, $version, $homepage)=$db->sql_fetchrow($result)) {
+    while(list($lid, $url, $title, $description, $time, $hits, $downloadratingsummary, $totalvotes, $totalcomments, $filesize, $version, $homepage) = $result->fetch_row()) {
         $lid = intval($lid);
         $hits = intval($hits);
         $totalvotes = intval($totalvotes);
@@ -1073,7 +1073,7 @@ function categorynewdownloadgraphic($cat) {
     global $prefix, $db, $module_name, $datetime, $locale;
     $cat = intval(trim($cat));
     $newresult = $db->sql_query("SELECT date FROM ".$prefix."_downloads_downloads WHERE cid='$cat' order by date desc limit 1");
-    list($time)=$db->sql_fetchrow($newresult);
+    list($time) = $newresult->fetch_row();
     echo "&nbsp;";
     setlocale (LC_TIME, $locale);
     ereg ("([0-9]{4})-([0-9]{1,2})-([0-9]{1,2}) ([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})", $time, $datetime);
@@ -1161,7 +1161,7 @@ function getit($lid) {
     $db->sql_query("update ".$prefix."_downloads_downloads set hits=hits+1 WHERE lid='$lid'");
     update_points(17);
     $result = $db->sql_query("SELECT url FROM ".$prefix."_downloads_downloads WHERE lid='$lid'");
-    list($url) = $db->sql_fetchrow($result);
+    list($url) = $result->fetch_row();
     Header("Location: $url");
 }
 
@@ -1202,12 +1202,12 @@ function search($query, $min, $orderby, $show) {
 	    echo "<font class=\"option\">"._SEARCHRESULTS4.": <b>$the_query</b></font><br><br>"
 	        ."<table width=\"100%\" bgcolor=\"$bgcolor2\"><tr><td><font class=\"option\"><b>"._USUBCATEGORIES."</b></font></td></tr></table>";
     	    $result2 = $db->sql_query("SELECT cid, title FROM ".$prefix."_downloads_categories WHERE title LIKE '%$query1%' ORDER BY title DESC");
-	    while(list($cid, $stitle) = $db->sql_fetchrow($result2)) {
+	    while(list($cid, $stitle) = $result2->fetch_row()) {
     	    $cid = intval($cid);
 	        $res = $db->sql_query("SELECT * FROM ".$prefix."_downloads_downloads WHERE cid='$cid'");
 	        $numrows = $db->sql_numrows($res);
     	        $result3 = $db->sql_query("SELECT cid,title,parentid FROM ".$prefix."_downloads_categories WHERE cid='$cid'");
-    	        list($cid3,$title3,$parentid3) = $db->sql_fetchrow($result3);
+    	        list($cid3,$title3,$parentid3) = $result3->fetch_row();
     	        $cid3 = intval($cid3);
     	        $title3 = filter($title3, "nohtml");
     	        $parentid3 = intval($parentid3);
@@ -1223,7 +1223,7 @@ function search($query, $min, $orderby, $show) {
     		.""._RATING." (<a href=\"modules.php?name=$module_name&amp;d_op=search&amp;query=$the_query&amp;orderby=ratingA\">A</a>\<a href=\"modules.php?name=$module_name&amp;d_op=search&amp;query=$the_query&amp;orderby=ratingD\">D</a>) "
     		.""._POPULARITY." (<a href=\"modules.php?name=$module_name&amp;d_op=search&amp;query=$the_query&amp;orderby=hitsA\">A</a>\<a href=\"modules.php?name=$module_name&amp;d_op=search&amp;query=$the_query&amp;orderby=hitsD\">D</a>)"
     		."<br>"._RESSORTED.": $orderbyTrans</center><br><br><br>";
-	    while(list($lid, $cid, $title, $url, $description, $time, $hits, $downloadratingsummary, $totalvotes, $totalcomments, $filesize, $version, $homepage) = $db->sql_fetchrow($result)) {
+	    while(list($lid, $cid, $title, $url, $description, $time, $hits, $downloadratingsummary, $totalvotes, $totalcomments, $filesize, $version, $homepage) = $result->fetch_row()) {
             $lid = intval($lid);
             $cid = intval(trim($cid));
             $hits = intval($hits);
@@ -1277,7 +1277,7 @@ function search($query, $min, $orderby, $show) {
 		detecteditorial($lid, $transfertitle, 0);
 		echo "<br>";
 		$result3 = $db->sql_query("SELECT cid,title,parentid FROM ".$prefix."_downloads_categories WHERE cid='$cid'");
-		list($cid3,$title3,$parentid3) = $db->sql_fetchrow($result3);
+		list($cid3,$title3,$parentid3) = $result3->fetch_row();
 		$cid3 = intval($cid3);
 		$title3 = filter($title3, "nohtml");
 		$parentid3 = intval($parentid3);
@@ -1359,7 +1359,7 @@ function viewdownloadeditorial($lid) {
     echo "<center><font class=\"option\"><b>"._DOWNLOADPROFILE.": $displaytitle</b></font><br>";
     downloadinfomenu($lid);
     if ($recordexist != 0) {
-	while(list($adminid, $editorialtimestamp, $editorialtext, $editorialtitle)=$db->sql_fetchrow($result)) {
+	while(list($adminid, $editorialtimestamp, $editorialtext, $editorialtitle) = $result->fetch_row()) {
 			$editorialtitle = filter($editorialtitle, "nohtml");
             $editorialtext = filter($editorialtext);
     	    ereg ("([0-9]{4})-([0-9]{1,2})-([0-9]{1,2}) ([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})", $editorialtimestamp, $editorialtime);
@@ -1418,7 +1418,7 @@ function viewdownloadcomments($lid) {
     echo "<br><br><br>"._TOTALOF." $totalcomments "._COMMENTS."</font></center><br>"
 	."<table align=\"center\" border=\"0\" cellspacing=\"0\" cellpadding=\"2\" width=\"450\">";
     $x=0;
-    while(list($ratinguser, $rating, $ratingcomments, $ratingtimestamp)=$db->sql_fetchrow($result)) {
+    while(list($ratinguser, $rating, $ratingcomments, $ratingtimestamp) = $result->fetch_row()) {
         $rating = intval($rating);
     	$ratingcomments = filter($ratingcomments);
     	ereg ("([0-9]{4})-([0-9]{1,2})-([0-9]{1,2}) ([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})", $ratingtimestamp, $ratingtime);
@@ -1430,7 +1430,7 @@ function viewdownloadcomments($lid) {
 	$result2=$db->sql_query("SELECT rating FROM ".$prefix."_downloads_votedata WHERE ratinguser = '$ratinguser'");
         $usertotalcomments = $db->sql_numrows($result2);
         $useravgrating = 0;
-        while(list($rating2)=$db->sql_fetchrow($result2))	$useravgrating = $useravgrating + $rating2;
+        while(list($rating2)=$result2->fetch_row)	$useravgrating = $useravgrating + $rating2;
         $useravgrating = $useravgrating / $usertotalcomments;
         $useravgrating = number_format($useravgrating, 1);
     	echo "<tr><td bgcolor=\"$bgcolor2\">"
@@ -1492,7 +1492,7 @@ function viewdownloaddetails($lid) {
     $rvv = array(0,0,0,0,0,0,0,0,0,0,0);
     $ovv = array(0,0,0,0,0,0,0,0,0,0,0);
     $truecomments = $totalvotesDB;
-    while(list($ratingDB, $ratinguserDB, $ratingcommentsDB)=$db->sql_fetchrow($voteresult)) {
+    while(list($ratingDB, $ratinguserDB, $ratingcommentsDB)=$voteresult->fetch_row()) {
  	$ratingDB = intval($ratingDB);
  	if (empty($ratingcommentsDB)) $truecomments--;
         if ($ratinguserDB==$anonymous) {
@@ -1652,7 +1652,7 @@ function viewdownloaddetails($lid) {
     $transfertitle = ereg_replace ("_", " ", $ttitle);
     $displaytitle = stripslashes($transfertitle);
     $res = $db->sql_query("SELECT title, name, email, description, filesize, version, homepage FROM ".$prefix."_downloads_downloads WHERE lid='$lid'");
-    list($title, $auth_name, $email, $description, $filesize, $version, $homepage) = $db->sql_fetchrow($res);
+    list($title, $auth_name, $email, $description, $filesize, $version, $homepage) = $res->fetch_row();
     $ttitle = filter($title, "nohtml");
     $displaytitle = $ttitle;
 	$auth_name = filter($auth_name, "nohtml");
@@ -2037,7 +2037,7 @@ function modifydownloadrequest($lid) {
     if ($blocknow != 1) {
     	$result = $db->sql_query("SELECT cid, title, url, description, name, email, filesize, version, homepage FROM ".$prefix."_downloads_downloads WHERE lid='$lid'");
     	echo "<center><font class=\"option\"><b>"._REQUESTDOWNLOADMOD."</b></font><br><font class=\"content\">";
-    	while(list($cid, $title, $url, $description, $auth_name, $email, $filesize, $version, $homepage) = $db->sql_fetchrow($result)) {
+    	while(list($cid, $title, $url, $description, $auth_name, $email, $filesize, $version, $homepage) = $result->fetch_row()) {
             $cid = intval(trim($cid));
             $title = filter($title, "nohtml");
             $url = filter($url, "nohtml");
@@ -2054,7 +2054,7 @@ function modifydownloadrequest($lid) {
 				."<input type=\"hidden\" name=\"modifysubmitter\" value=\"$ratinguser\">"
 				.""._CATEGORY.": <select name=\"cat\">";
 			$result2=$db->sql_query("SELECT cid, title, parentid FROM ".$prefix."_downloads_categories order by title");
-			while(list($cid2, $ctitle2, $parentid2) = $db->sql_fetchrow($result2)) {
+			while(list($cid2, $ctitle2, $parentid2) = $result2->fetch_row()) {
             	$cid2 = intval($cid2);
             	$ctitle2 = filter($ctitle2, "nohtml");
             	$parentid2 = intval($parentid2);
@@ -2130,7 +2130,7 @@ function rateinfo($lid) {
     $lid = intval($lid);							
     $db->sql_query("update ".$prefix."_downloads_downloads set hits=hits+1 WHERE lid='$lid'");
     $result = $db->sql_query("SELECT url FROM ".$prefix."_downloads_downloads WHERE lid='$lid'");
-    list($url) = $db->sql_fetchrow($result);
+    list($url) = $result->fetch_row();
     Header("Location: $url");
 }
 
@@ -2153,7 +2153,7 @@ function addrating($ratinglid, $ratinguser, $rating, $ratinghost_name, $ratingco
 		$ratinguser = "$anonymous";
     }
     $results3 = $db->sql_query("SELECT title FROM ".$prefix."_downloads_downloads WHERE lid='$ratinglid'");
-    while(list($title)=$db->sql_fetchrow($results3)) $ttitle = filter($title, "nohtml");
+    while(list($title)=$results3->fetch_row()) $ttitle = filter($title, "nohtml");
     $title = filter($title, "nohtml");
     /* Make sure only 1 anonymous from an IP in a single day. */
     $ip = $_SERVER['REMOTE_HOST'];
@@ -2169,7 +2169,7 @@ function addrating($ratinglid, $ratinguser, $rating, $ratinghost_name, $ratingco
     /* Check if Download POSTER is voting (UNLESS Anonymous users allowed to post) */
     if ($ratinguser != $anonymous && $ratinguser != "outside") {
     	$result=$db->sql_query("SELECT submitter FROM ".$prefix."_downloads_downloads WHERE lid='$ratinglid'");
-    	while(list($ratinguserDB)=$db->sql_fetchrow($result)) {
+    	while(list($ratinguserDB)=$result->fetch_row()) {
     	    if ($ratinguserDB==$ratinguser) {
     		$error = "postervote";
     	        completevote($error);
@@ -2180,7 +2180,7 @@ function addrating($ratinglid, $ratinguser, $rating, $ratinghost_name, $ratingco
     /* Check if REG user is trying to vote twice. */
     if ($ratinguser!=$anonymous && $ratinguser != "outside") {
     	$result=$db->sql_query("SELECT ratinguser FROM ".$prefix."_downloads_votedata WHERE ratinglid='$ratinglid'");
-    	while(list($ratinguserDB)=$db->sql_fetchrow($result)) {
+    	while(list($ratinguserDB)=$result->fetch_row()) {
     	    if ($ratinguserDB==$ratinguser) {
     	        $error = "regflood";
                 completevote($error);
@@ -2259,12 +2259,12 @@ function completevotefooter($lid, $ratinguser) {
     $row = $db->sql_query("SELECT title FROM ".$prefix."_downloads_downloads WHERE lid='$lid'");
     $ttitle = filter($row[title], "nohtml");
     $result = $db->sql_query("SELECT url FROM ".$prefix."_downloads_downloads WHERE lid='$lid'");
-    list($url)=$db->sql_fetchrow($result);
+    list($url) = $result->fetch_row();
     echo "<font class=\"content\">"._THANKSTOTAKETIME." $sitename. "._DLETSDECIDE."</font><br><br><br>";
     if ($ratinguser=="outside") {
 	echo "<center><font class=\"content\">".WEAPPREACIATE." $sitename!<br><a href=\"$url\">"._RETURNTO." $ttitle</a></font><center><br><br>";
         $result=$db->sql_query("SELECT title FROM ".$prefix."_downloads_downloads WHERE lid='$lid'");
-        list($title)=$db->sql_fetchrow($result);
+        list($title) = $result->fetch_row();
         $ttitle = ereg_replace (" ", "_", $title);
     }
     echo "<center>";

@@ -52,7 +52,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 		CloseTable();
 		echo "<br>";
 		$resultrm = $db->sql_query("select title, description from ".$prefix."_reviews_main");
-		list($title, $description) = $db->sql_fetchrow($resultrm);
+		list($title, $description) = $resultrm->fetch_row();
 		OpenTable();
 		echo "<form action=\"".$admin_file.".php\" method=\"post\">"
 		."<center>"._REVTITLE."<br>"
@@ -69,7 +69,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 		$result = $db->sql_query("select * from ".$prefix."_reviews_add order by id");
 		$numrows = $db->sql_numrows($result);
 		if ($numrows>0) {
-			while(list($id, $date, $title, $text, $reviewer, $email, $score, $url, $url_title, $rlanguage) = $db->sql_fetchrow($result)) {
+			while(list($id, $date, $title, $text, $reviewer, $email, $score, $url, $url_title, $rlanguage) = $result->fetch_row()) {
 				$id = intval($id);
 				$score = intval($score);
 				$title = stripslashes($title);

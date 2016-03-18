@@ -18,7 +18,7 @@ if (isset($op) AND ($op == "ad_click") AND isset($bid)) {
 	$bid = intval($bid);
 	$sql = "SELECT clickurl FROM ".$prefix."_banner WHERE bid='$bid'";
 	$result = $db->sql_query($sql);
-	list($clickurl) = $db->sql_fetchrow($result);
+	list($clickurl) = $result->fetch_row();
 	$clickurl = filter($clickurl, "nohtml");
 	$db->sql_query("UPDATE ".$prefix."_banner SET clicks=clicks+1 WHERE bid='$bid'");
 	update_points(21);

@@ -181,7 +181,7 @@ function Stats_Main() {
 function Stats($total) {
 	global $hlpfile,$nowyear,$nowmonth,$nowdate,$nowhour, $sitename, $startdate, $prefix, $db, $now, $module_name;
 	$row = $db->sql_query("SELECT count from ".$prefix."_counter order by type desc");
-	list($total) = $db->sql_fetchrow($row);
+	list($total) = $row->fetch_row();
 	include ("header.php");
 	title("$sitename "._STATS."");
 	$total++;
@@ -281,7 +281,7 @@ function showYearStats($nowyear){
 	$m_size = getimagesize("themes/$ThemeSel/images/mainbar.gif");
 	$r_size = getimagesize("themes/$ThemeSel/images/rightbar.gif");
 	$resulttotal = $db->sql_query("SELECT sum(hits) as TotalHitsYear from ".$prefix."_stats_year");
-	list($TotalHitsYear) = $db->sql_fetchrow($resulttotal);
+	list($TotalHitsYear) = $resulttotal->fetch_row();
 	$db->sql_freeresult($resulttotal);
 	$result = $db->sql_query("select year,hits from ".$prefix."_stats_year order by year");
 	echo "<center><b>"._YEARLYSTATS."</b></center><br>";
@@ -311,7 +311,7 @@ function showMonthStats($nowyear,$nowmonth){
 	$m_size = getimagesize("themes/$ThemeSel/images/mainbar.gif");
 	$r_size = getimagesize("themes/$ThemeSel/images/rightbar.gif");
 	$resultmonth = $db->sql_query("SELECT sum(hits) as TotalHitsMonth from ".$prefix."_stats_month where year='$nowyear'");
-	list($TotalHitsMonth) = $db->sql_fetchrow($resultmonth);
+	list($TotalHitsMonth) = $resultmonth->fetch_row();
 	$db->sql_freeresult($resultmonth);
 	$result = $db->sql_query("select month,hits from ".$prefix."_stats_month where year='$nowyear'");
 	echo "<center><b>"._MONTLYSTATS." $nowyear</b></center><br>";
@@ -344,7 +344,7 @@ function showDailyStats($year,$month,$nowdate){
 	$m_size = getimagesize("themes/$ThemeSel/images/mainbar.gif");
 	$r_size = getimagesize("themes/$ThemeSel/images/rightbar.gif");
 	$resulttotal = $db->sql_query("SELECT sum(hits) as TotalHitsDate from ".$prefix."_stats_date where year='$year' and month='$month'");
-	list($TotalHitsDate) = $db->sql_fetchrow($resulttotal);
+	list($TotalHitsDate) = $resulttotal->fetch_row();
 	$db->sql_freeresult($resulttotal);
 	$result = $db->sql_query("select year,month,date,hits from ".$prefix."_stats_date where year='$year' and month='$month' order by date");
 	$total = $db->sql_numrows($result);
@@ -388,7 +388,7 @@ function showHourlyStats($year,$month,$date){
 	$m_size = getimagesize("themes/$ThemeSel/images/mainbar.gif");
 	$r_size = getimagesize("themes/$ThemeSel/images/rightbar.gif");
 	$resulttotal = $db->sql_query("SELECT sum(hits) as TotalHitsHour from ".$prefix."_stats_hour where year='$year' and month='$month' and date='$date'");
-	list($TotalHitsHour) = $db->sql_fetchrow($resulttotal);
+	list($TotalHitsHour) = $resulttotal->fetch_row();
 	$db->sql_freeresult($resulttotal);
 	$nowdate = date("d-m-Y");
 	$nowdate_arr = explode("-",$nowdate);

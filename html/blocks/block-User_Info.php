@@ -32,7 +32,7 @@ $code = substr($rcode, 2, 6);
 cookiedecode($user);
 $sql = "SELECT username FROM ".$user_prefix."_users ORDER BY user_id DESC LIMIT 0,1";
 $query = $db->sql_query($sql);
-list($lastuser) = $db->sql_fetchrow($query);
+list($lastuser) = $query->fetch_row();
 $sql2 = "SELECT user_id FROM ".$user_prefix."_users";
 $query2 = $db->sql_query($sql2);
 $numrows = $db->sql_numrows($query2);
@@ -42,7 +42,7 @@ $result = $db->sql_query($sql3);
 $member_online_num = $db->sql_numrows($result);
 $who_online_now = "";
 $i = 1;
-while (list($uname, $guest) = $db->sql_fetchrow($result)) {
+while (list($uname, $guest) = $result->fetch_row()) {
     if (isset($guest) and $guest == 0) {
         if ($i < 10) {
             $who_online_now .= "0" .$i." :&nbsp;<a href=\"modules.php?name=Your_Account&amp;op=userinfo&amp;username=$uname\">$uname</a><br>\n";
@@ -66,14 +66,14 @@ $curDateP = "%".$premonth[0].$premonth[1].$premonth[2]."%".$preday."%".$preyear.
 //Select new today
 $sql = "SELECT COUNT(user_id) AS userCount FROM ".$user_prefix."_users WHERE user_regdate LIKE '$curDate2'";
 $query = $db->sql_query($sql);
-list($userCount) = $db->sql_fetchrow($query);
+list($userCount) = $query->fetch_row();
 $userCount = intval($userCount);
 //end
 
 //Select new yesterday
 $sql = "SELECT COUNT(user_id) AS userCount FROM ".$user_prefix."_users WHERE user_regdate LIKE '$curDateP'";
 $query = $db->sql_query($sql);
-list($userCount2) = $db->sql_fetchrow($query);
+list($userCount2) = $query->fetch_row();
 $userCount2 = intval($userCount2);
 //end
 
@@ -96,7 +96,7 @@ if (is_user($user)) {
     $content .= "<br><img src=\"images/blocks/group-4.gif\" height=\"14\" width=\"17\"> "._BWEL.", <b>$uname</b>.<br>\n<hr>\n";
     $sql = "SELECT user_id FROM " .$user_prefix."_users WHERE username='$uname'";
     $query = $db->sql_query($sql);
-    list($user_id) = $db->sql_fetchrow($query);
+    list($user_id) = $query->fetch_row();
     $uid = intval($user_id);
     $newpms_query = $db->sql_query("SELECT privmsgs_to_userid FROM ".$prefix."_bbprivmsgs WHERE privmsgs_to_userid='$uid' AND (privmsgs_type='5' OR privmsgs_type='1')");
     $oldpms_query = $db->sql_query("SELECT privmsgs_to_userid FROM ".$prefix."_bbprivmsgs WHERE privmsgs_to_userid='$uid' AND privmsgs_type='0'");

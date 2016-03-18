@@ -156,7 +156,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 				echo "<input type=\"hidden\" name=\"elanguage\" value=\"$language\">";
 			}
 			echo "<b>"._ENCYCLOPEDIA.":</b><br><select name=\"eid\">";
-			while(list($eid, $title) = $db->sql_fetchrow($result)) {
+			while(list($eid, $title) = $result->fetch_row()) {
 				$eid = intval($eid);
 				$title = filter($title, "nohtml");
 				echo "<option value=\"$eid\" name=\"eid\">$title</option>";
@@ -176,13 +176,13 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 			echo "<center><b>"._MOVETERMS."</b><br><br>"
 			."<form action=\"".$admin_file.".php\" method=\"post\">"
 			.""._MOVEALLTERMSFROM.": <select name=\"eid\">";
-			while(list($eid, $title) = $db->sql_fetchrow($result)) {
+			while(list($eid, $title) = $result->fetch_row()) {
 				$eid = intval($eid);
 				$title = filter($title, "nohtml");
 				echo "<option name=\"eid\" value=\"$eid\">$title";
 			}
 			echo "</select> "._TO.": <select name=\"new_eid\">";
-			while(list($eid, $title) = $db->sql_fetchrow($result2)) {
+			while(list($eid, $title) = $result2->fetch_row()) {
 				$eid = intval($eid);
 				$title = filter($title, "nohtml");
 				echo "<option name=\"new_eid\" value=\"$eid\">$title";
@@ -264,7 +264,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 		GraphicAdmin();
 		title(""._ENCYCLOPEDIAMANAGER."");
 		$result = $db->sql_query("select title from ".$prefix."_encyclopedia where eid='$eid' AND UPPER(title) LIKE '%$ltr%'");
-		list($title) = $db->sql_fetchrow($result);
+		list($title) = $result->fetch_row();
 		$title = filter($title, "nohtml");
 		title("$title");
 		OpenTable();
@@ -274,7 +274,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 		if ($db->sql_numrows($result) == 0) {
 			echo "<center><i>"._NOCONTENTFORLETTER." $ltr.</i></center>";
 		}
-		while(list($tid, $title) = $db->sql_fetchrow($result)) {
+		while(list($tid, $title) = $result->fetch_row()) {
 			$tid = intval($tid);
 			$title = filter($title, "nohtml");
 			echo "<tr><td><a href=\"".$admin_file.".php?op=encyclopedia_text_edit&tid=$tid\">$title</a></td></tr>";
@@ -306,7 +306,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 		."<b>"._CHANGETOENCY.":</b><br>"
 		."<select name=\"eid\">";
 		$result = $db->sql_query("select eid, title from ".$prefix."_encyclopedia");
-		while(list($eid, $title) = $db->sql_fetchrow($result)) {
+		while(list($eid, $title) = $result->fetch_row()) {
 			$eid = intval($eid);
 			$title = filter($title, "nohtml");
 			if ($eid == $ency['eid']) {
@@ -386,7 +386,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 			GraphicAdmin();
 			title(""._ENCYCLOPEDIAMANAGER."");
 			$result = $db->sql_query("select title from ".$prefix."_encyclopedia where eid='$eid'");
-			list($title) = $db->sql_fetchrow($result);
+			list($title) = $result->fetch_row();
 			$title = filter($title, "nohtml");
 			OpenTable();
 			echo "<center><b>"._DELENCYCLOPEDIA.": $title</b><br><br>"
@@ -408,7 +408,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 			GraphicAdmin();
 			title(""._ENCYCLOPEDIAMANAGER."");
 			$result = $db->sql_query("select title from ".$prefix."_encyclopedia_text where tid='$tid'");
-			list($title) = $db->sql_fetchrow($result);
+			list($title) = $result->fetch_row();
 			$title = filter($title, "nohtml");
 			OpenTable();
 			echo "<center><b>"._DELENCYCLOPEDIATEXT.": $title</b><br><br>"
@@ -423,7 +423,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 		global $prefix, $db, $admin_file;
 		$eid = intval($eid);
 		$result = $db->sql_query("select tid from ".$prefix."_encyclopedia_text WHERE eid='$eid'");
-		while(list($tid) = $db->sql_fetchrow($result)) {
+		while(list($tid) = $result->fetch_row()) {
 			$db->sql_query("update ".$prefix."_encyclopedia_text set eid='$new_eid' WHERE tid='".intval($tid)."'");
 		}
 		Header("Location: ".$admin_file.".php?op=encyclopedia");

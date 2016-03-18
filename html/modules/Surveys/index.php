@@ -105,7 +105,7 @@ function pollMain($pollID) {
 	$boxContent .= "<form action=\"modules.php?name=$module_name\" method=\"post\">";
 	$boxContent .= "<input type=\"hidden\" name=\"pollID\" value=\"".$pollID."\">";
 	$result_a = $db->sql_query("SELECT pollTitle, voters FROM ".$prefix."_poll_desc WHERE pollID='$pollID'");
-	list($pollTitle, $voters) = $db->sql_fetchrow($result_a);
+	list($pollTitle, $voters) = $result_a->fetch_row();
 	$boxTitle = _SURVEY;
 	$boxContent .= "<font class=\"content\"><b>$pollTitle</b></font><br><br>\n";
 	$boxContent .= "<table border=\"0\" width=\"100%\">";
@@ -132,7 +132,7 @@ function pollMain($pollID) {
 	$boxContent .= "<br><font class=\"content\"><a href=\"modules.php?name=$module_name&amp;op=results&amp;pollID=$pollID&amp;mode=".$userinfo['umode']."&amp;order=".$userinfo['uoder']."&amp;thold=".$userinfo['thold']."\"><b>"._RESULTS."</b></a><br><a href=\"modules.php?name=$module_name\"><b>"._POLLS."</b></a><br>";
 
 	if ($pollcomm) {
-		list($numcom) = $db->sql_fetchrow($db->sql_query("select count(*) from ".$prefix."_pollcomments where pollID='$pollID'"));
+		list($numcom) = $db->sql_query("select count(*) from ".$prefix."_pollcomments where pollID='$pollID'")->fetch_row();
 		$boxContent .= "<br>"._VOTES.": <b>$sum</b> <br> "._PCOMMENTS." <b>$numcom</b>\n\n";
 	} else {
 		$boxContent .= "<br>"._VOTES." <b>$sum</b>\n\n";
@@ -272,7 +272,7 @@ function pollList() {
 			$editing = "";
 		}
 		$res = $db->sql_query("select sid, title from ".$prefix."_stories where pollID='$id'");
-		list($sid, $title) = $db->sql_fetchrow($res);
+		list($sid, $title) = $res->fetch_row();
 		$sid = intval($sid);
 		$title = filter($title, "nohtml");
 		echo "(<a href=\"modules.php?name=$module_name&amp;op=results&amp;pollID=$id$r_options\">"._RESULTS."</a> - $sum "._LVOTES."$editing)<br>\n"

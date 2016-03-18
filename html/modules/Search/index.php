@@ -88,7 +88,7 @@ switch($op) {
 		echo "<center><font class=\"title\"><b>"._SEARCHREVIEWS."</b></font></center><br>";
 	} elseif ($type == "comments" AND isset($sid)) {
 		$res = $db->sql_query("select title from ".$prefix."_stories where sid='$sid'");
-		list($st_title) = $db->sql_fetchrow($res);
+		list($st_title) = $res->fetch_row();
 		$st_title = filter($st_title, "nohtml");
 		$instory = "AND sid='$sid'";
 		echo "<center><font class=\"title\"><b>"._SEARCHINSTORY." $st_title</b></font></center><br>";

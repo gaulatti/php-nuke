@@ -485,7 +485,7 @@ function update_points($id) {
     if ($db->sql_numrows($db->sql_query("SELECT * FROM ".$prefix."_groups")) > 0) {
       $id = intval($id);
       $result = $db->sql_query("SELECT points FROM ".$prefix."_groups_points WHERE id='$id'");
-      list($points) = $db->sql_fetchrow($result);
+      list($points) = $result->fetch_row();
       $db->sql_freeresult($result);
       $rpoints = intval($points);
       $db->sql_query("UPDATE ".$user_prefix."_users SET points=points+".$rpoints." WHERE username='$username'");
@@ -832,7 +832,7 @@ function cookiedecode($user) {
   if (!isset($pass) AND isset($cookie[1])) {
    $sql = "SELECT user_password FROM ".$user_prefix."_users WHERE username='$cookie[1]'";
    $result = $db->sql_query($sql);
-   list($pass) = $db->sql_fetchrow($result);
+   list($pass) = $result->fetch_row();
    $db->sql_freeresult($result);
  }
  if (isset($cookie[2]) AND ($cookie[2] == $pass) AND (!empty($pass))) { return $cookie; }
@@ -1085,7 +1085,7 @@ function adminblock() {
 	if (is_admin($admin)) {
    $sql = "SELECT title, content FROM ".$prefix."_blocks WHERE bkey='admin'";
    $result = $db->sql_query($sql);
-   while (list($title, $content) = $db->sql_fetchrow($result)) {
+   while (list($title, $content) = $result->fetch_row()) {
      $content = filter($content);
      $title = filter($title, "nohtml");
      $content = "<span class=\"content\">".$content."</span>";
@@ -1472,7 +1472,7 @@ function ads($position) {
 	}
 	$sql = "SELECT bid, impmade, imageurl, clickurl, alttext FROM ".$prefix."_banner WHERE position='$position' AND active='1' LIMIT $bannum,1";
 	$result = $db->sql_query($sql);
-	list($bid, $impmade, $imageurl, $clickurl, $alttext) = $db->sql_fetchrow($result);
+	list($bid, $impmade, $imageurl, $clickurl, $alttext) = $result->fetch_row();
 	$bid = intval($bid);
 	$imageurl = filter($imageurl, "nohtml");
 	$clickurl = filter($clickurl, "nohtml");
@@ -1481,7 +1481,7 @@ function ads($position) {
 	if($numrows > 0) {
 		$sql2 = "SELECT cid, imptotal, impmade, clicks, date, ad_class, ad_code, ad_width, ad_height FROM ".$prefix."_banner WHERE bid='$bid'";
 		$result2 = $db->sql_query($sql2);
-		list($cid, $imptotal, $impmade, $clicks, $date, $ad_class, $ad_code, $ad_width, $ad_height) = $db->sql_fetchrow($result2);
+		list($cid, $imptotal, $impmade, $clicks, $date, $ad_class, $ad_code, $ad_width, $ad_height) = $result2->fetch_row();
 		$cid = intval($cid);
 		$imptotal = intval($imptotal);
 		$impmade = intval($impmade);
@@ -1494,7 +1494,7 @@ function ads($position) {
 			$db->sql_query("UPDATE ".$prefix."_banner SET active='0' WHERE bid='$bid'");
 			$sql3 = "SELECT name, contact, email FROM ".$prefix."_banner_clients WHERE cid='$cid'";
 			$result3 = $db->sql_query($sql3);
-			list($c_name, $c_contact, $c_email) = $db->sql_fetchrow($result3);
+			list($c_name, $c_contact, $c_email) = $result3->fetch_row();
 			$c_name = filter($c_name, "nohtml");
 			$c_contact = filter($c_contact, "nohtml");
 			$c_email = filter($c_email, "nohtml");

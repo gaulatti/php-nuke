@@ -24,7 +24,7 @@ $module_name = basename(dirname(__FILE__));
 get_lang($module_name);
 $sid = intval($sid);
 $query = $db->sql_query("SELECT associated FROM ".$prefix."_stories WHERE sid='$sid'");
-list($associated) = $db->sql_fetchrow($query);
+list($associated) = $query->fetch_row();
 
 if (!empty($associated)) {
 	OpenTable();
@@ -33,7 +33,7 @@ if (!empty($associated)) {
 	for ($i=0; $i<sizeof($asso_t); $i++) {
 		if (!empty($asso_t[$i])) {
 		        $query = $db->sql_query("SELECT topicimage, topictext from ".$prefix."_topics WHERE topicid='".$asso_t[$i]."'");
-			list($topicimage, $topictext) = $db->sql_fetchrow($query);
+			list($topicimage, $topictext) = $query->fetch_row();
 			echo "<a href=\"modules.php?name=$module_name&new_topic=$asso_t[$i]\"><img src=\"".$tipath."/".$topicimage."\" border=\"0\" hspace=\"10\" alt=\"".$topictext."\" title=\"".$topictext."\"></a>";
 		}
 	}

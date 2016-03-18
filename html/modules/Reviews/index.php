@@ -110,7 +110,7 @@ function write_review() {
     <b>"._YOURNAME.":</b><br>";
 	if (is_user($user)) {
 		$result = $db->sql_query("select username, user_email from ".$user_prefix."_users where user_id = '".intval($cookie[0])."'");
-		list($rname, $email) = $db->sql_fetchrow($result);
+		list($rname, $email) = $result->fetch_row();
 		$rname = filter($rname, "nohtml");
 		$email = filter($email, "nohtml");
 	}
@@ -320,7 +320,7 @@ function reviews_index() {
 	echo "<table border=\"0\" width=\"95%\" CELLPADDING=\"2\" CELLSPACING=\"4\" align=\"center\">
     <tr><td colspan=\"2\"><center><font class=\"title\">"._RWELCOME."</font></center><br><br><br>";
 	$result = $db->sql_query("select title, description from ".$prefix."_reviews_main");
-	list($title, $description) = $db->sql_fetchrow($result);
+	list($title, $description) = $result->fetch_row();
 	$title = filter($title, "nohtml");
 	$description = filter($description);
 	echo "<center><b>$title</b><br><br>$description</center>";

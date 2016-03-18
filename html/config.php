@@ -43,13 +43,13 @@ if (stristr(htmlentities($_SERVER['PHP_SELF']), "config.php")) {
 ######################################################################
 
 $dbhost = "localhost";
-$dbuname = "root";
-$dbpass = "";
-$dbname = "";
+$dbuname = "nuke";
+$dbpass = "nuke";
+$dbname = "nuke";
 $prefix = "nuke";
 $user_prefix = "nuke";
 $dbtype = "MySQL";
-$sitekey = "cPEnq15ZPmejnuKtzZMUHFH1bee9KLT9i5FfZBmI";
+$sitekey = "QjfqO0dPVqI9xo0CMza4J8KPl8BkFY3Dau17CE6L";
 $subscription_url = "";
 $admin_file = "admin";
 
@@ -71,7 +71,7 @@ $admin_file = "admin";
 $prefix = empty($user_prefix) ? $prefix : $user_prefix;
 $reasons = array("As Is","Offtopic","Flamebait","Troll","Redundant","Insighful","Interesting","Informative","Funny","Overrated","Underrated");
 $badreasons = 4;
-/* If you want to use the IMG tag in your HTML code, to include images in News for example, you must use the following line and comment the old $AllowableHTML */
+/* If you want to use the IMG tag in your HTML code, to include images in News for example you must use the following line and comment out the old $AllowableHTML */
 /* $AllowableHTML = array("img"=>2,"b"=>1,"i"=>1,"strike"=>1,"div"=>2,"u"=>1,"a"=>2,"em"=>1,"br"=>1,"strong"=>1,"blockquote"=>1,"tt"=>1,"li"=>1,"ol"=>1,"ul"=>1); */
 /* or just include "img"=>2 in the $AllowableHTML array bellow. This feature isn't included by default due to possible security issues */
 $AllowableHTML = array("b"=>1,"i"=>1,"strike"=>1,"div"=>2,"u"=>1,"a"=>2,"em"=>1,"br"=>1,"strong"=>1,"blockquote"=>1,"tt"=>1,"li"=>1,"ol"=>1,"ul"=>1);

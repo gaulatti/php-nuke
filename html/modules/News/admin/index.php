@@ -88,7 +88,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 			$sel = "";
 		}
 		echo "<option name=\"catid\" value=\"0\" $sel>"._ARTICLES."</option>";
-		while(list($catid, $title) = $db->sql_fetchrow($selcat)) {
+		while(list($catid, $title) = $selcat->fetch_row()) {
 			$catid = intval($catid);
 			$title = filter($title, "nohtml");
 			if ($catid == $cat) {
@@ -142,7 +142,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 		global $prefix, $db, $admin_file;
 		$catid = intval($catid);
 		$result = $db->sql_query("select title from ".$prefix."_stories_cat where catid='$catid'");
-		list($title) = $db->sql_fetchrow($result);
+		list($title) = $result->fetch_row();
 		$title = filter($title, "nohtml");
 		include ("header.php");
 		GraphicAdmin();
@@ -158,7 +158,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 			echo "<b>"._ASELECTCATEGORY."</b>";
 			echo "<select name=\"catid\">";
 			echo "<option name=\"catid\" value=\"0\" $sel>Articles</option>";
-			while(list($catid, $title) = $db->sql_fetchrow($selcat)) {
+			while(list($catid, $title) = $selcat->fetch_row()) {
 				$catid = intval($catid);
 				$title = filter($title, "nohtml");
 				echo "<option name=\"catid\" value=\"$catid\" $sel>$title</option>";
@@ -186,7 +186,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 		global $prefix, $db, $admin_file;
 		$cat = intval($cat);
 		$result = $db->sql_query("select title from ".$prefix."_stories_cat where catid='$cat'");
-		list($title) = $db->sql_fetchrow($result);
+		list($title) = $result->fetch_row();
 		$title = filter($title, "nohtml");
 		include ("header.php");
 		GraphicAdmin();
@@ -201,7 +201,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 			echo "<form action=\"".$admin_file.".php\" method=\"post\">"
 			."<b>"._SELECTCATDEL.": </b>"
 			."<select name=\"cat\">";
-			while(list($catid, $title) = $db->sql_fetchrow($selcat)) {
+			while(list($catid, $title) = $selcat->fetch_row()) {
 				$catid = intval($catid);
 				$title = filter($title, "nohtml");
 				echo "<option name=\"cat\" value=\"$catid\">$title</option>";
@@ -235,7 +235,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 		$catid = intval($catid);
 		$db->sql_query("delete from ".$prefix."_stories_cat where catid='$catid'");
 		$result = $db->sql_query("select sid from ".$prefix."_stories where catid='$catid'");
-		while(list($sid) = $db->sql_fetchrow($result)) {
+		while(list($sid) = $result->fetch_row()) {
 			$sid = intval($sid);
 			$db->sql_query("delete from ".$prefix."_stories where catid='$catid'");
 			$db->sql_query("delete from ".$prefix."_comments where sid='$sid'");
@@ -248,7 +248,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 		$catid = intval($catid);
 		$newcat = filter($newcat, "nohtml", 1);
 		$result = $db->sql_query("select title from ".$prefix."_stories_cat where catid='$catid'");
-		list($title) = $db->sql_fetchrow($result);
+		list($title) = $result->fetch_row();
 		$title = filter($title, "nohtml");
 		include ("header.php");
 		GraphicAdmin();
@@ -265,7 +265,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 			echo "<b>"._SELECTNEWCAT.":</b> ";
 			echo "<select name=\"newcat\">";
 			echo "<option name=\"newcat\" value=\"0\">"._ARTICLES."</option>";
-			while(list($newcat, $title) = $db->sql_fetchrow($selcat)) {
+			while(list($newcat, $title) = $selcat->fetch_row()) {
 				$title = filter($title, "nohtml");
 				echo "<option name=\"newcat\" value=\"$newcat\">$title</option>";
 			}
@@ -276,7 +276,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 			echo "</form>";
 		} else {
 			$resultm = $db->sql_query("select sid from ".$prefix."_stories where catid='$catid'");
-			while(list($sid) = $db->sql_fetchrow($resultm)) {
+			while(list($sid) = $resultm->fetch_row()) {
 				$sid = intval($sid);
 				$db->sql_query("update ".$prefix."_stories set catid='$newcat' where sid='$sid'");
 			}
@@ -388,7 +388,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 		$sid = intval($sid);
 		$aid = substr("$aid", 0,25);
 		$result = $db->sql_query("select radminsuper from ".$prefix."_authors where aid='$aid'");
-		list($radminsuper) = $db->sql_fetchrow($result);
+		list($radminsuper) = $result->fetch_row();
 		$radminsuper = intval($radminsuper);
 		$result = $db->sql_query("SELECT admins FROM ".$prefix."_modules WHERE title='News'");
 		$row2 = $db->sql_fetchrow($db->sql_query("SELECT name FROM ".$prefix."_authors WHERE aid='$aid'"));
@@ -405,12 +405,12 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 			}
 		}
 		$result2 = $db->sql_query("select aid from ".$prefix."_stories where sid='$sid'");
-		list($aaid) = $db->sql_fetchrow($result2);
+		list($aaid) = $result2->fetch_row();
 		$aaid = substr("$aaid", 0,25);
 		if (($radminarticle == 1) AND ($aaid == $aid) OR ($radminsuper == 1)) {
 			include ("header.php");
 			$result = $db->sql_query("select catid, aid, title, time, hometext, bodytext, topic, informant, notes, ihome, alanguage, acomm from ".$prefix."_autonews where anid='$anid'");
-			list($catid, $aid, $title, $time, $hometext, $bodytext, $topic, $informant, $notes, $ihome, $alanguage, $acomm) = $db->sql_fetchrow($result);
+			list($catid, $aid, $title, $time, $hometext, $bodytext, $topic, $informant, $notes, $ihome, $alanguage, $acomm) = $result->fetch_row();
 			$catid = intval($catid);
 			$aid = substr("$aid", 0,25);
 			$informant = substr("$informant", 0,25);
@@ -450,7 +450,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 			$bodytext = filter($bodytext);
 			$notes = filter($notes);
 			$result=$db->sql_query("select topicimage from ".$prefix."_topics where topicid='$topic'");
-			list($topicimage) = $db->sql_fetchrow($result);
+			list($topicimage) = $result->fetch_row();
 			echo "<table border=\"0\" width=\"75%\" cellpadding=\"0\" cellspacing=\"1\" bgcolor=\"$bgcolor2\" align=\"center\"><tr><td>"
 			."<table border=\"0\" width=\"100%\" cellpadding=\"8\" cellspacing=\"1\" bgcolor=\"$bgcolor1\"><tr><td>"
 			."<img src=\"images/topics/$topicimage\" border=\"0\" align=\"right\">";
@@ -461,7 +461,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 			."<b>"._TOPIC."</b> <select name=\"topic\">";
 			$toplist = $db->sql_query("select topicid, topictext from ".$prefix."_topics order by topictext");
 			echo "<option value=\"\">"._ALLTOPICS."</option>\n";
-			while(list($topicid, $topics) = $db->sql_fetchrow($toplist)) {
+			while(list($topicid, $topics) = $toplist->fetch_row()) {
 				$topicid = intval($topicid);
 				$topics = filter($topics, "nohtml");
 				if ($topicid==$topic) { $sel = "selected "; }
@@ -599,7 +599,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 		$aid = substr("$aid", 0,25);
 		$sid = intval($sid);
 		$result = $db->sql_query("select radminsuper from ".$prefix."_authors where aid='$aid'");
-		list($radminsuper) = $db->sql_fetchrow($result);
+		list($radminsuper) = $result->fetch_row();
 		$radminsuper = intval($radminsuper);
 		$result = $db->sql_query("SELECT admins FROM ".$prefix."_modules WHERE title='News'");
 		$row2 = $db->sql_fetchrow($db->sql_query("SELECT name FROM ".$prefix."_authors WHERE aid='$aid'"));
@@ -616,7 +616,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 			}
 		}
 		$result2 = $db->sql_query("select aid from ".$prefix."_stories where sid='$sid'");
-		list($aaid) = $db->sql_fetchrow($result2);
+		list($aaid) = $result2->fetch_row();
 		$aaid = substr("$aaid", 0,25);
 		if (($radminarticle == 1) AND ($aaid == $aid) OR ($radminsuper == 1)) {
 			if ($day < 10) {
@@ -689,7 +689,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 		$nowdate = "$tmonth $tday, $tyear @ $thour:$tmin:$tsec";
 		$qid = intval($qid);
 		$result = $db->sql_query("SELECT qid, uid, uname, subject, story, storyext, topic, alanguage FROM ".$prefix."_queue where qid='$qid'");
-		list($qid, $uid, $uname, $subject, $story, $storyext, $topic, $alanguage) = $db->sql_fetchrow($result);
+		list($qid, $uid, $uname, $subject, $story, $storyext, $topic, $alanguage) = $result->fetch_row();
 		$qid = intval($qid);
 		$uid = intval($uid);
 		$topic = intval($topic);
@@ -705,7 +705,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 			$topic = 1;
 		}
 		$result = $db->sql_query("select topicimage from ".$prefix."_topics where topicid='$topic'");
-		list($topicimage) = $db->sql_fetchrow($result);
+		list($topicimage) = $result->fetch_row();
 		echo "<table border=\"0\" width=\"70%\" cellpadding=\"0\" cellspacing=\"1\" bgcolor=\"$bgcolor2\" align=\"center\"><tr><td>"
 			."<table border=\"0\" width=\"100%\" cellpadding=\"8\" cellspacing=\"1\" bgcolor=\"$bgcolor1\"><tr><td>"
 			."<img src=\"images/topics/$topicimage\" border=\"0\" align=\"right\" alt=\"\">";
@@ -718,7 +718,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 			."<b>"._USERNEWS.":</b></td><td><b>$uname</b><input type=\"hidden\" NAME=\"author\" value=\"$uname\">";
 		if ($uname != $anonymous) {
 			$res = $db->sql_query("select user_email from ".$user_prefix."_users where username='$uname'");
-			list($email) = $db->sql_fetchrow($res);
+			list($email) = $res->fetch_row();
 			$email = filter($email, "nohtml");
 			echo "&nbsp;&nbsp;<font class=\"content\">[ <a href=\"mailto:$email?Subject=Re: $subject\">"._EMAIL."</a> | <a href='modules.php?name=Your_Account&op=userinfo&username=$uname'>"._PROFILE."</a> | <a href=\"modules.php?name=Private_Messages&amp;mode=post&amp;u=$uid\">"._SENDPM."</a> ]</font>";
 		}
@@ -726,7 +726,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 		echo "<tr><td><b>"._TOPIC.":</b></td><td><select name=\"topic\">";
 		$toplist = $db->sql_query("select topicid, topictext from ".$prefix."_topics order by topictext");
 		echo "<option value=\"\">"._SELECTTOPIC."</option>\n";
-		while(list($topicid, $topics) = $db->sql_fetchrow($toplist)) {
+		while(list($topicid, $topics) = $toplist->fetch_row()) {
 			$topicid = intval($topicid);
 			$topics = filter($topics, "nohtml");
 			if ($topicid==$topic) {
@@ -756,7 +756,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 			$sel = "";
 		}
 		echo "<option name=\"catid\" value=\"0\" $sel>"._ARTICLES."</option>";
-		while(list($catid, $title) = $db->sql_fetchrow($selcat)) {
+		while(list($catid, $title) = $selcat->fetch_row()) {
 			$catid = intval($catid);
 			$title = filter($title, "nohtml");
 			if ($catid == $cat) {
@@ -939,7 +939,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 		OpenTable();
 		echo "<br>";
 		$result = $db->sql_query("select topicimage from ".$prefix."_topics where topicid='$topic'");
-		list($topicimage) = $db->sql_fetchrow($result);
+		list($topicimage) = $result->fetch_row();
 		echo "<table width=\"70%\" bgcolor=\"$bgcolor2\" cellpadding=\"0\" cellspacing=\"1\" border=\"0\"align=\"center\"><tr><td>"
 			."<table width=\"100%\" bgcolor=\"$bgcolor1\" cellpadding=\"8\" cellspacing=\"1\" border=\"0\"><tr><td>"
 			."<img src=\"images/topics/$topicimage\" border=\"0\" align=\"right\">";
@@ -954,7 +954,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 			."<b>$author</b><input type=\"hidden\" name=\"author\" value=\"$author\">";
 		if ($author != $anonymous) {
 			$res = $db->sql_query("select user_id, user_email from ".$user_prefix."_users where username='$author'");
-			list($pm_userid, $email) = $db->sql_fetchrow($res);
+			list($pm_userid, $email) = $res->fetch_row();
 			$pm_userid = intval($pm_userid);
 			echo "&nbsp;&nbsp;<font class=\"content\">[ <a href=\"mailto:$email?Subject=Re: $subject\">"._USER."</a> | <a href='modules.php?name=Your_Account&op=userinfo&username=$author'>"._PROFILE."</a> | <a href=\"modules.php?name=Private_Messages&amp;mode=post&amp;u=$uid\">"._SENDPM."</a> ]</font>";
 		}
@@ -963,7 +963,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 			."<tr><td><b>"._TOPIC.":</b></td><td><select name=\"topic\">";
 		$toplist = $db->sql_query("select topicid, topictext from ".$prefix."_topics order by topictext");
 		echo "<option value=\"\">"._ALLTOPICS."</option>\n";
-		while(list($topicid, $topics) = $db->sql_fetchrow($toplist)) {
+		while(list($topicid, $topics) = $toplist->fetch_row()) {
 			$topicid = intval($topicid);
 			$topics = filter($topics, "nohtml");
 			if ($topicid==$topic) {
@@ -1005,7 +1005,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 			$sel = "";
 		}
 		echo "<option name=\"catid\" value=\"0\" $sel>"._ARTICLES."</option>";
-		while(list($catid, $title) = $db->sql_fetchrow($selcat)) {
+		while(list($catid, $title) = $selcat->fetch_row()) {
 			$catid = intval($catid);
 			$title = filter($title, "nohtml");
 			if ($catid == $cat) {
@@ -1231,7 +1231,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 			}
 			$result = $db->sql_query("insert into ".$prefix."_stories values (NULL, '$catid', '$aid', '$subject', now(), '$hometext', '$bodytext', '0', '0', '$topic', '$author', '$notes', '$ihome', '$alanguage', '$acomm', '$haspoll', '$id', '0', '0', '0', '$associated')");
 			$result = $db->sql_query("select sid from ".$prefix."_stories WHERE title='$subject' order by time DESC limit 0,1");
-			list($artid) = $db->sql_fetchrow($result);
+			list($artid) = $result->fetch_row();
 			$artid = intval($artid);
 			$db->sql_query("UPDATE ".$prefix."_poll_desc SET artid='$artid' WHERE pollID='$id'");
 			if (!$result) {
@@ -1254,7 +1254,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 		global $user, $bgcolor1, $bgcolor2, $aid, $prefix, $db, $multilingual, $admin_file;
 		$aid = substr("$aid", 0,25);
 		$result = $db->sql_query("select radminsuper from ".$prefix."_authors where aid='$aid'");
-		list($radminsuper) = $db->sql_fetchrow($result);
+		list($radminsuper) = $result->fetch_row();
 		$radminsuper = intval($radminsuper);
 		$result = $db->sql_query("SELECT admins FROM ".$prefix."_modules WHERE title='News'");
 		$row2 = $db->sql_fetchrow($db->sql_query("SELECT name FROM ".$prefix."_authors WHERE aid='$aid'"));
@@ -1271,7 +1271,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 			}
 		}
 		$result2 = $db->sql_query("select aid from ".$prefix."_stories where sid='$sid'");
-		list($aaid) = $db->sql_fetchrow($result2);
+		list($aaid) = $result2->fetch_row();
 		$aaid = substr("$aaid", 0,25);
 		if (($radminarticle == 1) AND ($aaid == $aid) OR ($radminsuper == 1)) {
 			include ('header.php');
@@ -1281,7 +1281,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 			CloseTable();
 			echo "<br>";
 			$result = $db->sql_query("SELECT catid, title, hometext, bodytext, topic, notes, ihome, alanguage, acomm FROM ".$prefix."_stories where sid='$sid'");
-			list($catid, $subject, $hometext, $bodytext, $topic, $notes, $ihome, $alanguage, $acomm) = $db->sql_fetchrow($result);
+			list($catid, $subject, $hometext, $bodytext, $topic, $notes, $ihome, $alanguage, $acomm) = $result->fetch_row();
 			$catid = intval($catid);
 			$topic = intval($topic);
 			$subject = filter($subject, "nohtml");
@@ -1291,7 +1291,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 			$ihome = intval($ihome);
 			$acomm = intval($acomm);
 			$result2=$db->sql_query("select topicimage from ".$prefix."_topics where topicid='$topic'");
-			list($topicimage) = $db->sql_fetchrow($result2);
+			list($topicimage) = $result2->fetch_row();
 			OpenTable();
 			echo "<center><font class=\"option\"><b>"._EDITARTICLE."</b></font></center><br>"
 			."<table width=\"80%\" border=\"0\" cellpadding=\"0\" cellspacing=\"1\" bgcolor=\"$bgcolor2\" align=\"center\"><tr><td>"
@@ -1305,7 +1305,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 			."<b>"._TOPIC."</b> <select name=\"topic\">";
 			$toplist = $db->sql_query("select topicid, topictext from ".$prefix."_topics order by topictext");
 			echo "<option value=\"\">"._ALLTOPICS."</option>\n";
-			while(list($topicid, $topics) = $db->sql_fetchrow($toplist)) {
+			while(list($topicid, $topics) = $toplist->fetch_row()) {
 				$topicid = intval($topicid);
 				$topics = filter($topics, "nohtml");
 				if ($topicid==$topic) { $sel = "selected "; }
@@ -1403,7 +1403,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 		global $ultramode, $aid, $prefix, $db, $admin_file;
 		$aid = substr("$aid", 0,25);
 		$result = $db->sql_query("select counter, radminsuper from ".$prefix."_authors where aid='$aid'");
-		list($counter, $radminsuper) = $db->sql_fetchrow($result);
+		list($counter, $radminsuper) = $result->fetch_row();
 		$radminsuper = intval($radminsuper);
 		$counter = intval($counter);
 		$sid = intval($sid);
@@ -1422,7 +1422,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 			}
 		}
 		$result2 = $db->sql_query("select aid from ".$prefix."_stories where sid='$sid'");
-		list($aaid) = $db->sql_fetchrow($result2);
+		list($aaid) = $result2->fetch_row();
 		$aaid = substr("$aaid", 0,25);
 		if (($radminarticle == 1) AND ($aaid == $aid) OR ($radminsuper == 1)) {
 			if($ok) {
@@ -1472,7 +1472,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 		$sid = intval($sid);
 		$aid = substr("$aid", 0,25);
 		$result = $db->sql_query("select radminsuper from ".$prefix."_authors where aid='$aid'");
-		list($radminsuper) = $db->sql_fetchrow($result);
+		list($radminsuper) = $result->fetch_row();
 		$radminsuper = intval($radminsuper);
 		$result = $db->sql_query("SELECT admins FROM ".$prefix."_modules WHERE title='News'");
 		$row2 = $db->sql_fetchrow($db->sql_query("SELECT name FROM ".$prefix."_authors WHERE aid='$aid'"));
@@ -1489,7 +1489,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 			}
 		}
 		$result2 = $db->sql_query("select aid from ".$prefix."_stories where sid='$sid'");
-		list($aaid) = $db->sql_fetchrow($result2);
+		list($aaid) = $result2->fetch_row();
 		$aaid = substr("$aaid", 0,25);
 		if (($radminarticle == 1) AND ($aaid == $aid) OR ($radminsuper == 1)) {
 			$subject = filter($subject, "nohtml", 1);
@@ -1545,7 +1545,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 		$toplist = $db->sql_query("select topicid, topictext from ".$prefix."_topics order by topictext");
 		echo "<select name=\"topic\">";
 		echo "<option value=\"\">"._SELECTTOPIC."</option>\n";
-		while(list($topicid, $topics) = $db->sql_fetchrow($toplist)) {
+		while(list($topicid, $topics) = $toplist->fetch_row()) {
 			$topicid = intval($topicid);
 			$topics = filter($topics, "nohtml");
 			if ($topicid == $topic) {
@@ -1576,7 +1576,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 			$sel = "";
 		}
 		echo "<option name=\"catid\" value=\"0\" $sel>"._ARTICLES."</option>";
-		while(list($catid, $title) = $db->sql_fetchrow($selcat)) {
+		while(list($catid, $title) = $selcat->fetch_row()) {
 			$catid = intval($catid);
 			$title = filter($title, "nohtml");
 			if ($catid == $cat) {
@@ -1750,7 +1750,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 		$hometext = filter($hometext);
 		$bodytext = filter($bodytext);
 		$result = $db->sql_query("select topicimage from ".$prefix."_topics where topicid='$topic'");
-		list($topicimage) = $db->sql_fetchrow($result);
+		list($topicimage) = $result->fetch_row();
 		echo "<table border=\"0\" width=\"75%\" cellpadding=\"0\" cellspacing=\"1\" bgcolor=\"$bgcolor2\" align=\"center\"><tr><td>"
 			."<table border=\"0\" width=\"100%\" cellpadding=\"8\" cellspacing=\"1\" bgcolor=\"$bgcolor1\"><tr><td>"
 			."<img src=\"images/topics/$topicimage\" border=\"0\" align=\"right\" alt=\"\">";
@@ -1762,7 +1762,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 			."<tr><td nowrap><b>"._TOPIC.":</b></td><td><select name=\"topic\">";
 		$toplist = $db->sql_query("select topicid, topictext from ".$prefix."_topics order by topictext");
 		echo "<option value=\"\">"._ALLTOPICS."</option>\n";
-		while(list($topicid, $topics) = $db->sql_fetchrow($toplist)) {
+		while(list($topicid, $topics) = $toplist->fetch_row()) {
 			$topicid = intval($topicid);
 			$topics = filter($topics, "nohtml");
 			if ($topicid==$topic) {
@@ -1804,7 +1804,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 			$sel = "";
 		}
 		echo "<option name=\"catid\" value=\"0\" $sel>"._ARTICLES."</option>";
-		while(list($catid, $title) = $db->sql_fetchrow($selcat)) {
+		while(list($catid, $title) = $selcat->fetch_row()) {
 			$catid = intval($catid);
 			$title = filter($title, "nohtml");
 			if ($catid == $cat) {
@@ -2014,7 +2014,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 			}
 			$result = $db->sql_query("insert into ".$prefix."_stories values (NULL, '$catid', '$aid', '$subject', now(), '$hometext', '$bodytext', '0', '0', '$topic', '$aid', '$notes', '$ihome', '$alanguage', '$acomm', '$haspoll', '$id', '0', '0', '0', '$associated')");
 			$result = $db->sql_query("select sid from ".$prefix."_stories WHERE title='$subject' order by time DESC limit 0,1");
-			list($artid) = $db->sql_fetchrow($result);
+			list($artid) = $result->fetch_row();
 			$artid = intval($artid);
 			$db->sql_query("UPDATE ".$prefix."_poll_desc SET artid='$artid' WHERE pollID='$id'");
 			if (!$result) {
@@ -2047,7 +2047,7 @@ if ($row2['radminsuper'] == 1 || $auth_user == 1) {
 				echo "<td bgcolor=\"$bgcolor2\"><b><center>&nbsp;"._LANGUAGE."&nbsp;</center></b></td>";
 			}
 			echo "<td bgcolor=\"$bgcolor2\"><b><center>&nbsp;"._AUTHOR."&nbsp;</center></b></td><td bgcolor=\"$bgcolor2\"><b><center>&nbsp;"._DATE."&nbsp;</center></b></td><td bgcolor=\"$bgcolor2\"><b><center>&nbsp;"._FUNCTIONS."&nbsp;</center></b></td></tr>\n";
-			while (list($qid, $uid, $uname, $subject, $timestamp, $alanguage) = $db->sql_fetchrow($result)) {
+			while (list($qid, $uid, $uname, $subject, $timestamp, $alanguage) = $result->fetch_row()) {
 				$qid = intval($qid);
 				$uid = intval($uid);
 				$subject = filter($subject, "nohtml");
