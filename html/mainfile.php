@@ -17,14 +17,36 @@ if(!defined('END_TRANSACTION')) {
   define('END_TRANSACTION', 2);
 }
 
+function ereg($match, $string, &$reg = null) {
+  if(is_null($reg)) {
+    return preg_match("/$match/", $string);
+  }
+  return preg_match("/$match/", $string, $reg);
+}
+
+function eregi($match, $string, &$reg = null) {
+  if(is_null($reg)) {
+    return preg_match("/$match/i", $string);
+  }
+  return preg_match("/$match/i", $string, $reg);
+}
+
+function ereg_replace($match, $replacement, $string) {
+  return preg_replace("/$match/", $replacement, $string);
+}
+
+function eregi_replace($match, $replacement, $string) {
+  return preg_replace("/$match/i", $replacement, $string);
+}
+
 // Get php version
 $phpver = phpversion();
 
 // convert superglobals if php is lower then 4.1.0
 function include_secure($file_name)
 {
-    $file_name =  preg_replace("/\.[\.\/]*\//", "", $file_name);
-    include_once($file_name);
+  $file_name =  preg_replace("/\.[\.\/]*\//", "", $file_name);
+  include_once($file_name);
 }
 if ($phpver < '4.1.0') {
   $_GET = $HTTP_GET_VARS;
@@ -65,40 +87,40 @@ if($phpver >= '4.1.0') {
 // and check if this file isnt being accessed directly
 
 if (stristr(htmlentities($_SERVER['PHP_SELF']), "mainfile.php")) {
-    header("Location: index.php");
-    exit();
+  header("Location: index.php");
+  exit();
 }
 
 if (!function_exists("floatval")) {
-    function floatval($inputval) {
-        return (float)$inputval;
-    }
+  function floatval($inputval) {
+    return (float)$inputval;
+  }
 }
 if ($phpver >= '4.0.4pl1' && isset($_SERVER['HTTP_USER_AGENT']) && strstr($_SERVER['HTTP_USER_AGENT'],'compatible')) {
 	if (extension_loaded('zlib')) {
-    	@ob_end_clean();
-    	ob_start('ob_gzhandler');
-  	}
+   @ob_end_clean();
+   ob_start('ob_gzhandler');
+ }
 } elseif ($phpver > '4.0' && isset($_SERVER['HTTP_ACCEPT_ENCODING']) && !empty($_SERVER['HTTP_ACCEPT_ENCODING'])) {
-  	if (strstr($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
-    	if (extension_loaded('zlib')) {
-      		$do_gzip_compress = true;
-      		ob_start('ob_gzhandler');
-      		ob_implicit_flush(0);
-      		if (preg_match("/MSIE/", $_SERVER['HTTP_USER_AGENT'])) {
-				header('Content-Encoding: gzip');
-      		}
-    	}
-  	}
+ if (strstr($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
+   if (extension_loaded('zlib')) {
+    $do_gzip_compress = true;
+    ob_start('ob_gzhandler');
+    ob_implicit_flush(0);
+    if (preg_match("/MSIE/", $_SERVER['HTTP_USER_AGENT'])) {
+      header('Content-Encoding: gzip');
+    }
+  }
+}
 }
 
 $sanitize_rules = array("newlang"=>"/[a-z][a-z]/i","redirect"=>"/[a-z0-9]*/i");
 foreach($_REQUEST as $key=>$value)
 {
-    if(!isset($sanitize_rules[$key]) || preg_match($sanitize_rules[$key], $values))
-    {
-        $GLOBALS[$key] = $value;
-    }    
+  if(!isset($sanitize_rules[$key]) || preg_match($sanitize_rules[$key], $values))
+  {
+    $GLOBALS[$key] = $value;
+  }    
 }
 
 // This block of code makes sure $admin and $user are COOKIES
@@ -109,20 +131,20 @@ if((isset($admin) && $admin != $_COOKIE['admin']) OR (isset($user) && $user != $
 if(!function_exists('stripos')) {
   function stripos_clone($haystack, $needle, $offset=0) {
     $return = strpos(strtoupper($haystack), strtoupper($needle), $offset);
-  if ($return === false) {
-    return false;
+    if ($return === false) {
+      return false;
     } else {
-    return true;
+      return true;
     }
   }
 } else {
 // But when this is PHP5, we use the original function
   function stripos_clone($haystack, $needle, $offset=0) {
     $return = stripos($haystack, $needle, $offset=0);
-  if ($return === false) {
-    return false;
+    if ($return === false) {
+      return false;
     } else {
-    return true;
+      return true;
     }
   }
 }
@@ -148,37 +170,37 @@ $htmltags .= "[ <a href=\"javascript:history.go(-1)\"><b>Go Back</b></a> ]</cent
 
 if (!defined('ADMIN_FILE')) {
  foreach ($_GET as $sec_key => $secvalue) {
- if((eregi("<[^>]*script*\"?[^>]*", $secvalue)) ||
-  (eregi("<[^>]*object*\"?[^>]*", $secvalue)) ||
-  (eregi("<[^>]*iframe*\"?[^>]*", $secvalue)) ||
-  (eregi("<[^>]*applet*\"?[^>]*", $secvalue)) ||
-  (eregi("<[^>]*meta*\"?[^>]*", $secvalue)) ||
-  (eregi("<[^>]*style*\"?[^>]*", $secvalue)) ||
-  (eregi("<[^>]*form*\"?[^>]*", $secvalue)) ||
-  (eregi("<[^>]*img*\"?[^>]*", $secvalue)) ||
-  (eregi("<[^>]*onmouseover *\"?[^>]*", $secvalue)) ||
-  (eregi("<[^>]*body *\"?[^>]*", $secvalue)) ||
-  (eregi("\([^>]*\"?[^)]*\)", $secvalue)) ||
-  (eregi("\"", $secvalue)) ||
-  (eregi("forum_admin", $sec_key)) ||
-  (eregi("inside_mod", $sec_key)))
-  {
-   die ($htmltags);
-  }
-}
+   if((eregi("<[^>]*script*\"?[^>]*", $secvalue)) ||
+    (eregi("<[^>]*object*\"?[^>]*", $secvalue)) ||
+    (eregi("<[^>]*iframe*\"?[^>]*", $secvalue)) ||
+    (eregi("<[^>]*applet*\"?[^>]*", $secvalue)) ||
+    (eregi("<[^>]*meta*\"?[^>]*", $secvalue)) ||
+    (eregi("<[^>]*style*\"?[^>]*", $secvalue)) ||
+    (eregi("<[^>]*form*\"?[^>]*", $secvalue)) ||
+    (eregi("<[^>]*img*\"?[^>]*", $secvalue)) ||
+    (eregi("<[^>]*onmouseover *\"?[^>]*", $secvalue)) ||
+    (eregi("<[^>]*body *\"?[^>]*", $secvalue)) ||
+    (eregi("\([^>]*\"?[^)]*\)", $secvalue)) ||
+    (eregi("\"", $secvalue)) ||
+    (eregi("forum_admin", $sec_key)) ||
+    (eregi("inside_mod", $sec_key)))
+   {
+     die ($htmltags);
+   }
+ }
 
  foreach ($_POST as $secvalue) {
   if ((eregi("<[^>]*iframe*\"?[^>]*", $secvalue)) ||
-  (eregi("<[^>]*object*\"?[^>]*", $secvalue)) ||
-  (eregi("<[^>]*applet*\"?[^>]*", $secvalue)) ||
-  (eregi("<[^>]*meta*\"?[^>]*", $secvalue)) ||
-  (eregi("<[^>]*onmouseover*\"?[^>]*", $secvalue)) ||
-  (eregi("<[^>]script*\"?[^>]*", $secvalue)) ||
-  (eregi("<[^>]*body*\"?[^>]*", $secvalue)) ||
-  (eregi("<[^>]style*\"?[^>]*", $secvalue))) {
+    (eregi("<[^>]*object*\"?[^>]*", $secvalue)) ||
+    (eregi("<[^>]*applet*\"?[^>]*", $secvalue)) ||
+    (eregi("<[^>]*meta*\"?[^>]*", $secvalue)) ||
+    (eregi("<[^>]*onmouseover*\"?[^>]*", $secvalue)) ||
+    (eregi("<[^>]script*\"?[^>]*", $secvalue)) ||
+    (eregi("<[^>]*body*\"?[^>]*", $secvalue)) ||
+    (eregi("<[^>]style*\"?[^>]*", $secvalue))) {
    die ($htmltags);
-  }
- }
+}
+}
 }
 
 // Define the INCLUDE PATH
@@ -194,7 +216,7 @@ if(defined('FORUM_ADMIN')) {
 @require_once(INCLUDE_PATH."config.php");
 
 if(!$dbname) {
-    die("<br><br><center><img src=images/logo.gif><br><br><b>There seems that PHP-Nuke isn't installed yet.<br>(The values in config.php file are the default ones)<br><br>You can proceed with the <a href='./install/index.php'>web installation</a> now.</center></b>");
+  die("<br><br><center><img src=images/logo.gif><br><br><b>There seems that PHP-Nuke isn't installed yet.<br>(The values in config.php file are the default ones)<br><br>You can proceed with the <a href='./install/index.php'>web installation</a> now.</center></b>");
 }
 
 @require_once(INCLUDE_PATH."db/db.php");
@@ -210,10 +232,10 @@ if (file_exists(INCLUDE_PATH."includes/custom_files/custom_mainfile.php")) {
 }
 
 if (!defined('FORUM_ADMIN')) {
-if(empty($admin_file)) {
-   	die ("You must set a value for admin_file in config.php");
-} elseif (!empty($admin_file) && !file_exists(INCLUDE_PATH.$admin_file.".php")) {
-   	die ("The admin_file you defined in config.php does not exist");
+  if(empty($admin_file)) {
+    die ("You must set a value for admin_file in config.php");
+  } elseif (!empty($admin_file) && !file_exists(INCLUDE_PATH.$admin_file.".php")) {
+    die ("The admin_file you defined in config.php does not exist");
   }
 }
 
@@ -281,24 +303,24 @@ if ($display_errors == 1) {
 }
 
 if (!defined('FORUM_ADMIN')) {
-    if ((isset($newlang)) AND (stristr($newlang,"."))) {
-		if (file_exists("language/lang-".$newlang.".php")) {
-			setcookie("lang",$newlang,time()+31536000);
-			include_secure("language/lang-".$newlang.".php");
-			$currentlang = $newlang;
-		} else {
-			setcookie("lang",$language,time()+31536000);
-			include_secure("language/lang-".$language.".php");
-			$currentlang = $language;
-		}
-	} elseif (isset($lang)) {
-		include_secure("language/lang-".$lang.".php");
-		$currentlang = $lang;
-	} else {
-		setcookie("lang",$language,time()+31536000);
-		include_secure("language/lang-".$language.".php");
-		$currentlang = $language;
-	}
+  if ((isset($newlang)) AND (stristr($newlang,"."))) {
+    if (file_exists("language/lang-".$newlang.".php")) {
+     setcookie("lang",$newlang,time()+31536000);
+     include_secure("language/lang-".$newlang.".php");
+     $currentlang = $newlang;
+   } else {
+     setcookie("lang",$language,time()+31536000);
+     include_secure("language/lang-".$language.".php");
+     $currentlang = $language;
+   }
+ } elseif (isset($lang)) {
+  include_secure("language/lang-".$lang.".php");
+  $currentlang = $lang;
+} else {
+  setcookie("lang",$language,time()+31536000);
+  include_secure("language/lang-".$language.".php");
+  $currentlang = $language;
+}
 }
 
 function makePass() {
@@ -317,136 +339,136 @@ function makePass() {
 }
 
 function get_lang($module) {
-   global $currentlang, $language;
-   if ($module == "admin" AND $module != "Forums") {
-      if (file_exists("admin/language/lang-".$currentlang.".php")) {
-         include_secure("admin/language/lang-".$currentlang.".php");
-      } elseif (file_exists("admin/language/lang-".$language.".php")) {
-         include_secure("admin/language/lang-".$language.".php");
-      }
-   } else {
-      if (file_exists("modules/$module/language/lang-".$currentlang.".php")) {
-         include_secure("modules/$module/language/lang-".$currentlang.".php");
-      } elseif (file_exists("modules/$module/language/lang-".$language.".php")) {
-         include_secure("modules/$module/language/lang-".$language.".php");
-      }
-   }
+ global $currentlang, $language;
+ if ($module == "admin" AND $module != "Forums") {
+  if (file_exists("admin/language/lang-".$currentlang.".php")) {
+   include_secure("admin/language/lang-".$currentlang.".php");
+ } elseif (file_exists("admin/language/lang-".$language.".php")) {
+   include_secure("admin/language/lang-".$language.".php");
+ }
+} else {
+  if (file_exists("modules/$module/language/lang-".$currentlang.".php")) {
+   include_secure("modules/$module/language/lang-".$currentlang.".php");
+ } elseif (file_exists("modules/$module/language/lang-".$language.".php")) {
+   include_secure("modules/$module/language/lang-".$language.".php");
+ }
+}
 }
 
 function is_admin($admin) {
-    static $adminSave; 
-    if (!$admin) { return 0; }
-    if (isset($adminSave)) return $adminSave;
-    if (!is_array($admin)) {
-        $admin = base64_decode($admin);
-        $admin = addslashes($admin);
-        $admin = explode(':', $admin);
-    }
-    $aid = $admin[0];
-    $pwd = $admin[1];
-    $aid = substr(addslashes($aid), 0, 25);
-    if (!empty($aid) && !empty($pwd)) {
-        global $prefix, $db;
-        $sql = "SELECT pwd FROM ".$prefix."_authors WHERE aid='$aid'";
-        $result = $db->sql_query($sql);
-        $pass = $db->sql_fetchrow($result);
-        $db->sql_freeresult($result);
-        if ($pass[0] == $pwd && !empty($pass[0])) {
-        	return $adminSave = 1;
-        }
-    }
-    return $adminSave = 0;
+  static $adminSave; 
+  if (!$admin) { return 0; }
+  if (isset($adminSave)) return $adminSave;
+  if (!is_array($admin)) {
+    $admin = base64_decode($admin);
+    $admin = addslashes($admin);
+    $admin = explode(':', $admin);
+  }
+  $aid = $admin[0];
+  $pwd = $admin[1];
+  $aid = substr(addslashes($aid), 0, 25);
+  if (!empty($aid) && !empty($pwd)) {
+    global $prefix, $db;
+    $sql = "SELECT pwd FROM ".$prefix."_authors WHERE aid='$aid'";
+    $result = $db->sql_query($sql);
+    $pass = $db->sql_fetchrow($result);
+    $db->sql_freeresult($result);
+    if ($pass[0] == $pwd && !empty($pass[0])) {
+     return $adminSave = 1;
+   }
+ }
+ return $adminSave = 0;
 }
 
 function is_user($user) {
-    if (!$user) { return 0; }
-    static $userSave; 
-    if (isset($userSave)) return $userSave;
-    if (!is_array($user)) {
-        $user = base64_decode($user);
-        $user = addslashes($user);
-        $user = explode(":", $user);
-    }
-    $uid = $user[0];
-    $pwd = $user[2];
-    $uid = intval($uid);
-    if (!empty($uid) AND !empty($pwd)) {
-        global $db, $user_prefix;
-        $sql = "SELECT user_password FROM ".$user_prefix."_users WHERE user_id='$uid'";
-        $result = $db->sql_query($sql);
-        list($row) = $db->sql_fetchrow($result);
-        $db->sql_freeresult($result);
-        if ($row == $pwd && !empty($row)) { 
-        	return $userSave = 1;
-        }
-    }
-    return $userSave = 0;
+  if (!$user) { return 0; }
+  static $userSave; 
+  if (isset($userSave)) return $userSave;
+  if (!is_array($user)) {
+    $user = base64_decode($user);
+    $user = addslashes($user);
+    $user = explode(":", $user);
+  }
+  $uid = $user[0];
+  $pwd = $user[2];
+  $uid = intval($uid);
+  if (!empty($uid) AND !empty($pwd)) {
+    global $db, $user_prefix;
+    $sql = "SELECT user_password FROM ".$user_prefix."_users WHERE user_id='$uid'";
+    $result = $db->sql_query($sql);
+    list($row) = $db->sql_fetchrow($result);
+    $db->sql_freeresult($result);
+    if ($row == $pwd && !empty($row)) { 
+     return $userSave = 1;
+   }
+ }
+ return $userSave = 0;
 }
 
 function is_group($user, $name) {
-          global $prefix, $db, $user_prefix, $cookie, $user;
-     if (is_user($user)) {
-          if(!is_array($user)) {
-          $cookie = cookiedecode($user);
-          $uid = intval($cookie[0]);
-          } else {
-          $uid = intval($user[0]);
-          }
-          $result = $db->sql_query("SELECT points FROM ".$user_prefix."_users WHERE user_id='$uid'");
-          $row = $db->sql_fetchrow($result);
-          $points = intval($row['points']);
-          $db->sql_freeresult($result);
-          $result2 = $db->sql_query("SELECT mod_group FROM ".$prefix."_modules WHERE title='$name'");
-          $row2 = $db->sql_fetchrow($result2);
-          $mod_group = intval($row2['mod_group']);
-          $db->sql_freeresult($result2);
-          $result3 = $db->sql_query("SELECT points FROM ".$prefix."_groups WHERE id='$mod_group'");
-          $row3 = $db->sql_fetchrow($result3);
-          $grp = intval($row3['points']);
-          $db->sql_freeresult($result3);
-          if (($points >= 0 AND $points >= $grp) OR $mod_group == 0) {
-        	return 1;
-          }
-     }
-     return 0;
+  global $prefix, $db, $user_prefix, $cookie, $user;
+  if (is_user($user)) {
+    if(!is_array($user)) {
+      $cookie = cookiedecode($user);
+      $uid = intval($cookie[0]);
+    } else {
+      $uid = intval($user[0]);
+    }
+    $result = $db->sql_query("SELECT points FROM ".$user_prefix."_users WHERE user_id='$uid'");
+    $row = $db->sql_fetchrow($result);
+    $points = intval($row['points']);
+    $db->sql_freeresult($result);
+    $result2 = $db->sql_query("SELECT mod_group FROM ".$prefix."_modules WHERE title='$name'");
+    $row2 = $db->sql_fetchrow($result2);
+    $mod_group = intval($row2['mod_group']);
+    $db->sql_freeresult($result2);
+    $result3 = $db->sql_query("SELECT points FROM ".$prefix."_groups WHERE id='$mod_group'");
+    $row3 = $db->sql_fetchrow($result3);
+    $grp = intval($row3['points']);
+    $db->sql_freeresult($result3);
+    if (($points >= 0 AND $points >= $grp) OR $mod_group == 0) {
+     return 1;
+   }
+ }
+ return 0;
 }
 
 $postString = "";
 foreach ($_POST as $postkey => $postvalue) {
-    if ($postString > "") {
-     $postString .= "&".$postkey."=".$postvalue;
-    } else {
-     $postString .= $postkey."=".$postvalue;
-    }
+  if ($postString > "") {
+   $postString .= "&".$postkey."=".$postvalue;
+ } else {
+   $postString .= $postkey."=".$postvalue;
+ }
 }
 str_replace("%09", "%20", $postString);
 $postString_64 = base64_decode($postString);
 if ((!isset($admin) OR (isset($admin) AND !is_admin($admin))) AND (stristr($postString,'%20union%20')) OR (stristr($postString,'*/union/*')) OR (stristr($postString,' union ')) OR (stristr($postString_64,'%20union%20')) OR (stristr($postString_64,'*/union/*')) OR (stristr($postString_64,' union ')) OR (stristr($postString_64,'+union+')) OR (stristr($postString,'http-equiv')) OR (stristr($postString_64,'http-equiv')) OR (stristr($postString,'alert(')) OR (stristr($postString_64,'alert(')) OR (stristr($postString,'javascript:')) OR (stristr($postString_64,'javascript:')) OR (stristr($postString,'document.cookie')) OR (stristr($postString_64,'document.cookie')) OR (stristr($postString,'onmouseover=')) OR (stristr($postString_64,'onmouseover=')) OR (stristr($postString,'document.location')) OR (stristr($postString_64,'document.location'))) {
-header("Location: index.php");
-die();
+  header("Location: index.php");
+  die();
 }
 
 // Additional security (Union, CLike, XSS)
 //Union Tap
 //Copyright Zhen-Xjell 2004 http://nukecops.com
 //Beta 3 Code to prevent UNION SQL Injections
-  unset($matches);
-  unset($loc);
-  if(isset($_SERVER['QUERY_STRING'])) {
-    if (preg_match("/([OdWo5NIbpuU4V2iJT0n]{5}) /", rawurldecode($loc=$_SERVER['QUERY_STRING']), $matches)) {
-      die('Illegal Operation');
-    }
+unset($matches);
+unset($loc);
+if(isset($_SERVER['QUERY_STRING'])) {
+  if (preg_match("/([OdWo5NIbpuU4V2iJT0n]{5}) /", rawurldecode($loc=$_SERVER['QUERY_STRING']), $matches)) {
+    die('Illegal Operation');
   }
-  if(!isset($admin) OR (isset($admin) AND !is_admin($admin))) {
-    $queryString = $_SERVER['QUERY_STRING'];
-	if (($_SERVER['PHP_SELF'] != "/index.php") OR !isset($url))
-	{
-	   if (stristr($queryString,'http://')) die('Illegal Operation');
-	}
-    if ((stristr($queryString,'%20union%20')) OR (stristr($queryString,'/*')) OR (stristr($queryString,'*/union/*')) OR (stristr($queryString,'c2nyaxb0')) OR (stristr($queryString,'+union+'))  OR ((stristr($queryString,'cmd=')) AND (!stristr($queryString,'&cmd'))) OR ((stristr($queryString,'exec')) AND (!stristr($queryString,'execu'))) OR (stristr($queryString,'concat'))) {
-      die('Illegal Operation');
-    }
+}
+if(!isset($admin) OR (isset($admin) AND !is_admin($admin))) {
+  $queryString = $_SERVER['QUERY_STRING'];
+  if (($_SERVER['PHP_SELF'] != "/index.php") OR !isset($url))
+  {
+    if (stristr($queryString,'http://')) die('Illegal Operation');
   }
+  if ((stristr($queryString,'%20union%20')) OR (stristr($queryString,'/*')) OR (stristr($queryString,'*/union/*')) OR (stristr($queryString,'c2nyaxb0')) OR (stristr($queryString,'+union+'))  OR ((stristr($queryString,'cmd=')) AND (!stristr($queryString,'&cmd'))) OR ((stristr($queryString,'exec')) AND (!stristr($queryString,'execu'))) OR (stristr($queryString,'concat'))) {
+    die('Illegal Operation');
+  }
+}
 
 function update_points($id) {
   global $user_prefix, $prefix, $db, $user;
@@ -457,9 +479,9 @@ function update_points($id) {
     } else {
       $username = trim($user[1]);
     }
-      $username = substr(htmlspecialchars(str_replace("\'", "'", trim($username))), 0, 25);
-      $username = rtrim($username, "\\");	
-      $username = str_replace("'", "\'", $username);
+    $username = substr(htmlspecialchars(str_replace("\'", "'", trim($username))), 0, 25);
+    $username = rtrim($username, "\\");	
+    $username = str_replace("'", "\'", $username);
     if ($db->sql_numrows($db->sql_query("SELECT * FROM ".$prefix."_groups")) > 0) {
       $id = intval($id);
       $result = $db->sql_query("SELECT points FROM ".$prefix."_groups_points WHERE id='$id'");
@@ -479,51 +501,51 @@ function title($text) {
 }
 
 function is_active($module) {
-    global $prefix, $db;
-    static $save;
-    if (is_array($save)) {
-        if (isset($save[$module])) return ($save[$module]);
-        return 0;
-    }
-    $sql = "SELECT title FROM ".$prefix."_modules WHERE active=1";
-    $result = $db->sql_query($sql);
-    while ($row = $db->sql_fetchrow($result)) {
-        $save[$row[0]] = 1;
-    }
-    $db->sql_freeresult($result);
+  global $prefix, $db;
+  static $save;
+  if (is_array($save)) {
     if (isset($save[$module])) return ($save[$module]);
     return 0;
+  }
+  $sql = "SELECT title FROM ".$prefix."_modules WHERE active=1";
+  $result = $db->sql_query($sql);
+  while ($row = $db->sql_fetchrow($result)) {
+    $save[$row[0]] = 1;
+  }
+  $db->sql_freeresult($result);
+  if (isset($save[$module])) return ($save[$module]);
+  return 0;
 }
 
 function render_blocks($side, $blockfile, $title, $content, $bid, $url) {
 	if(!defined('BLOCK_FILE')) {
-	  define('BLOCK_FILE', true);
-	}
-	if (empty($url)) {
-		if (empty($blockfile)) {
-			if ($side == "c") {
-				themecenterbox($title, $content);
-			} elseif ($side == "d") {
-				themecenterbox($title, $content);
-			} else {
-				themesidebox($title, $content);
-			}
-		} else {
-			if ($side == "c") {
-				blockfileinc($title, $blockfile, 1);
-			} elseif ($side == "d") {
-				blockfileinc($title, $blockfile, 1);
-			} else {
-				blockfileinc($title, $blockfile);
-			}
-		}
-	} else {
-		if ($side == "c" OR $side == "d") {
-			headlines($bid,1);
-		} else {
-			headlines($bid);
-		}
-	}
+   define('BLOCK_FILE', true);
+ }
+ if (empty($url)) {
+  if (empty($blockfile)) {
+   if ($side == "c") {
+    themecenterbox($title, $content);
+  } elseif ($side == "d") {
+    themecenterbox($title, $content);
+  } else {
+    themesidebox($title, $content);
+  }
+} else {
+ if ($side == "c") {
+  blockfileinc($title, $blockfile, 1);
+} elseif ($side == "d") {
+  blockfileinc($title, $blockfile, 1);
+} else {
+  blockfileinc($title, $blockfile);
+}
+}
+} else {
+  if ($side == "c" OR $side == "d") {
+   headlines($bid,1);
+ } else {
+   headlines($bid);
+ }
+}
 }
 
 function blocks($side) {
@@ -798,45 +820,45 @@ function ultramode() {
 }
 
 function cookiedecode($user) {
-    global $cookie, $db, $user_prefix;
-    static $pass;
-    if(!is_array($user)) {
-        $user = base64_decode($user);
-        $user = addslashes($user);
-        $cookie = explode(":", $user);
-    } else {
-        $cookie = $user;
-    }
-    if (!isset($pass) AND isset($cookie[1])) {
-       $sql = "SELECT user_password FROM ".$user_prefix."_users WHERE username='$cookie[1]'";
-       $result = $db->sql_query($sql);
-       list($pass) = $db->sql_fetchrow($result);
-       $db->sql_freeresult($result);
-    }
-    if (isset($cookie[2]) AND ($cookie[2] == $pass) AND (!empty($pass))) { return $cookie; }
+  global $cookie, $db, $user_prefix;
+  static $pass;
+  if(!is_array($user)) {
+    $user = base64_decode($user);
+    $user = addslashes($user);
+    $cookie = explode(":", $user);
+  } else {
+    $cookie = $user;
+  }
+  if (!isset($pass) AND isset($cookie[1])) {
+   $sql = "SELECT user_password FROM ".$user_prefix."_users WHERE username='$cookie[1]'";
+   $result = $db->sql_query($sql);
+   list($pass) = $db->sql_fetchrow($result);
+   $db->sql_freeresult($result);
+ }
+ if (isset($cookie[2]) AND ($cookie[2] == $pass) AND (!empty($pass))) { return $cookie; }
 }
 
 function getusrinfo($user) {
-    global $user_prefix, $db, $userinfo, $cookie;
-    if (!$user OR empty($user)) {
-      return NULL;
+  global $user_prefix, $db, $userinfo, $cookie;
+  if (!$user OR empty($user)) {
+    return NULL;
+  }
+  cookiedecode($user);
+  $user = $cookie;
+  if (isset($userrow) AND is_array($userrow)) {
+    if ($userrow['username'] == $user[1] && $userrow['user_password'] == $user[2]) {
+      return $userrow;
     }
-    cookiedecode($user);
-    $user = $cookie;
-    if (isset($userrow) AND is_array($userrow)) {
-        if ($userrow['username'] == $user[1] && $userrow['user_password'] == $user[2]) {
-            return $userrow;
-        }
-    }
-    $sql = "SELECT * FROM ".$user_prefix."_users WHERE username='$user[1]' AND user_password='$user[2]'";
-    $result = $db->sql_query($sql);
-    if ($db->sql_numrows($result) == 1) {
-        static $userrow;
-        $userrow = $db->sql_fetchrow($result);
-        return $userinfo = $userrow;
-    }
-    $db->sql_freeresult($result);
-    unset($userinfo);
+  }
+  $sql = "SELECT * FROM ".$user_prefix."_users WHERE username='$user[1]' AND user_password='$user[2]'";
+  $result = $db->sql_query($sql);
+  if ($db->sql_numrows($result) == 1) {
+    static $userrow;
+    $userrow = $db->sql_fetchrow($result);
+    return $userinfo = $userrow;
+  }
+  $db->sql_freeresult($result);
+  unset($userinfo);
 }
 
 function FixQuotes ($what = "") {
@@ -898,30 +920,30 @@ function delQuotes($string){
 		break;
 		case "=":           # an equal - attrib delimiter
 		if ($quote==0) {  # Is it found in a string ?
-		$attrib=1;
-		if ($tmp!="") $result.=" $tmp";
-		$tmp="";
-		} else $tmp .= '=';
-		break;
+      $attrib=1;
+      if ($tmp!="") $result.=" $tmp";
+      $tmp="";
+    } else $tmp .= '=';
+    break;
 		case " ":           # a blank ?
 		if ($attrib>0) {  # add it to the string, if one opened.
-		$tmp .= $string[$i];
-		}
-		break;
+      $tmp .= $string[$i];
+    }
+    break;
 		default:            # Other
 		if ($attrib<0)    # If we weren't in an attrib, set attrib to 0
 		$attrib=0;
 		$tmp .= $string[$i];
 		break;
-		}
-		$i++;
-	}
-	if (($quote!=0) && ($tmp != "")) {
-		if ($attrib==1) $result .= "=";
-		/* If it is the value of an atrib, add the '=' */
-		$result .= "\"$tmp\"";  /* Add quote if needed (the reason of the function ;-) */
-	}
-	return $result;
+  }
+  $i++;
+}
+if (($quote!=0) && ($tmp != "")) {
+  if ($attrib==1) $result .= "=";
+  /* If it is the value of an atrib, add the '=' */
+  $result .= "\"$tmp\"";  /* Add quote if needed (the reason of the function ;-) */
+}
+return $result;
 }
 
 function check_html ($str, $strip="") {
@@ -929,31 +951,31 @@ function check_html ($str, $strip="") {
 	/* which is licenced under the GPL. */
 	include("config.php");
 	if ($strip == "nohtml")
-	$AllowableHTML=array('');
-	$str = stripslashes($str);
-	$str = eregi_replace("<[[:space:]]*([^>]*)[[:space:]]*>",'<\\1>', $str);
+   $AllowableHTML=array('');
+ $str = stripslashes($str);
+ $str = eregi_replace("<[[:space:]]*([^>]*)[[:space:]]*>",'<\\1>', $str);
 	// Delete all spaces from html tags .
-	$str = eregi_replace("<a[^>]*href[[:space:]]*=[[:space:]]*\"?[[:space:]]*([^\" >]*)[[:space:]]*\"?[^>]*>",'<a href="\\1">', $str);
+ $str = eregi_replace("<a[^>]*href[[:space:]]*=[[:space:]]*\"?[[:space:]]*([^\" >]*)[[:space:]]*\"?[^>]*>",'<a href="\\1">', $str);
 	// Delete all attribs from Anchor, except an href, double quoted.
-	$str = eregi_replace("<[[:space:]]* img[[:space:]]*([^>]*)[[:space:]]*>", '', $str);
+ $str = eregi_replace("<[[:space:]]* img[[:space:]]*([^>]*)[[:space:]]*>", '', $str);
 	// Delete all img tags
-	$str = eregi_replace("<a[^>]*href[[:space:]]*=[[:space:]]*\"?javascript[[:punct:]]*\"?[^>]*>", '', $str);
+ $str = eregi_replace("<a[^>]*href[[:space:]]*=[[:space:]]*\"?javascript[[:punct:]]*\"?[^>]*>", '', $str);
 	// Delete javascript code from a href tags -- Zhen-Xjell @ http://nukecops.com
-	$tmp = "";
-	while (ereg("<(/?[[:alpha:]]*)[[:space:]]*([^>]*)>",$str,$reg)) {
-		$i = strpos($str,$reg[0]);
-		$l = strlen($reg[0]);
-		if ($reg[1][0] == "/") $tag = strtolower(substr($reg[1],1));
-		else $tag = strtolower($reg[1]);
-		if ($a = $AllowableHTML[$tag])
-		if ($reg[1][0] == "/") $tag = "</$tag>";
-		elseif (($a == 1) || ($reg[2] == "")) $tag = "<$tag>";
-		else {
+ $tmp = "";
+ while (ereg("<(\?[[:alpha:]]*)[[:space:]]*([^>]*)>",$str,$reg)) {
+  $i = strpos($str,$reg[0]);
+  $l = strlen($reg[0]);
+  if ($reg[1][0] == "/") $tag = strtolower(substr($reg[1],1));
+  else $tag = strtolower($reg[1]);
+  if ($a = $AllowableHTML[$tag])
+    if ($reg[1][0] == "/") $tag = "</$tag>";
+  elseif (($a == 1) || ($reg[2] == "")) $tag = "<$tag>";
+  else {
 			# Place here the double quote fix function.
-			$attrb_list=delQuotes($reg[2]);
+   $attrb_list=delQuotes($reg[2]);
 			// A VER
 			//$attrb_list = ereg_replace("&","&amp;",$attrb_list);
-			$tag = "<$tag" . $attrb_list . ">";
+   $tag = "<$tag" . $attrb_list . ">";
 		} # Attribs in tag allowed
 		else $tag = "";
 		$tmp .= substr($str,0,$i) . $tag;
@@ -1000,40 +1022,40 @@ function filter($what, $strip="", $save="", $type="") {
 /*********************************************************/
 
 function formatTimestamp($time) {
-    global $datetime, $locale;
-    setlocale(LC_TIME, $locale);
-    if (!is_numeric($time)) {
-        preg_match('/([0-9]{4})-([0-9]{1,2})-([0-9]{1,2}) ([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})/', $time, $datetime);
-        $time = gmmktime($datetime[4],$datetime[5],$datetime[6],$datetime[2],$datetime[3],$datetime[1]);
-    }
-    $time -= date("Z");
-    $datetime = strftime(_DATESTRING, $time);
-    $datetime = ucfirst($datetime);
-    return $datetime;
+  global $datetime, $locale;
+  setlocale(LC_TIME, $locale);
+  if (!is_numeric($time)) {
+    preg_match('/([0-9]{4})-([0-9]{1,2})-([0-9]{1,2}) ([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})/', $time, $datetime);
+    $time = gmmktime($datetime[4],$datetime[5],$datetime[6],$datetime[2],$datetime[3],$datetime[1]);
+  }
+  $time -= date("Z");
+  $datetime = strftime(_DATESTRING, $time);
+  $datetime = ucfirst($datetime);
+  return $datetime;
 }
 
 function get_author($aid) {
 	global $prefix, $db;
-    static $users;
-    if (isset($users[$aid]) AND is_array($users[$aid])) {
-        $row = $users[$aid];
-    } else {
-        $sql = "SELECT url, email FROM ".$prefix."_authors WHERE aid='$aid'";
-        $result = $db->sql_query($sql);
-        $row = $db->sql_fetchrow($result);
-        $users[$aid] = $row;
-        $db->sql_freeresult($result);
-    }
-	$aidurl = filter($row['url'], "nohtml");
-	$aidmail = filter($row['email'], "nohtml");
-    if (isset($aidurl) && $aidurl != "http://") {
-        $aid = "<a href=\"".$aidurl."\">$aid</a>";
-    } elseif (isset($aidmail)) {
-        $aid = "<a href=\"mailto:".$aidmail."\">$aid</a>";
-    } else {
-        $aid = $aid;
-    }
-    return $aid;
+  static $users;
+  if (isset($users[$aid]) AND is_array($users[$aid])) {
+    $row = $users[$aid];
+  } else {
+    $sql = "SELECT url, email FROM ".$prefix."_authors WHERE aid='$aid'";
+    $result = $db->sql_query($sql);
+    $row = $db->sql_fetchrow($result);
+    $users[$aid] = $row;
+    $db->sql_freeresult($result);
+  }
+  $aidurl = filter($row['url'], "nohtml");
+  $aidmail = filter($row['email'], "nohtml");
+  if (isset($aidurl) && $aidurl != "http://") {
+    $aid = "<a href=\"".$aidurl."\">$aid</a>";
+  } elseif (isset($aidmail)) {
+    $aid = "<a href=\"mailto:".$aidmail."\">$aid</a>";
+  } else {
+    $aid = $aid;
+  }
+  return $aid;
 }
 
 function formatAidHeader($aid) {
@@ -1055,40 +1077,40 @@ if(!function_exists("themepreview")) {
 		if (!empty($notes)) {
 			echo "<br><br><b>"._NOTE."</b> <i>$notes</i>";
 		}
-    }
+  }
 }
 
 function adminblock() {
 	global $admin, $prefix, $db, $admin_file;
 	if (is_admin($admin)) {
-	    $sql = "SELECT title, content FROM ".$prefix."_blocks WHERE bkey='admin'";
-		$result = $db->sql_query($sql);
-		while (list($title, $content) = $db->sql_fetchrow($result)) {
-			$content = filter($content);
-			$title = filter($title, "nohtml");
-			$content = "<span class=\"content\">".$content."</span>";
-			themesidebox($title, $content);
-		}
-		$title = _WAITINGCONT;
-		$num = $db->sql_numrows($db->sql_query("SELECT * FROM ".$prefix."_queue"));
-		$content = "<span class=\"content\">";
-		$content .= "<strong><big>&middot;</big></strong>&nbsp;<a href=\"".$admin_file.".php?op=submissions\">"._SUBMISSIONS."</a>: $num<br>";
-		$num = $db->sql_numrows($db->sql_query("SELECT * FROM ".$prefix."_reviews_add"));
-		$content .= "<strong><big>&middot;</big></strong>&nbsp;<a href=\"".$admin_file.".php?op=reviews\">"._WREVIEWS."</a>: $num<br>";
-		$num = $db->sql_numrows($db->sql_query("SELECT * FROM ".$prefix."_links_newlink"));
-		$brokenl = $db->sql_numrows($db->sql_query("SELECT * FROM ".$prefix."_links_modrequest WHERE brokenlink='1'"));
-		$modreql = $db->sql_numrows($db->sql_query("SELECT * FROM ".$prefix."_links_modrequest WHERE brokenlink='0'"));
-		$content .= "<strong><big>&middot;</big></strong>&nbsp;<a href=\"".$admin_file.".php?op=Links\">"._WLINKS."</a>: $num<br>";
-		$content .= "<strong><big>&middot;</big></strong>&nbsp;<a href=\"".$admin_file.".php?op=LinksListModRequests\">"._MODREQLINKS."</a>: $modreql<br>";
-		$content .= "<strong><big>&middot;</big></strong>&nbsp;<a href=\"".$admin_file.".php?op=LinksListBrokenLinks\">"._BROKENLINKS."</a>: $brokenl<br>";
-		$num = $db->sql_numrows($db->sql_query("SELECT * FROM ".$prefix."_downloads_newdownload"));
-		$brokend = $db->sql_numrows($db->sql_query("SELECT * FROM ".$prefix."_downloads_modrequest WHERE brokendownload='1'"));
-		$modreqd = $db->sql_numrows($db->sql_query("SELECT * FROM ".$prefix."_downloads_modrequest WHERE brokendownload='0'"));
-		$content .= "<strong><big>&middot;</big></strong>&nbsp;<a href=\"".$admin_file.".php?op=downloads\">"._UDOWNLOADS."</a>: $num<br>";
-		$content .= "<strong><big>&middot;</big></strong>&nbsp;<a href=\"".$admin_file.".php?op=DownloadsListModRequests\">"._MODREQDOWN."</a>: $modreqd<br>";
-		$content .= "<strong><big>&middot;</big></strong>&nbsp;<a href=\"".$admin_file.".php?op=DownloadsListBrokenDownloads\">"._BROKENDOWN."</a>: $brokend<br></span>";
-		themesidebox($title, $content);
-	}
+   $sql = "SELECT title, content FROM ".$prefix."_blocks WHERE bkey='admin'";
+   $result = $db->sql_query($sql);
+   while (list($title, $content) = $db->sql_fetchrow($result)) {
+     $content = filter($content);
+     $title = filter($title, "nohtml");
+     $content = "<span class=\"content\">".$content."</span>";
+     themesidebox($title, $content);
+   }
+   $title = _WAITINGCONT;
+   $num = $db->sql_numrows($db->sql_query("SELECT * FROM ".$prefix."_queue"));
+   $content = "<span class=\"content\">";
+   $content .= "<strong><big>&middot;</big></strong>&nbsp;<a href=\"".$admin_file.".php?op=submissions\">"._SUBMISSIONS."</a>: $num<br>";
+   $num = $db->sql_numrows($db->sql_query("SELECT * FROM ".$prefix."_reviews_add"));
+   $content .= "<strong><big>&middot;</big></strong>&nbsp;<a href=\"".$admin_file.".php?op=reviews\">"._WREVIEWS."</a>: $num<br>";
+   $num = $db->sql_numrows($db->sql_query("SELECT * FROM ".$prefix."_links_newlink"));
+   $brokenl = $db->sql_numrows($db->sql_query("SELECT * FROM ".$prefix."_links_modrequest WHERE brokenlink='1'"));
+   $modreql = $db->sql_numrows($db->sql_query("SELECT * FROM ".$prefix."_links_modrequest WHERE brokenlink='0'"));
+   $content .= "<strong><big>&middot;</big></strong>&nbsp;<a href=\"".$admin_file.".php?op=Links\">"._WLINKS."</a>: $num<br>";
+   $content .= "<strong><big>&middot;</big></strong>&nbsp;<a href=\"".$admin_file.".php?op=LinksListModRequests\">"._MODREQLINKS."</a>: $modreql<br>";
+   $content .= "<strong><big>&middot;</big></strong>&nbsp;<a href=\"".$admin_file.".php?op=LinksListBrokenLinks\">"._BROKENLINKS."</a>: $brokenl<br>";
+   $num = $db->sql_numrows($db->sql_query("SELECT * FROM ".$prefix."_downloads_newdownload"));
+   $brokend = $db->sql_numrows($db->sql_query("SELECT * FROM ".$prefix."_downloads_modrequest WHERE brokendownload='1'"));
+   $modreqd = $db->sql_numrows($db->sql_query("SELECT * FROM ".$prefix."_downloads_modrequest WHERE brokendownload='0'"));
+   $content .= "<strong><big>&middot;</big></strong>&nbsp;<a href=\"".$admin_file.".php?op=downloads\">"._UDOWNLOADS."</a>: $num<br>";
+   $content .= "<strong><big>&middot;</big></strong>&nbsp;<a href=\"".$admin_file.".php?op=DownloadsListModRequests\">"._MODREQDOWN."</a>: $modreqd<br>";
+   $content .= "<strong><big>&middot;</big></strong>&nbsp;<a href=\"".$admin_file.".php?op=DownloadsListBrokenDownloads\">"._BROKENDOWN."</a>: $brokend<br></span>";
+   themesidebox($title, $content);
+ }
 }
 
 function loginbox() {
@@ -1177,58 +1199,58 @@ function headlines($bid, $cenbox=0) {
 		}
 		if ($fp) {
 			if (!empty($rdf['query']))
-			$rdf['query'] = "?" . $rdf['query'];
+       $rdf['query'] = "?" . $rdf['query'];
 
-			fputs($fp, "GET " . $rdf['path'] . $rdf['query'] . " HTTP/1.0\r\n");
-			fputs($fp, "HOST: " . $rdf['host'] . "\r\n\r\n");
-			$string	= "";
-			while(!feof($fp)) {
-				$pagetext = fgets($fp,300);
-				$string .= chop($pagetext);
-			}
-			fputs($fp,"Connection: close\r\n\r\n");
-			fclose($fp);
-			$items = explode("</item>",$string);
-			$content = "<font class=\"content\">";
-			for ($i=0;$i<10;$i++) {
-				$link = ereg_replace(".*<link>","",$items[$i]);
-				$link = ereg_replace("</link>.*","",$link);
-				$title2 = ereg_replace(".*<title>","",$items[$i]);
-				$title2 = ereg_replace("</title>.*","",$title2);
-				$title2 = stripslashes($title2);
-				if (empty($items[$i]) AND $cont != 1) {
-					$content = "";
-					$db->sql_query("UPDATE ".$prefix."_blocks SET content='$content', time='$btime' WHERE bid='$bid'");
-					$cont = 0;
-					if ($cenbox == 0) {
-						themesidebox($title, $content);
-					} else {
-						themecenterbox($title, $content);
-					}
-					return;
-				} else {
-					if (strcmp($link,$title2) AND !empty($items[$i])) {
-						$cont = 1;
-						$content .= "<strong><big>&middot;</big></strong><a href=\"$link\" target=\"new\">$title2</a><br>\n";
-					}
-				}
-			}
+     fputs($fp, "GET " . $rdf['path'] . $rdf['query'] . " HTTP/1.0\r\n");
+     fputs($fp, "HOST: " . $rdf['host'] . "\r\n\r\n");
+     $string	= "";
+     while(!feof($fp)) {
+      $pagetext = fgets($fp,300);
+      $string .= chop($pagetext);
+    }
+    fputs($fp,"Connection: close\r\n\r\n");
+    fclose($fp);
+    $items = explode("</item>",$string);
+    $content = "<font class=\"content\">";
+    for ($i=0;$i<10;$i++) {
+      $link = ereg_replace(".*<link>","",$items[$i]);
+      $link = ereg_replace("</link>.*","",$link);
+      $title2 = ereg_replace(".*<title>","",$items[$i]);
+      $title2 = ereg_replace("</title>.*","",$title2);
+      $title2 = stripslashes($title2);
+      if (empty($items[$i]) AND $cont != 1) {
+       $content = "";
+       $db->sql_query("UPDATE ".$prefix."_blocks SET content='$content', time='$btime' WHERE bid='$bid'");
+       $cont = 0;
+       if ($cenbox == 0) {
+        themesidebox($title, $content);
+      } else {
+        themecenterbox($title, $content);
+      }
+      return;
+    } else {
+     if (strcmp($link,$title2) AND !empty($items[$i])) {
+      $cont = 1;
+      $content .= "<strong><big>&middot;</big></strong><a href=\"$link\" target=\"new\">$title2</a><br>\n";
+    }
+  }
+}
 
-		}
-		$db->sql_query("UPDATE ".$prefix."_blocks SET content='$content', time='$btime' WHERE bid='$bid'");
-	}
-	$siteurl = str_replace("http://","",$url);
-	$siteurl = explode("/",$siteurl);
-	if (($cont == 1) OR (!empty($content))) {
-		$content .= "<br><a href=\"http://$siteurl[0]\" target=\"blank\"><b>"._HREADMORE."</b></a></font>";
-	} elseif (($cont == 0) OR (empty($content))) {
-		$content = "<font class=\"content\">"._RSSPROBLEM."</font>";
-	}
-	if ($cenbox == 0) {
-		themesidebox($title, $content);
-	} else {
-		themecenterbox($title, $content);
-	}
+}
+$db->sql_query("UPDATE ".$prefix."_blocks SET content='$content', time='$btime' WHERE bid='$bid'");
+}
+$siteurl = str_replace("http://","",$url);
+$siteurl = explode("/",$siteurl);
+if (($cont == 1) OR (!empty($content))) {
+  $content .= "<br><a href=\"http://$siteurl[0]\" target=\"blank\"><b>"._HREADMORE."</b></a></font>";
+} elseif (($cont == 0) OR (empty($content))) {
+  $content = "<font class=\"content\">"._RSSPROBLEM."</font>";
+}
+if ($cenbox == 0) {
+  themesidebox($title, $content);
+} else {
+  themecenterbox($title, $content);
+}
 }
 
 function automated_news() {
@@ -1293,12 +1315,12 @@ function automated_news() {
 }
 
 if(!function_exists("themecenterbox")) {
-function themecenterbox($title, $content) {
-	OpenTable();
-	echo "<center><font class=\"option\"><b>$title</b></font></center><br>".$content;
-	CloseTable();
-	echo "<br>";
-  }
+  function themecenterbox($title, $content) {
+   OpenTable();
+   echo "<center><font class=\"option\"><b>$title</b></font></center><br>".$content;
+   CloseTable();
+   echo "<br>";
+ }
 }
 
 function public_message() {
@@ -1365,22 +1387,22 @@ function public_message() {
 }
 
 function get_theme() {
-    global $user, $userinfo, $Default_Theme, $name, $op;
-    if (isset($ThemeSelSave)) return $ThemeSelSave;
-    if (is_user($user) && ($name != "Your_Account" OR $op != "logout")) {
-        getusrinfo($user);
-        if(empty($userinfo['theme'])) $userinfo['theme']=$Default_Theme;
-        if(file_exists("themes/".$userinfo['theme']."/theme.php")) {
-            $ThemeSel = $userinfo['theme'];
-        } else {
-            $ThemeSel = $Default_Theme;
-        }
+  global $user, $userinfo, $Default_Theme, $name, $op;
+  if (isset($ThemeSelSave)) return $ThemeSelSave;
+  if (is_user($user) && ($name != "Your_Account" OR $op != "logout")) {
+    getusrinfo($user);
+    if(empty($userinfo['theme'])) $userinfo['theme']=$Default_Theme;
+    if(file_exists("themes/".$userinfo['theme']."/theme.php")) {
+      $ThemeSel = $userinfo['theme'];
     } else {
-        $ThemeSel = $Default_Theme;
+      $ThemeSel = $Default_Theme;
     }
-    static $ThemeSelSave;
-    $ThemeSelSave = $ThemeSel;
-    return $ThemeSelSave;
+  } else {
+    $ThemeSel = $Default_Theme;
+  }
+  static $ThemeSelSave;
+  $ThemeSelSave = $ThemeSel;
+  return $ThemeSelSave;
 }
 
 function removecrlf($str) {
@@ -1392,13 +1414,13 @@ function removecrlf($str) {
 
 function validate_mail($email) {
   if(strlen($email) < 7 || !eregi("^[_\.0-9a-z-]+@([0-9a-z][0-9a-z-]+\.)+[a-z]{2,6}$",$email)) {
-     OpenTable();
-     echo _ERRORINVEMAIL;
-     CloseTable();
-     die();
-     } else {
-     return $email;
-     }
+   OpenTable();
+   echo _ERRORINVEMAIL;
+   CloseTable();
+   die();
+ } else {
+   return $email;
+ }
 }
 
 function paid() {
@@ -1500,24 +1522,24 @@ function ads($position) {
 			$ads = "<center>$ad_code</center>";
 		} elseif ($ad_class == "flash") {
 			$ads = "<center>
-				<OBJECT classid=\"clsid:D27CDB6E-AE6D-11cf-96B8-444553540000\"
-				codebase=\"http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0\"
-				WIDTH=\"$ad_width\" HEIGHT=\"$ad_height\" id=\"$bid\">
-				<PARAM NAME=movie VALUE=\"$imageurl\">
-				<PARAM NAME=quality VALUE=high>
-				<EMBED src=\"$imageurl\" quality=high WIDTH=\"$ad_width\" HEIGHT=\"$ad_height\"
-				NAME=\"$bid\" ALIGN=\"\" TYPE=\"application/x-shockwave-flash\"
-				PLUGINSPAGE=\"http://www.macromedia.com/go/getflashplayer\">
-				</EMBED>
-				</OBJECT>
-				</center>";
-		} else {
-			$ads = "<center><a href=\"index.php?op=ad_click&amp;bid=$bid\" target=\"_blank\"><img src=\"$imageurl\" border=\"0\" alt=\"$alttext\" title=\"$alttext\"></a></center>";
-		}
-	} else {
-		$ads = "";	
-	}
-	return $ads;
+      <OBJECT classid=\"clsid:D27CDB6E-AE6D-11cf-96B8-444553540000\"
+      codebase=\"http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0\"
+      WIDTH=\"$ad_width\" HEIGHT=\"$ad_height\" id=\"$bid\">
+      <PARAM NAME=movie VALUE=\"$imageurl\">
+        <PARAM NAME=quality VALUE=high>
+          <EMBED src=\"$imageurl\" quality=high WIDTH=\"$ad_width\" HEIGHT=\"$ad_height\"
+          NAME=\"$bid\" ALIGN=\"\" TYPE=\"application/x-shockwave-flash\"
+          PLUGINSPAGE=\"http://www.macromedia.com/go/getflashplayer\">
+        </EMBED>
+      </OBJECT>
+    </center>";
+  } else {
+   $ads = "<center><a href=\"index.php?op=ad_click&amp;bid=$bid\" target=\"_blank\"><img src=\"$imageurl\" border=\"0\" alt=\"$alttext\" title=\"$alttext\"></a></center>";
+ }
+} else {
+  $ads = "";	
+}
+return $ads;
 }
 
 function redir($content) {
@@ -1571,54 +1593,54 @@ function info_box($graphic, $message) {
 		$graphic = filter($graphic, "nohtml");
 		$message = filter($message, "");
 		echo "<table align=\"center\" border=\"0\" width=\"80%\" cellpadding=\"10\"><tr>"
-			."<td valign=\"top\"><img src=\"images/system/".$graphic.".gif\" border=\"0\" alt=\"\" title=\"\" width=\"34\" height=\"34\"></td>"
-			."<td valign=\"top\">$message</td>"
-			."</tr></table>";
-		CloseTable();
-	} else {
-		return;
-	}
+   ."<td valign=\"top\"><img src=\"images/system/".$graphic.".gif\" border=\"0\" alt=\"\" title=\"\" width=\"34\" height=\"34\"></td>"
+   ."<td valign=\"top\">$message</td>"
+   ."</tr></table>";
+   CloseTable();
+ } else {
+  return;
+}
 }
 
 if (isset($gfx)){
-switch($gfx) {
+  switch($gfx) {
 
-	case "gfx":
-	$datekey = date("F j");
-	$rcode = hexdec(md5($_SERVER['HTTP_USER_AGENT'] . $sitekey . $random_num . $datekey));
-	$code = substr($rcode, 2, 6);
-	$ThemeSel = get_theme();
-	if (file_exists("themes/".$ThemeSel."/images/code_bg.jpg")) {
-		$image = ImageCreateFromJPEG("themes/".$ThemeSel."/images/code_bg.jpg");
-	} else {
-		$image = ImageCreateFromJPEG("images/code_bg.jpg");
-	}
-	$text_color = ImageColorAllocate($image, 80, 80, 80);
-	Header("Content-type: image/jpeg");
-	ImageString ($image, 5, 12, 2, $code, $text_color);
-	ImageJPEG($image, '', 75);
-	ImageDestroy($image);
-	die();
-	break;
+   case "gfx":
+   $datekey = date("F j");
+   $rcode = hexdec(md5($_SERVER['HTTP_USER_AGENT'] . $sitekey . $random_num . $datekey));
+   $code = substr($rcode, 2, 6);
+   $ThemeSel = get_theme();
+   if (file_exists("themes/".$ThemeSel."/images/code_bg.jpg")) {
+    $image = ImageCreateFromJPEG("themes/".$ThemeSel."/images/code_bg.jpg");
+  } else {
+    $image = ImageCreateFromJPEG("images/code_bg.jpg");
+  }
+  $text_color = ImageColorAllocate($image, 80, 80, 80);
+  Header("Content-type: image/jpeg");
+  ImageString ($image, 5, 12, 2, $code, $text_color);
+  ImageJPEG($image, '', 75);
+  ImageDestroy($image);
+  die();
+  break;
 
-	case "gfx_little":
-	$datekey = date("F j");
-	$rcode = hexdec(md5($_SERVER['HTTP_USER_AGENT'] . $sitekey . $random_num . $datekey));
-	$code = substr($rcode, 2, 3);
-	$ThemeSel = get_theme();
-	if (file_exists("themes/".$ThemeSel."/images/code_bg_little.jpg")) {
-		$image = ImageCreateFromJPEG("themes/".$ThemeSel."/images/code_bg_little.jpg");
-	} else {
-		$image = ImageCreateFromJPEG("images/code_bg_little.jpg");
-	}
-	$text_color = ImageColorAllocate($image, 80, 80, 80);
-	Header("Content-type: image/jpeg");
-	ImageString ($image, 5, 12, 2, $code, $text_color);
-	ImageJPEG($image, '', 75);
-	ImageDestroy($image);
-	die();
-	break;
-   }
+  case "gfx_little":
+  $datekey = date("F j");
+  $rcode = hexdec(md5($_SERVER['HTTP_USER_AGENT'] . $sitekey . $random_num . $datekey));
+  $code = substr($rcode, 2, 3);
+  $ThemeSel = get_theme();
+  if (file_exists("themes/".$ThemeSel."/images/code_bg_little.jpg")) {
+    $image = ImageCreateFromJPEG("themes/".$ThemeSel."/images/code_bg_little.jpg");
+  } else {
+    $image = ImageCreateFromJPEG("images/code_bg_little.jpg");
+  }
+  $text_color = ImageColorAllocate($image, 80, 80, 80);
+  Header("Content-type: image/jpeg");
+  ImageString ($image, 5, 12, 2, $code, $text_color);
+  ImageJPEG($image, '', 75);
+  ImageDestroy($image);
+  die();
+  break;
+}
 }
 
 ?>
