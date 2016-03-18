@@ -37,7 +37,6 @@
  *   (at your option) any later version.
  *
  ***************************************************************************/
-
 if (stristr($_SERVER['PHP_SELF'], "db.php")) {
     Header("Location: index.php");
     die();
@@ -91,8 +90,8 @@ switch($dbtype) {
 
 }
 
-$db = new sql_db($dbhost, $dbuname, $dbpass, $dbname, false);
-if(!$db->db_connect_id) {
+$db = new sql_db($dbhost, $dbuname, $dbpass, $dbname);
+if(!$db->db) {
     die("<br><br><center><img src=images/logo.gif><br><br><b>There seems to be a problem with the $dbtype server, sorry for the inconvenience.<br><br>We should be back shortly.</center></b>");
 }
 
