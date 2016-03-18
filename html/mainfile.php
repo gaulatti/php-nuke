@@ -371,7 +371,7 @@ function is_admin($admin) {
     global $prefix, $db;
     $sql = "SELECT pwd FROM ".$prefix."_authors WHERE aid='$aid'";
     $result = $db->sql_query($sql);
-    $pass = $db->sql_fetchrow($result);
+    $pass = $result->fetch_row();
     $db->sql_freeresult($result);
     if ($pass[0] == $pwd && !empty($pass[0])) {
      return $adminSave = 1;
@@ -396,7 +396,7 @@ function is_user($user) {
     global $db, $user_prefix;
     $sql = "SELECT user_password FROM ".$user_prefix."_users WHERE user_id='$uid'";
     $result = $db->sql_query($sql);
-    list($row) = $db->sql_fetchrow($result);
+    list($row) = $result->fetch_row();
     $db->sql_freeresult($result);
     if ($row == $pwd && !empty($row)) { 
      return $userSave = 1;
