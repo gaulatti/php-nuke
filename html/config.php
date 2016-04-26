@@ -1,4 +1,7 @@
 <?php
+require_once('../vendor/autoload.php');
+$dotenv = new Dotenv\Dotenv(__DIR__);
+$dotenv->load();
 
 ######################################################################
 # PHP-NUKE: Advanced Content Management System
@@ -42,16 +45,16 @@ if (stristr(htmlentities($_SERVER['PHP_SELF']), "config.php")) {
 #              new filename (without the extension .php)
 ######################################################################
 
-$dbhost = "localhost";
-$dbuname = "nuke";
-$dbpass = "nuke";
-$dbname = "nuke";
-$prefix = "nuke";
-$user_prefix = "nuke";
-$dbtype = "MySQL";
-$sitekey = "QjfqO0dPVqI9xo0CMza4J8KPl8BkFY3Dau17CE6L";
-$subscription_url = "";
-$admin_file = "admin";
+$dbhost = $_ENV['DB_HOST'];
+$dbuname = $_ENV['DB_USER'];
+$dbpass = $_ENV['DB_PASS'];
+$dbname = $_ENV['DB_NAME'];
+$prefix = $_ENV['DB_PREFIX'];
+$user_prefix = $_ENV['USER_PREFIX'];
+$dbtype = $_ENV['DB_TYPE'];
+$sitekey = $_ENV['SITE_KEY'];
+$subscription_url = $_ENV['SUBSCRIPTION_URL'];
+$admin_file = $_ENV['ADMIN_FILE'];
 
 /**********************************************************************/
 /* You finished to configure the Database. Now you can change all     */
@@ -87,6 +90,6 @@ $tipath = "images/topics/";
 // (http://phpnuke.org/modules.php?name=Commercial_License)
 //***************************************************************
 
-$commercial_license = 0;
+$commercial_license = 1;
 
 ?>
