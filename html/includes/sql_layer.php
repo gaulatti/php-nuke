@@ -7,7 +7,7 @@
 /* Copyright (c) 2002 by Francisco Burzi                                */
 /* http://phpnuke.org                                                   */
 /*                                                                      */
-/* postgres fix by Rubén Campos - Oscar Silla                         */
+/* postgres fix by Rubï¿½n Campos - Oscar Silla                         */
 /*                                                                      */
 /* This program is free software. You can redistribute it and/or modify */
 /* it under the terms of the GNU General Public License as published by */
@@ -172,55 +172,58 @@ function sql_logout($id)
  * executes an SQL statement, returns a result identifier
  */
 
-function sql_query($query, $id)
-{
-
-    global $dbtype, $sql_debug;
-    $sql_debug = 0;
+ function sql_query($query, $id)
+ {
+     global $dbtype, $sql_debug;
+     $sql_debug = 0;
     if($sql_debug) echo "SQL query: ".str_replace(",",", ",$query)."<BR>";
-    switch ($dbtype) {
+     switch ($dbtype) {
 
-        case "MySQL":
-        $res=@mysqli_query($query, $id);
-        return $res;
-        break;;
+         case "MySQL":
+             if ($id instanceof mysqli) {
+                 $res = @mysqli_query($id, $query);
+                 return $res;
+             } else {
+                 throw new TypeError("Argument #1 (\$id) must be of type mysqli, " . gettype($id) . " given.");
+             }
+             break;
 
-        case "mSQL":
+         case "mSQL":
         $res=@msql_query($query, $id);
-        return $res;
-        break;;
+             return $res;
+             break;
 
-        case "postgres":
-        case "postgres_local":
+         case "postgres":
+         case "postgres_local":
         $res=pg_exec($id,$query);
-        $result_set = new ResultSet;
+             $result_set = new ResultSet;
         $result_set->set_result( $res );
         $result_set->set_total_rows( sql_num_rows( $result_set ) );
         $result_set->set_fetched_rows( 0 );
-        return $result_set;
+             return $result_set;
         break;;
 
-        case "ODBC":
-        case "ODBC_Adabas":
+         case "ODBC":
+         case "ODBC_Adabas":
         $res=@odbc_exec($id,$query);
-        return $res;
+             return $res;
         break;;
 
-        case "Interbase":
+         case "Interbase":
         $res=@ibase_query($id,$query);
-        return $res;
+             return $res;
         break;;
 
-        case "Sybase":
+         case "Sybase":
         $res=@sybase_query($query, $id);
-        return $res;
+             return $res;
         break;;
 
-        default:
+         default:
         break;;
 
-    }
-}
+     }
+ }
 
 /*
  * sql_num_rows($res)

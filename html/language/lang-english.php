@@ -55,7 +55,6 @@ define("_CURRENTLY","There are currently,");
 define("_GUESTS","guest(s) and");
 define("_MEMBERS","member(s) that are online.");
 define("_YOUARELOGGED","You are logged as");
-define("_YOUHAVE","You have");
 define("_PRIVATEMSG","private message(s).");
 define("_YOUAREANON","You are Anonymous user. You can register for free by clicking <a href=\"modules.php?name=Your_Account&amp;op=new_user\">here</a>");
 define("_NOTE","Note:");

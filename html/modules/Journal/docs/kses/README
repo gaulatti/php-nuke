@@ -85,10 +85,8 @@ $allowed = array('b' => array(),
                  'br' => array());
 
 $val = $_POST['val'];
-if (get_magic_quotes_gpc())
-  $val = stripslashes($val);
-# You must strip slashes from magic quotes, or kses will get confused.
 
+# You must strip slashes from magic quotes, or kses will get confused.
 $val = kses($val, $allowed); # The filtering takes place here.
 
 # Do something with $val.

@@ -71,11 +71,7 @@ if($DBhostname && $DBuserName && $DBname) {
 }
 
 if ($sitename) {
-	if (!get_magic_quotes_gpc()) {
 		$configArray['sitename'] = addslashes($sitename);
-	} else {
-		$configArray['sitename'] = $sitename;
-	}
 } else {
 	echo "<form name=\"stepBack\" method=\"post\" action=\"install3.php\">
 		<input type=\"hidden\" name=\"DBhostname\" value=\"$DBhostname\" />

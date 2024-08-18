@@ -553,9 +553,7 @@ function atExportVar($var)
         }
         return $result;
     }
-    if (get_magic_quotes_gpc()) {
-        $var = stripslashes($var);
-    }
+
     return $var;
 }
 

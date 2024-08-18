@@ -26,10 +26,7 @@ $sitename  	= mosGetParam( $_POST, 'sitename', '' );
 $adminEmail = mosGetParam( $_POST, 'adminEmail', '');
 $configArray['siteUrl'] = trim( mosGetParam( $_POST, 'siteUrl', '' ) );
 $configArray['absolutePath'] = trim( mosGetParam( $_POST, 'absolutePath', '' ) );
-if (get_magic_quotes_gpc()) {
-	$configArray['absolutePath'] = stripslashes(stripslashes($configArray['absolutePath']));
-	$sitename = stripslashes(stripslashes($sitename));
-}
+
 
 if ($sitename == '') {
 	echo "<form name=\"stepBack\" method=\"post\" action=\"install2.php\">

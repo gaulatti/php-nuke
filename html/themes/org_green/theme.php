@@ -97,7 +97,7 @@ function themeheader() {
     $thefile = "\$r_file=\"".$thefile."\";";
     eval($thefile);
     print $r_file;
-    blocks(left); 
+    blocks("left"); 
     $tmpl_file = "themes/org_green/leftbb.html";
     $thefile = implode("", file($tmpl_file));
     $thefile = addslashes($thefile);

@@ -12,6 +12,10 @@
 /* the Free Software Foundation; either version 2 of the License.       */
 /************************************************************************/
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 // End the transaction
 if(!defined('END_TRANSACTION')) {
   define('END_TRANSACTION', 2);

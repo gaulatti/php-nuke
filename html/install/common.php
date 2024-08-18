@@ -36,18 +36,16 @@ function mosGetParam( &$arr, $name, $def=null, $mask=0 ) {
 		if (is_string( $arr[$name] )) {
 			if (!($mask&_MOS_NOTRIM)) {
 				$arr[$name] = trim( $arr[$name] );
-			}
+            }
 			if (!($mask&_MOS_ALLOWHTML)) {
 				$arr[$name] = strip_tags( $arr[$name] );
-			}
-			if (!get_magic_quotes_gpc()) {
-				$arr[$name] = addslashes( $arr[$name] );
-			}
-		}
+            }
+			$arr[$name] = addslashes( $arr[$name] );
+    }
 		return $arr[$name];
 	} else {
 		return $def;
-	}
+}
 }
 
 function mosMakePassword($length) {

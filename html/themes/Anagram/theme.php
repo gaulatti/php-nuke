@@ -111,7 +111,7 @@ function themeheader() {
 	."<input type=\"text\" name=\"query\" size=\"14\"></font></form></td>\n"
 	."<td bgcolor=\"#EEEEEE\" align=\"right\">\n"
 	."<form action=\"modules.php?name=Search\" method=\"get\"><font class=\"content\"><b>"._TOPICS." </b>\n";
-    $toplist = $db->sql_query("select topicid, topictext from $prefix"._topics." order by topictext");
+    $toplist = $db->sql_query("select topicid, topictext from ".$prefix."_topics order by topictext");
     echo "<select name=\"topic\"onChange='submit()'>\n"
 	."<option value=\"\">"._ALLTOPICS."</option>\n";
     while(list($topicid, $topics) = $toplist->fetch_row()) {
