@@ -1,0 +1,47 @@
+# PHP-Nuke specific files and directories
+modules/*/cache/
+modules/*/temp/
+modules/*/logs/
+themes/*/cache/
+themes/*/temp/
+images/gallery/temp/
+images/gallery/cache/
+
+# Ignore common directories
+backup/
+temp/
+cache/
+logs/
+
+# Ignore uploaded files
+uploads/
+files/
+userfiles/
+
+# Ignore environment settings
+.env
+.env.local
+.env.*.local
+
+# Ignore system files
+Thumbs.db
+.DS_Store
+
+# Ignore Composer dependencies
+/vendor/
+
+# Ignore Node.js dependencies (if applicable)
+node_modules/
+
+# Ignore PHPUnit test results
+.phpunit.result.cache
+
+# Ignore IDE and editor specific files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore OS generated files
+*.DS_Store
+*.AppleDouble
